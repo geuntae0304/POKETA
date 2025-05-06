@@ -1,0 +1,53 @@
+
+// Style Assets
+
+
+// colors- grayscale
+$gray-scale: (
+    White: #fff,
+    black: #000,
+
+    50:  #F8F9FA,
+    100: #F1F3F5,
+    200: #DFE4EA,
+    300: #C9CFD6,
+    400: #AAB2B9,
+    500: #7B848D,
+    600: #4D5359,
+    700: #3A4046,
+    800: #2C3136,
+    900: #1F2124
+);
+
+// colors- primary
+$primary-color:#96CA94;
+
+// colors- secondary
+$secondary-color:#DAE598;
+
+// colors- tertiary
+$tertiary-color:#5EAB92;
+
+// colors- quaternary
+$quaternary-color:#D5E7D9;
+
+// fonts
+
+h1{
+    font-size : 5.2rem
+}
+h2{
+    font-size: 4.2rem;
+}
+h3{
+    font-size: 2.4rem;
+}
+h4{ 
+    font-size: 2.2rem;
+}
+h5{
+    font-size: 2.0rem;
+}
+h6{
+    font-size: 1.8rem;
+}

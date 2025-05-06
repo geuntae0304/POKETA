@@ -1,0 +1,16 @@
+{
+    "liveSassCompile.settings.formats": [
+    {
+        "format": "expanded",
+        // CSS를 잘 들여쓴 가독성 좋은 형태로 만들어줌
+        "extensionName": ".css",
+        // 확장자
+        "savePath": "/assets/css"
+        // 컴파일된 CSS 파일을 저장할 경로
+    }
+    ],
+    "liveSassCompile.settings.includeItems": [
+    "/assets/scss/style.scss"
+    // 어떤 scss 파일을 감시하고 자동 컴파일할지 지정
+    ]
+}

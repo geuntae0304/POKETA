@@ -1,0 +1,263 @@
+// 미디어 쿼리(반응형)
+
+// 반응형 스타일
+@media (max-width: 992px) {
+    .sec03 {
+        .card-container {
+            .col-md-3 {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sec03 {
+        .card-container {
+            .col-md-3 {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    }
+}
+
+// Sec05 반응형 스타일
+@media (max-width: 992px) {
+    .sec05 {
+        .title {
+            font-size: 3.6rem;
+        }
+        
+        .belief-card {
+            padding: 30px 25px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .sec05 {
+        padding: 60px 0;
+        
+        .title {
+            font-size: 3.2rem;
+        }
+        
+        .belief-card {
+            margin-bottom: 20px;
+            
+            h3 {
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sec05 {
+        padding: 40px 0;
+        
+        /* .subtitle 클래스 스타일 삭제 - 전역 스타일 사용 */
+        
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .belief-card {
+            padding: 25px 20px;
+            
+            h3 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1.4rem;
+            }
+            
+            .card-bg-effect {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}
+
+// Sec06 반응형 스타일
+@media (max-width: 992px) {
+    .sec06 {
+        padding: 80px 0;
+        
+        .story-content {
+            padding-left: 0;
+            margin-top: 30px;
+            
+            .title {
+                font-size: 3.6rem;
+                margin-bottom: 2rem;
+            }
+            
+            .description {
+                font-size: 1.7rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .sec06 {
+        padding: 60px 0;
+        
+        .story-content {
+            .title {
+                font-size: 3.2rem;
+                margin-bottom: 1.5rem;
+            }
+            
+            .description {
+                font-size: 1.6rem;
+            }
+            
+            .btn-learn-more {
+                font-size: 1.6rem;
+            }
+        }
+        
+        .story-image {
+            max-width: 80%;
+            margin: 0 auto;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sec06 {
+        padding: 40px 0;
+        
+        .story-content {
+            .title {
+                font-size: 2.8rem;
+                margin-bottom: 1.2rem;
+            }
+            
+            .description {
+                font-size: 1.5rem;
+                line-height: 1.5;
+            }
+            
+            .btn-learn-more {
+                font-size: 1.5rem;
+            }
+        }
+        
+        .story-image {
+            max-width: 90%;
+        }
+    }
+}
+
+// Sec07 반응형 스타일
+@media (max-width: 992px) {
+    .sec07 {
+        padding: 80px 0;
+        
+        .title {
+            font-size: 3.6rem;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonial-large {
+            height: 450px;
+            
+            .testimonial-bubble {
+                width: 85%;
+            }
+        }
+        
+        .testimonial-small {
+            height: 220px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .sec07 {
+        padding: 60px 0;
+        
+        /* .subtitle 클래스 스타일 삭제 - 전역 스타일 사용 */
+        
+        .title {
+            font-size: 3.2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .testimonial-large {
+            height: 400px;
+            margin-bottom: 30px;
+            
+            .testimonial-bubble {
+                top: 20%;
+                left: 20px;
+                width: 90%;
+                
+                .user-name {
+                    font-size: 1.6rem;
+                }
+                
+                .testimonial-text {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        
+        .testimonial-small {
+            height: 200px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sec07 {
+        padding: 40px 0;
+        
+        /* .subtitle 클래스 스타일 삭제 - 전역 스타일 사용 */
+        
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 2.5rem;
+        }
+        
+        .testimonial-large {
+            height: 350px;
+            
+            .testimonial-bubble {
+                top: 15%;
+                padding: 15px;
+                
+                .user-avatar {
+                    width: 35px;
+                    height: 35px;
+                }
+                
+                .user-name {
+                    font-size: 1.5rem;
+                }
+                
+                .testimonial-text {
+                    font-size: 1.4rem;
+                    line-height: 1.4;
+                }
+            }
+        }
+        
+        .testimonial-small {
+            height: 180px;
+            margin-bottom: 15px;
+        }
+    }
+}

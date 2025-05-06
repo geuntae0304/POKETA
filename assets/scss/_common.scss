@@ -1,0 +1,27 @@
+
+
+html{
+    font-size: 10px;
+}
+
+
+// 사이트 공통 스타일 (기본값, 초기화 등)
+// reset.css 같은 역할
+
+// _common.scss
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+@media (min-width: 768px){
+    .custom-padding{
+        padding: 0 2.4rem;
+    }
+}
