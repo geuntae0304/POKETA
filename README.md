@@ -36,26 +36,7 @@ Poketa-homepage
 - 실제 상업 목적이 아닌 포트폴리오 및 학습용으로 제작되었습니다
 
 ## 폴더 구조
-poketa/
-├── assets/
-│   ├── css/
-│   │   ├── bootstrap.bundle.min.js
-│   │   ├── bootstrap.min.css
-│   │   ├── reset.css
-│   │   ├── style.css
-│   │   └── style.css.map
-│   ├── images/
-│   ├── js/
-│   └── scss/
-│       ├── _animations.scss
-│       ├── _common.scss
-│       ├── _components.scss
-│       ├── _responsive.scss
-│       ├── _variables.scss
-│       └── style.scss
-├── .vscode/
-├── index.html
-└── README.md
+![Image](https://github.com/user-attachments/assets/e3659da1-7764-4ca2-aa44-d7b4412c7605)
 
 
 # Image
