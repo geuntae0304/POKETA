@@ -13,16 +13,16 @@ Poketa-homepage
 이 웹사이트는 POKETA의 브랜드 아이덴티티를 시각적으로 표현하고, <br>
 제품과 서비스를 소개하는 역할을 합니다.
 
-# 🙋‍♀️ 만든 사람
+# 👩🏻‍💻 만든 사람
 - 기획 / 디자인 / 개발: [Maya]
 
-## 사용 기술
+## 👾 사용 기술
 - html / CSS / JavaScript / Bootstrap
 - 일러스트 및 로고 디자인
 - 반응형 웹 디자인 적용
 - swiper.js, wow.js 플러그인 사용
 
-## 반응형 디바이스
+## 💻 반응형 디바이스
 - 560px
 - 768px
 - 1024px
@@ -31,11 +31,11 @@ Poketa-homepage
 - 1680px
 
 
-## 기타
+## 👀 기타
 - 이 프로젝트는 가상의 브랜드 POKETA를 위한 웹사이트로, 학원 과제로 제작되었습니다.
 - 실제 상업 목적이 아닌 포트폴리오 및 학습용으로 제작되었습니다
 
-## 폴더 구조
+## 📁 폴더 구조
 ![Image](https://github.com/user-attachments/assets/e3659da1-7764-4ca2-aa44-d7b4412c7605)
 
 
