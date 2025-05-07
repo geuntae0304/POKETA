@@ -1,42 +1,65 @@
-# POKETA
+# 🧃 POKETA
 
+**POKETA는 귀엽고 똑똑한 헬스 음료 브랜드**입니다.  
+손바닥을 스캔하면 부족한 영양소를 분석해, **맞춤형 건강 음료**를 제공해요!  
 
-**POKETA는 귀엽고 똑똑한 헬스 음료 브랜드**입니다. <br>
-손바닥을 스캔하면 부족한 영양소를 분석해, 맞춤형 건강 음료를 제공해요!
+---
 
 ## 📚 About Project
-- 브랜드 이름 : POKETA (Poket + Vita)
-- 컨셉 : 휴대하기 좋은 헬스 음료 브랜드
-- 주요 키워드 : 귀여움, 맞춤형, 건강, 간편함, 트렌디
 
-이 웹사이트는 POKETA의 브랜드 아이덴티티를 시각적으로 표현하고, <br> 
+| 항목         | 설명                                                    |
+|--------------|---------------------------------------------------------|
+| 브랜드 이름  | **POKETA** (Pocket + Vita)                             |
+| 컨셉         | 휴대하기 좋은 헬스 음료 브랜드                         |
+| 주요 키워드  | 귀여움 · 맞춤형 · 건강 · 간편함 · 트렌디             |
+
+이 웹사이트는 **POKETA의 브랜드 아이덴티티**를 시각적으로 표현하고,  
 제품과 서비스를 소개하는 역할을 합니다.
 
+---
+
 ## 👩🏻‍💻 Made by
-- 기획 / 디자인 / 개발: [Maya]
 
-## 👾 Used technology
-- html / CSS / JavaScript / Bootstrap
-- 일러스트 및 로고 디자인
-- 반응형 웹 디자인 적용
-- swiper.js, wow.js 플러그인 사용
+- 기획 / 디자인 / 개발: **[Maya]**
 
-## 💻 Responsive devices
-- 560px
-- 768px
-- 1024px
-- 1280px
-- 1440px
-- 1680px
+---
 
+## 👾 Used Technology
+
+- `HTML` / `CSS` / `JavaScript` / `Bootstrap`
+- ✏️ **일러스트 및 로고 디자인 직접 제작**
+- 📱 **반응형 웹 디자인 적용**
+- 🔌 플러그인 사용: `swiper.js`, `wow.js`
+
+---
+
+## 💻 Responsive Devices
+
+지원되는 반응형 뷰포트:
+
+| 디바이스 유형 | 해상도 (px)         |
+|---------------|---------------------|
+| 모바일        | 560 / 768           |
+| 태블릿        | 1024                |
+| 데스크탑      | 1280 / 1440 / 1680  |
+
+---
 
 ## 👀 Etc
-- 이 프로젝트는 가상의 브랜드 POKETA를 위한 웹사이트로, 학원 과제로 제작되었습니다.
-- 실제 상업 목적이 아닌 포트폴리오 및 학습용으로 제작되었습니다
 
-## 📁 Folder structure
-![Image](https://github.com/user-attachments/assets/e3659da1-7764-4ca2-aa44-d7b4412c7605)
+- 이 프로젝트는 가상의 브랜드 **POKETA**를 위한 웹사이트로, **학원 과제로 제작**되었습니다.
+- **상업적 목적은 없으며**, 포트폴리오 및 학습용으로 제작되었습니다.
 
+---
 
-## Image
-![Image](https://github.com/user-attachments/assets/c8b05b80-d730-4d80-9482-9193ac613bf5)
+## 📁 Folder Structure
+
+![폴더 구조 이미지](https://github.com/user-attachments/assets/e3659da1-7764-4ca2-aa44-d7b4412c7605)
+
+---
+
+## 🖼 Image Preview
+
+![홈페이지 이미지](https://github.com/user-attachments/assets/c8b05b80-d730-4d80-9482-9193ac613bf5)
+
+---
