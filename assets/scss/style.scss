@@ -312,6 +312,23 @@ body {
         margin-bottom: 6rem; // 간격 조정
     }
     
+    // 반응형 설정
+    @media (max-width: 992px) {
+        padding: 3rem 0;
+        
+        .container {
+            margin-bottom: 4rem;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        padding: 2rem 0;
+        
+        .container {
+            margin-bottom: 3rem;
+        }
+    }
+}
 
 .sec02-images {
     // Bootstrap 그리드 시스템 활용
@@ -353,7 +370,47 @@ body {
         transform: scale(1.05); // 약간 크게
     }
     
+    // 반응형 설정 - Bootstrap 브레이크포인트 활용
+    @media (max-width: 992px) {
+        img {
+            height: 300px;
+        }
+        
+        .main-image img {
+            height: 350px;
+        }
+    }
     
+    @media (max-width: 768px) {
+        img {
+            height: 250px;
+        }
+        
+        .main-image img {
+            height: 280px;
+        }
+        
+        .first-image img, 
+        .last-image img {
+            opacity: 0.7; // 모바일에서는 투명도 높임
+        }
+    }
+    
+    @media (max-width: 576px) {
+        img {
+            height: 220px;
+        }
+        
+        .main-image img {
+            height: 250px;
+            transform: none; // 모바일에서는 크기 차이 없애기
+        }
+        
+        .first-image img, 
+        .last-image img {
+            opacity: 1; // 작은 화면에서는 모든 이미지 동일하게 표시
+        }
+    }
 }
 
 // ? Text Alignment
@@ -517,7 +574,21 @@ body {
     }
 }
 
-
+@media (max-width:768px){
+    .sec04-content{
+        margin-top: 6rem;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        
+        .description {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
 
 // Sec05 스타일
 .sec05 {
@@ -643,7 +714,69 @@ body {
     }
 }
 
+// Sec05 반응형 스타일
+@media (max-width: 992px) {
+    .sec05 {
+        .title {
+            font-size: 3.6rem;
+        }
+        
+        .belief-card {
+            padding: 30px 25px;
+        }
+    }
+}
 
+@media (max-width: 768px) {
+    .sec05 {
+        padding: 60px 0;
+        
+        .title {
+            font-size: 3.2rem;
+        }
+        
+        .belief-card {
+            margin-bottom: 20px;
+            
+            h3 {
+                font-size: 2.2rem;
+            }
+            
+            p {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .sec05 {
+        padding: 40px 0;
+        
+        
+        .title {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+        }
+        
+        .belief-card {
+            padding: 25px 20px;
+            
+            h3 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1.4rem;
+            }
+            
+            .card-bg-effect {
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}
 
 .mb-6{
     margin-bottom: 6rem;
@@ -741,7 +874,21 @@ body {
     }
 }
 
-
+@media (max-width: 768px){
+    .sec06{
+        .story-content{
+            padding-left: 0;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+        .story-content p{
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
 
 // Sec07 (Stories) 스타일
 .sec07 {
@@ -915,6 +1062,17 @@ body {
         }
     }
     
+    // 반응형 스타일
+    @media (max-width: 768px) {
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .accordion-button {
+            font-size: 1.4rem;
+        }
+    }
 }
 
 
@@ -1062,5 +1220,4 @@ body {
             }
         }
     }
-}
 }
