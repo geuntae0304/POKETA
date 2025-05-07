@@ -298,70 +298,62 @@ body {
 }
 
 .sec02{
+    // Bootstrap 5 그리드 시스템에 맞게 조정
+    padding: 4rem 0; // 상하 여백 추가
+    
     .title{
         text-align: center;
+        margin-bottom: 3rem; // 타이틀과 이미지 사이 간격 조정
     }
     
-    // 이미지 컨테이너 전체를 가운데 정렬
+    // Bootstrap 컨테이너 활용
     .container {
-        width: 80%;
         height: fit-content;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 14rem;
+        margin-bottom: 6rem; // 간격 조정
     }
-}
+    
 
-.sec02-images{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.sec02-images {
+    // Bootstrap 그리드 시스템 활용
+    margin: 0 auto;
     
-    // 가운데 정렬
-    gap: 30px;
-    width: 100%;
-    max-width: 1200px; 
-    // 최대 너비 설정
-    margin: 0 auto; 
-    // 가운데 정렬
+    // 이미지 카드 스타일
+    .image-card {
+        margin-bottom: 1.5rem;
+    }
     
+    // 이미지 래퍼 스타일
+    .image-wrapper {
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+        border-radius: 62px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    // 이미지 스타일 공통
     img {
-        border-radius: 52px;
-        // 이미지 모서리 둥글게
-        object-fit: cover; 
-        // 이미지 비율 유지
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); // 그림자 효과
-        
-        // 첫 번째와 세 번째 이미지는 작게
-        &:first-child, 
-        &:last-child {
-            width: 35%; 
-            height: 350px;
-            opacity: 40%;
-        }
-        
-        // 가운데 이미지는 크게
-        &:nth-child(2) {
-            width: 70%; // 너비 설정
-            height: 400px; // 높이 설정
-            z-index: 2; // 앞으로 배치
-            transform: scale(1.05); // 약간 크게
-        }
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // 이미지 비율 유지
+        border-radius: 52px; // 이미지 모서리 둥글게
+        transition: transform 0.3s ease;
     }
     
-    // 반응형 설정
-
-
-    @media (max-width: 768px) {
-        flex-direction: column; // 모바일에서는 세로로 배치
-        
-        img {
-            width: 90% !important; // 모든 이미지 너비 동일하게
-            height: auto !important; // 높이 자동 조정
-            margin-bottom: 20px; // 이미지 간 간격
-        }
+    // 첫 번째와 세 번째 이미지 스타일 (작은 이미지)
+    .first-image img, 
+    .last-image img {
+        opacity: 0.4; // 투명도 40%
     }
+    
+    // 가운데 이미지 스타일 (큰 이미지)
+    .main-image img {
+        height: 400px; // 높이 조정
+        z-index: 2; // 앞으로 배치
+        transform: scale(1.05); // 약간 크게
+    }
+    
+    
 }
 
 // ? Text Alignment
@@ -525,21 +517,7 @@ body {
     }
 }
 
-@media (max-width:768px){
-    .sec04-content{
-        margin-top: 6rem;
-        padding-left: 0;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-        
-        .description {
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-}
+
 
 // Sec05 스타일
 .sec05 {
@@ -665,69 +643,7 @@ body {
     }
 }
 
-// Sec05 반응형 스타일
-@media (max-width: 992px) {
-    .sec05 {
-        .title {
-            font-size: 3.6rem;
-        }
-        
-        .belief-card {
-            padding: 30px 25px;
-        }
-    }
-}
 
-@media (max-width: 768px) {
-    .sec05 {
-        padding: 60px 0;
-        
-        .title {
-            font-size: 3.2rem;
-        }
-        
-        .belief-card {
-            margin-bottom: 20px;
-            
-            h3 {
-                font-size: 2.2rem;
-            }
-            
-            p {
-                font-size: 1.5rem;
-            }
-        }
-    }
-}
-
-@media (max-width: 576px) {
-    .sec05 {
-        padding: 40px 0;
-        
-        
-        .title {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-        }
-        
-        .belief-card {
-            padding: 25px 20px;
-            
-            h3 {
-                font-size: 2rem;
-            }
-            
-            p {
-                font-size: 1.4rem;
-            }
-            
-            .card-bg-effect {
-                width: 150px;
-                height: 150px;
-            }
-        }
-    }
-}
 
 .mb-6{
     margin-bottom: 6rem;
@@ -825,21 +741,7 @@ body {
     }
 }
 
-@media (max-width: 768px){
-    .sec06{
-        .story-content{
-            padding-left: 0;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-        }
-        .story-content p{
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-    }
-}
+
 
 // Sec07 (Stories) 스타일
 .sec07 {
@@ -1013,17 +915,6 @@ body {
         }
     }
     
-    // 반응형 스타일
-    @media (max-width: 768px) {
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .accordion-button {
-            font-size: 1.4rem;
-        }
-    }
 }
 
 
@@ -1171,4 +1062,5 @@ body {
             }
         }
     }
+}
 }

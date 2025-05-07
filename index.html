@@ -49,10 +49,11 @@
         </div>
     </section>
     <!-- Section 02 -->
-    <section class="sec02">
+    <section class="sec02 py-4">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+            <!-- 타이틀 영역 - Bootstrap 5 그리드 적용 -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-lg-10 col-md-12">
                     <div class="title">
                         <h2>One hand, One scan.<br>
                             <span>
@@ -60,11 +61,27 @@
                             </span>
                         </h2>
                     </div>
+                </div>
+            </div>
 
-                    <div class="sec02-images">
-                        <img src="assets/images/sec02-1.png" alt="sec02-img1">
-                        <img src="assets/images/sec02-2.png" alt="sec02-img2">
-                        <img src="assets/images/sec02-3.png" alt="sec02-img3">
+            <!-- 이미지 영역 - Bootstrap 5 그리드 적용 -->
+            <div class="col-md-12 row g-4 justify-content-center sec02-images">
+                <!-- 첫 번째 이미지 -->
+                <div class="col-lg-3 col-md-4 col-sm-10 image-card first-image">
+                    <div class="image-wrapper">
+                        <img src="assets/images/sec02-1.png" alt="sec02-img1" class="img-fluid">
+                    </div>
+                </div>
+                <!-- 두 번째 이미지 -->
+                <div class="col-lg-6 col-md-6 col-sm-10 image-card main-image">
+                    <div class="image-wrapper">
+                        <img src="assets/images/sec02-2.png" alt="sec02-img2" class="img-fluid">
+                    </div>
+                </div>
+                <!-- 세 번째 이미지 -->
+                <div class="col-lg-3 col-md-4 col-sm-10 image-card last-image">
+                    <div class="image-wrapper">
+                        <img src="assets/images/sec02-3.png" alt="sec02-img3" class="img-fluid">
                     </div>
                 </div>
             </div>
