@@ -142,7 +142,6 @@ body {
     color: map-get(variables.$gray-scale, 900);
     line-height: 1.4;
 }
-// ?Section02html에서 subtitle 클래스가 달린 애들은 모두 각각 어떤 스타일이 있든 스타일을 다 삭제하고, 
 
 .subtitle {
     font-size: 2rem;
@@ -289,7 +288,6 @@ body {
         font-weight: 600;
         color: map-get(variables.$gray-scale, 900);
         line-height: 1.4;
-        margin-bottom: 10rem;
     }
     span{
         background-color: #D9E694;
@@ -297,45 +295,34 @@ body {
     }
 }
 
+/* ==========================================================================
+SECTION 02 - 소개 섹션
+========================================================================== */
 .sec02{
-    padding: 4rem 0; // 상하 여백 추가
+    padding: 4rem 0;
     
     .title{
         text-align: center;
-        margin-bottom: 3rem; // 타이틀과 이미지 사이 간격
+        margin-bottom: 3rem;
+    }
+    
+    h2{
+        margin-bottom: 0;
     }
     
     .container {
         height: fit-content;
-        margin-bottom: 6rem; // 간격 조정
-    }
-    
-    // 반응형 설정
-    @media (max-width: 992px) {
-        padding: 3rem 0;
-        
-        .container {
-            margin-bottom: 4rem;
-        }
-    }
-    
-    @media (max-width: 576px) {
-        padding: 2rem 0;
-        
-        .container {
-            margin-bottom: 3rem;
-        }
+        margin-bottom: 8rem; 
     }
 }
 
 .sec02-images {
-    margin: 0 auto;
+    // 컨테이너 내부에서 적절한 여백 유지
     
     .image-card {
         margin-bottom: 1.5rem;
     }
     
-    // 이미지 래퍼 스타일
     .image-wrapper {
         height: 100%;
         width: 100%;
@@ -368,12 +355,26 @@ body {
     
     // 반응형 설정 - Bootstrap 브레이크포인트 활용
     @media (max-width: 992px) {
+        .image-card {
+            // 태블릿에서 모든 카드가 동일한 너비를 가지도록 설정
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        
         img {
             height: 300px;
+            opacity: 1; // 모든 이미지 투명도 동일하게 설정
+        }
+        
+        .first-image img,
+        .last-image img {
+            height: 300px; // 모든 이미지 동일한 높이로 설정
+            opacity: 1; // 투명도 제거
         }
         
         .main-image img {
             height: 350px;
+            transform: scale(1); // 크기 조정 제거
         }
     }
     
@@ -484,24 +485,30 @@ body {
 }
 
 
+/* ==========================================================================
+SECTION 04 - 앱 소개 섹션
+   ========================================================================== */
 .sec04{
+    padding: 40px 0 80px 0;
+    background: linear-gradient(to Top, #EEEEEE, #FFFFFF);
+    
     .container{
+        padding-top: 5rem;
         height: fit-content;
     }
+    
     .sec04-image-container {
         position: relative;
-        overflow: hidden; // 넘치는 부분 숨기기
+        overflow: hidden;
         
         img{
             width: 100%;
             height: auto;
-            object-fit: contain; // 이미지 비율 유지
-            max-width: 100%; // 최대 너비 제한
-            display: block; // 인라인 요소의 여백 제거
+            object-fit: contain;
+            max-width: 100%;
+            display: block;
         }
     }
-    padding: 40px 0 80px 0;
-    background: linear-gradient(to Top, #EEEEEE, #FFFFFF);
     
     .title{
         font-size: 4rem;
@@ -570,7 +577,7 @@ body {
     }
 }
 
-@media (max-width:768px){
+@media (max-width:992px){
     .sec04-content{
         margin-top: 6rem;
         padding-left: 0;
@@ -774,14 +781,16 @@ body {
     }
 }
 
-.mb-6{
+.mb-6 { 
     margin-bottom: 6rem;
 }
 
-// Sec06 (Our Story) 스타일
+/* ==========================================================================
+SECTION 06 - 스토리 섹션
+   ========================================================================== */
 .sec06 {
     padding: 100px 0;
-    background-color: #D5E7D9; // 민트 그린 배경색
+    background-color: #D5E7D9; 
     
     .container {
         height: fit-content;
@@ -870,7 +879,7 @@ body {
     }
 }
 
-@media (max-width: 768px){
+@media (max-width: 992px){
     .sec06{
         .story-content{
             padding-left: 0;
@@ -887,18 +896,22 @@ body {
 }
 
 // Sec07 (Stories) 스타일
+/* ==========================================================================
+SECTION 07 - 후기 섹션
+   ========================================================================== */
 .sec07 {
     padding: 100px 0;
-    background-color: #F9F9F9; // 밝은 배경색
+    background-color: #F9F9F9;
     
     .container {
         height: fit-content;
     }
+    
     .row{
         justify-content: space-between;
     }
     
-    // 제목 스타일
+    /* 제목 스타일 */
     .title {
         font-size: 4.2rem;
         font-weight: 600;
@@ -907,7 +920,7 @@ body {
         margin-bottom: 5rem;
     }
     
-    // 후기 카드 공통 스타일
+    /* 후기 카드 공통 스타일 */
     .testimonial-card {
         position: relative;
         border-radius: 32px;
@@ -922,7 +935,7 @@ body {
         }
     }
     
-    // 큰 후기 카드 스타일 (왼쪽)
+    /* 큰 후기 카드 스타일 (왼쪽) */
     .testimonial-large {
         height: 500px;
         
@@ -972,12 +985,13 @@ body {
         }
     }
     
-    // 작은 후기 카드 스타일 (오른쪽)
+    /* 작은 후기 카드 스타일 (오른쪽) */
     .testimonial-medium {
         height: 500px;
         border-radius: 32px;
         overflow: hidden;
     }
+    
     .testimonial-small {
         height: 500px;
         border-radius: 32px;
@@ -1082,6 +1096,7 @@ body {
     .footer-logo {
         max-width: 50px; // 로고 크기
         height: auto;
+        margin-bottom: 1rem;
     }
     
     .container{
@@ -1093,7 +1108,7 @@ body {
         font-size: 1.8rem;
         font-weight: 600;
         color: #FFFFFF;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
     }
     
     // 브랜드 태그라인 스타일
@@ -1127,7 +1142,7 @@ body {
         a {
             color: #AAAAAA; // 약간 어두운 회색
             text-decoration: none;
-            font-size: 1.6rem;
+            font-size: 1.3rem;
             transition: color 0.3s ease;
             
             &:hover {

@@ -179,238 +179,195 @@ h6 {
   background-color: #498d77;
 }
 
+/* ==========================================================================
+공통 반응형 스타일 (Responsive Styles)
+   ========================================================================== */
+/* ==========================================================================
+각 섹션별 반응형 스타일
+   ========================================================================== */
+/* Section 01 - 헤더 반응형 */
+@media (max-width: 991px) {
+  .sec01 .main-img-container {
+    display: none;
+  }
+  .sec01 .banner-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sec01 .banner-content .sec01-title {
+    margin-bottom: 2rem;
+    width: 100%;
+    text-align: center;
+  }
+  .sec01 .banner-content::after {
+    content: "";
+    display: block;
+    width: 100vw;
+    height: 30vh;
+    background-image: url("../images/main-full-bg.png");
+    background-size: cover;
+    background-position: center;
+    margin-top: 2rem;
+  }
+}
+/* Section 02 - 소개 섹션 반응형 */
 @media (max-width: 992px) {
-  .container {
+  .sec02 {
+    padding: 3rem 0;
+  }
+  .sec02 .container {
     margin-bottom: 4rem;
   }
-}
-@media (max-width: 576px) {
-  .container {
-    margin-bottom: 3rem;
+  .sec02 .image-card {
+    width: 100%;
+    margin-bottom: 2rem;
   }
-}
-@media (max-width: 992px) {
-  img {
+  .sec02 img {
     height: 300px;
+    opacity: 1;
   }
-  .main-image img {
+  .sec02 .first-image img,
+  .sec02 .last-image img {
+    height: 300px;
+    opacity: 1;
+  }
+  .sec02 .main-image img {
     height: 350px;
+    transform: scale(1);
   }
 }
 @media (max-width: 768px) {
-  img {
+  .sec02 img {
     height: 250px;
   }
-  .main-image img {
+  .sec02 .main-image img {
     height: 280px;
   }
-  .first-image img,
-  .last-image img {
+  .sec02 .first-image img,
+  .sec02 .last-image img {
     opacity: 0.7;
   }
 }
 @media (max-width: 576px) {
-  img {
+  .sec02 {
+    padding: 2rem 0;
+  }
+  .sec02 .container {
+    margin-bottom: 3rem;
+  }
+  .sec02 img {
     height: 220px;
   }
-  .main-image img {
+  .sec02 .main-image img {
     height: 250px;
     transform: none;
   }
-  .first-image img,
-  .last-image img {
+  .sec02 .first-image img,
+  .sec02 .last-image img {
     opacity: 1;
   }
 }
+/* Section 03 - 프로덕트 섹션 반응형 */
+/* Section 04 - 앱 소개 섹션 반응형 */
 @media (max-width: 992px) {
-  .sec03 .card-container .col-md-3 {
-    flex: 0 0 50%;
-    max-width: 50%;
+  .sec04 .row {
+    flex-direction: column;
   }
-}
-@media (max-width: 576px) {
-  .sec03 .card-container .col-md-3 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-@media (max-width: 768px) {
-  .sec04-content {
-    margin-top: 6rem;
-    padding-left: 0;
+  .sec04 .sec04-content {
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    margin-bottom: 3rem;
   }
-  .sec04-content .description {
-    width: 70%;
+  .sec04 .sec04-content .description {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sec04 .sec04-image-container {
+    margin-bottom: 2rem;
+    max-width: 80%;
     margin-left: auto;
     margin-right: auto;
   }
 }
-@media (max-width: 992px) {
-  .sec05 .title {
-    font-size: 3.6rem;
-  }
-  .sec05 .belief-card {
-    padding: 30px 25px;
-  }
-}
-@media (max-width: 768px) {
-  .sec05 {
-    padding: 60px 0;
-  }
-  .sec05 .title {
-    font-size: 3.2rem;
-  }
-  .sec05 .belief-card {
-    margin-bottom: 20px;
-  }
-  .sec05 .belief-card h3 {
-    font-size: 2.2rem;
-  }
-  .sec05 .belief-card p {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 576px) {
-  .sec05 {
-    padding: 40px 0;
-  }
-  .sec05 .title {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-  }
-  .sec05 .belief-card {
-    padding: 25px 20px;
-  }
-  .sec05 .belief-card h3 {
-    font-size: 2rem;
-  }
-  .sec05 .belief-card p {
-    font-size: 1.4rem;
-  }
-  .sec05 .belief-card .card-bg-effect {
-    width: 150px;
-    height: 150px;
-  }
-}
-@media (max-width: 992px) {
-  .sec05 .title {
-    font-size: 3.6rem;
-  }
-  .sec05 .belief-card {
-    padding: 30px 25px;
-  }
-}
-@media (max-width: 768px) {
-  .sec05 {
-    padding: 60px 0;
-  }
-  .sec05 .title {
-    font-size: 3.2rem;
-  }
-  .sec05 .belief-card {
-    margin-bottom: 20px;
-  }
-  .sec05 .belief-card h3 {
-    font-size: 2.2rem;
-  }
-  .sec05 .belief-card p {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 576px) {
-  .sec05 {
-    padding: 40px 0;
-    /* .subtitle 클래스 스타일 삭제 - 전역 스타일 사용 */
-  }
-  .sec05 .title {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-  }
-  .sec05 .belief-card {
-    padding: 25px 20px;
-  }
-  .sec05 .belief-card h3 {
-    font-size: 2rem;
-  }
-  .sec05 .belief-card p {
-    font-size: 1.4rem;
-  }
-  .sec05 .belief-card .card-bg-effect {
-    width: 150px;
-    height: 150px;
-  }
-}
-@media (max-width: 992px) {
+/* Section 05 - 브랜드 가치 소개 섹션 반응형 */
+/* Section 06 - 스토리 섹션 반응형 */
+@media (max-width: 991px) {
   .sec06 {
     padding: 80px 0;
+    background-image: url("../images/sec06-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
   }
-  .sec06 .story-content {
-    padding-left: 0;
-    margin-top: 30px;
+  .sec06::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+    z-index: 1;
   }
-  .sec06 .story-content .title {
-    font-size: 3.6rem;
-    margin-bottom: 2rem;
+  .sec06 .img-fluid {
+    display: none;
   }
-  .sec06 .story-content .description {
-    font-size: 1.7rem;
+  .sec06 .container {
+    position: relative;
+    z-index: 2;
   }
-}
-@media (max-width: 768px) {
   .sec06 .story-content {
     padding-left: 0;
     text-align: center;
-    align-items: center;
-    justify-content: center;
+    margin: 0 auto;
+    z-index: 999;
+    color: #fff;
+    /* col-lg-5 숨기기 */
+    /* 텍스트 영역이 전체 너비를 사용하도록 설정 */
   }
-  .sec06 .story-content p {
-    width: 70%;
+  .sec06 .story-content .title {
+    color: #ffffff !important;
+    z-index: 999;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  .sec06 .story-content .description {
+    font-size: 1.6rem;
     margin-left: auto;
     margin-right: auto;
-  }
-}
-@media (max-width: 768px) {
-  .sec06 {
-    padding: 60px 0;
-  }
-  .sec06 .story-content .title {
-    font-size: 3.2rem;
-    margin-bottom: 1.5rem;
-  }
-  .sec06 .story-content .description {
-    font-size: 1.6rem;
-  }
-  .sec06 .story-content .btn-learn-more {
-    font-size: 1.6rem;
-  }
-  .sec06 .story-image {
-    max-width: 80%;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 576px) {
-  .sec06 {
-    padding: 40px 0;
-  }
-  .sec06 .story-content .title {
-    font-size: 2.8rem;
-    margin-bottom: 1.2rem;
-  }
-  .sec06 .story-content .description {
-    font-size: 1.5rem;
-    line-height: 1.5;
-  }
-  .sec06 .story-content .btn-learn-more {
-    font-size: 1.5rem;
-  }
-  .sec06 .story-image {
     max-width: 90%;
+    color: #ffffff !important;
+    z-index: 999;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.7;
   }
+  .sec06 .story-content .btn-learn-more {
+    color: #fff !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  .sec06 .story-content .btn-learn-more::after {
+    background-color: #ffffff !important;
+  }
+  .sec06 .story-content .btn-learn-more img {
+    filter: brightness(0) invert(1);
+  }
+  .sec06 .story-content .story-image {
+    display: none;
+  }
+  .sec06 .story-content .col-lg-5 {
+    display: none;
+  }
+  .sec06 .story-content .col-lg-7 {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+  /* Section 07 - 후기 섹션 반응형 */
 }
-@media (max-width: 992px) {
+@media (max-width: 991px) and (max-width: 992px) {
   .sec07 {
     padding: 80px 0;
   }
@@ -420,18 +377,16 @@ h6 {
   }
   .sec07 .testimonial-large {
     height: 450px;
+    margin-bottom: 30px;
   }
-  .sec07 .testimonial-large .testimonial-bubble {
-    width: 85%;
-  }
+  .sec07 .testimonial-medium,
   .sec07 .testimonial-small {
-    height: 220px;
+    height: 300px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 991px) and (max-width: 768px) {
   .sec07 {
     padding: 60px 0;
-    /* .subtitle 클래스 스타일 삭제 - 전역 스타일 */
   }
   .sec07 .title {
     font-size: 3.2rem;
@@ -440,26 +395,25 @@ h6 {
   .sec07 .testimonial-large {
     height: 400px;
     margin-bottom: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .sec07 .testimonial-large .testimonial-bubble {
-    top: 20%;
+    top: 15%;
     left: 20px;
-    width: 90%;
+    width: 80%;
+    padding: 15px;
   }
-  .sec07 .testimonial-large .testimonial-bubble .user-name {
-    font-size: 1.6rem;
-  }
-  .sec07 .testimonial-large .testimonial-bubble .testimonial-text {
-    font-size: 1.5rem;
-  }
+  .sec07 .testimonial-medium,
   .sec07 .testimonial-small {
-    height: 200px;
+    height: 250px;
+    margin-bottom: 20px;
   }
 }
-@media (max-width: 576px) {
+@media (max-width: 991px) and (max-width: 576px) {
   .sec07 {
     padding: 40px 0;
-    /* .subtitle 클래스 스타일 삭제 - 전역 스타일 */
   }
   .sec07 .title {
     font-size: 2.8rem;
@@ -467,9 +421,10 @@ h6 {
   }
   .sec07 .testimonial-large {
     height: 350px;
+    width: 100%;
   }
   .sec07 .testimonial-large .testimonial-bubble {
-    top: 15%;
+    top: 10%;
     padding: 15px;
   }
   .sec07 .testimonial-large .testimonial-bubble .user-avatar {
@@ -483,18 +438,10 @@ h6 {
     font-size: 1.4rem;
     line-height: 1.4;
   }
+  .sec07 .testimonial-medium,
   .sec07 .testimonial-small {
-    height: 180px;
+    height: 220px;
     margin-bottom: 15px;
-  }
-}
-@media (max-width: 768px) {
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
-  .accordion-button {
-    font-size: 1.4rem;
   }
 }
 * {
@@ -731,13 +678,15 @@ body {
   font-weight: 600;
   color: #1F2124;
   line-height: 1.4;
-  margin-bottom: 10rem;
 }
 .title span {
   background-color: #D9E694;
   padding: 0 10px;
 }
 
+/* ==========================================================================
+SECTION 02 - 소개 섹션
+========================================================================== */
 .sec02 {
   padding: 4rem 0;
 }
@@ -745,31 +694,15 @@ body {
   text-align: center;
   margin-bottom: 3rem;
 }
+.sec02 h2 {
+  margin-bottom: 0;
+}
 .sec02 .container {
   height: -moz-fit-content;
   height: fit-content;
-  margin-bottom: 6rem;
-}
-@media (max-width: 992px) {
-  .sec02 {
-    padding: 3rem 0;
-  }
-  .sec02 .container {
-    margin-bottom: 4rem;
-  }
-}
-@media (max-width: 576px) {
-  .sec02 {
-    padding: 2rem 0;
-  }
-  .sec02 .container {
-    margin-bottom: 3rem;
-  }
+  margin-bottom: 8rem;
 }
 
-.sec02-images {
-  margin: 0 auto;
-}
 .sec02-images .image-card {
   margin-bottom: 1.5rem;
 }
@@ -798,11 +731,22 @@ body {
   transform: scale(1.05);
 }
 @media (max-width: 992px) {
+  .sec02-images .image-card {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
   .sec02-images img {
     height: 300px;
+    opacity: 1;
+  }
+  .sec02-images .first-image img,
+  .sec02-images .last-image img {
+    height: 300px;
+    opacity: 1;
   }
   .sec02-images .main-image img {
     height: 350px;
+    transform: scale(1);
   }
 }
 @media (max-width: 768px) {
@@ -892,11 +836,15 @@ body {
   font-weight: 500;
 }
 
+/* ==========================================================================
+SECTION 04 - 앱 소개 섹션
+   ========================================================================== */
 .sec04 {
   padding: 40px 0 80px 0;
   background: linear-gradient(to Top, #EEEEEE, #FFFFFF);
 }
 .sec04 .container {
+  padding-top: 5rem;
   height: -moz-fit-content;
   height: fit-content;
 }
@@ -966,7 +914,7 @@ body {
   transform: scale(0.97);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sec04-content {
     margin-top: 6rem;
     padding-left: 0;
@@ -1128,6 +1076,9 @@ body {
   margin-bottom: 6rem;
 }
 
+/* ==========================================================================
+SECTION 06 - 스토리 섹션
+   ========================================================================== */
 .sec06 {
   padding: 100px 0;
   background-color: #D5E7D9;
@@ -1198,7 +1149,7 @@ body {
   transform: scale(0.97);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
   .sec06 .story-content {
     padding-left: 0;
     text-align: center;
@@ -1211,9 +1162,16 @@ body {
     margin-right: auto;
   }
 }
+/* ==========================================================================
+SECTION 07 - 후기 섹션
+   ========================================================================== */
 .sec07 {
   padding: 100px 0;
   background-color: #F9F9F9;
+  /* 제목 스타일 */
+  /* 후기 카드 공통 스타일 */
+  /* 큰 후기 카드 스타일 (왼쪽) */
+  /* 작은 후기 카드 스타일 (오른쪽) */
 }
 .sec07 .container {
   height: -moz-fit-content;
@@ -1374,6 +1332,7 @@ body {
 .footer .footer-logo {
   max-width: 50px;
   height: auto;
+  margin-bottom: 1rem;
 }
 .footer .container {
   height: -moz-fit-content;
@@ -1383,7 +1342,7 @@ body {
   font-size: 1.8rem;
   font-weight: 600;
   color: #FFFFFF;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
 }
 .footer .footer-tagline {
   font-size: 1.2rem;
@@ -1410,7 +1369,7 @@ body {
 .footer .footer-links a {
   color: #AAAAAA;
   text-decoration: none;
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   transition: color 0.3s ease;
 }
 .footer .footer-links a:hover {
