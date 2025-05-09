@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 화면 크기가 변경될 때 모바일 메뉴 상태 초기화
     window.addEventListener('resize', function() {
-        if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+        // Bootstrap 5의 lg 중단점(992px)에 맞춤
+        if (window.innerWidth > 992 && navMenu.classList.contains('active')) {
             hamburgerMenu.classList.remove('active');
             navMenu.classList.remove('active');
         }
@@ -23,7 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            if (window.innerWidth <= 768) {
+            // Bootstrap 5의 lg 중단점(992px)에 맞춤
+            if (window.innerWidth <= 992) {
                 hamburgerMenu.classList.remove('active');
                 navMenu.classList.remove('active');
             }

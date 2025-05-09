@@ -45,27 +45,19 @@ h6 {
 }
 
 .header {
-  display: flex;
   width: 100%;
-  align-items: center;
-  padding: 2rem;
+  padding: 2rem 0;
   background-color: #1F2124;
   color: #fff;
   position: relative;
   overflow-x: hidden;
 }
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  width: 85%;
-  align-items: center;
-  padding: 0 2rem;
-  margin: auto;
+.header .container {
   position: relative;
 }
-.nav .hamburger-menu {
-  display: none;
+
+.hamburger-menu {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 30px;
@@ -73,7 +65,7 @@ h6 {
   cursor: pointer;
   z-index: 10;
 }
-.nav .hamburger-menu span {
+.hamburger-menu span {
   display: block;
   width: 100%;
   height: 3px;
@@ -81,16 +73,17 @@ h6 {
   border-radius: 3px;
   transition: all 0.3s ease;
 }
-.nav .hamburger-menu.active span:nth-child(1) {
+.hamburger-menu.active span:nth-child(1) {
   transform: translateY(9px) rotate(45deg);
 }
-.nav .hamburger-menu.active span:nth-child(2) {
+.hamburger-menu.active span:nth-child(2) {
   opacity: 0;
 }
-.nav .hamburger-menu.active span:nth-child(3) {
+.hamburger-menu.active span:nth-child(3) {
   transform: translateY(-9px) rotate(-45deg);
 }
-.nav .nav-menu {
+
+.nav-menu {
   display: flex;
   gap: 5.6rem;
   list-style: none;
@@ -98,25 +91,23 @@ h6 {
   padding: 0;
   transition: all 0.3s ease;
 }
-.nav a {
+.nav-menu a {
   color: #7B848D;
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 400;
 }
-.nav a:hover {
+.nav-menu a:hover {
   text-decoration: underline;
   color: #96CA94;
   transition: all 0.2s ease;
 }
-.nav a:active {
+.nav-menu a:active {
   font-weight: 500;
 }
-@media (max-width: 768px) {
-  .nav .hamburger-menu {
-    display: flex;
-  }
-  .nav .nav-menu {
+
+@media (max-width: 992px) {
+  .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
@@ -131,29 +122,28 @@ h6 {
     z-index: 5;
     transition: right 0.3s ease;
   }
-  .nav .nav-menu.active {
+  .nav-menu.active {
     right: 0;
+    display: flex;
   }
-  .nav .nav-menu li {
+  .nav-menu li {
     width: 100%;
     text-align: center;
   }
-  .nav .nav-menu a {
+  .nav-menu a {
     font-size: 2rem;
     display: block;
     padding: 1rem 0;
   }
 }
 @media (max-width: 480px) {
-  .nav {
-    width: 95%;
+  .header .container {
     padding: 0 1rem;
   }
-  .nav .nav-menu {
+  .nav-menu {
     width: 80%;
   }
 }
-
 .btn {
   display: inline-block;
   padding: 12px 24px;
@@ -367,7 +357,7 @@ h6 {
   }
   /* Section 07 - 후기 섹션 반응형 */
 }
-@media (max-width: 991px) and (max-width: 992px) {
+@media (max-width: 991px) and (max-width: 991px) {
   .sec07 {
     padding: 80px 0;
   }
@@ -571,8 +561,6 @@ body {
 
 .main-img-container {
   position: relative;
-  width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -581,10 +569,9 @@ body {
 
 .main-img {
   position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
-  width: 1600px;
+  width: 100%;
   text-align: center;
 }
 .main-img img {
@@ -992,7 +979,7 @@ SECTION 04 - 앱 소개 섹션
 }
 .sec05 .belief-card-blue {
   background-color: #F4F9FF;
-  border: 1px solid #DFE4EA;
+  border: 1px solid #c7d1dd;
 }
 .sec05 .belief-card-blue .card-bg-effect img {
   width: 100%;
@@ -1000,7 +987,7 @@ SECTION 04 - 앱 소개 섹션
 }
 .sec05 .belief-card-green {
   background-color: #F5FFF7;
-  border: 1px solid #BBDDB7;
+  border: 1px solid #d1e7cf;
 }
 .sec05 .belief-card-green .card-bg-effect {
   left: 55%;
@@ -1013,7 +1000,7 @@ SECTION 04 - 앱 소개 섹션
 }
 .sec05 .belief-card-yellow {
   background-color: #FFFDF5;
-  border: 1px solid #e9e1c6;
+  border: 1px solid #d5ccb1;
 }
 .sec05 .belief-card-yellow .card-bg-effect {
   left: 45%;
@@ -1169,16 +1156,10 @@ SECTION 07 - 후기 섹션
   padding: 100px 0;
   background-color: #F9F9F9;
   /* 제목 스타일 */
-  /* 후기 카드 공통 스타일 */
-  /* 큰 후기 카드 스타일 (왼쪽) */
-  /* 작은 후기 카드 스타일 (오른쪽) */
 }
 .sec07 .container {
   height: -moz-fit-content;
   height: fit-content;
-}
-.sec07 .row {
-  justify-content: space-between;
 }
 .sec07 .title {
   font-size: 4.2rem;
@@ -1187,70 +1168,118 @@ SECTION 07 - 후기 섹션
   line-height: 1.4;
   margin-bottom: 5rem;
 }
-.sec07 .testimonial-card {
+.sec07 .testimonial-container {
   position: relative;
-  border-radius: 32px;
+}
+.sec07 .testimonial-item {
+  transition: all 0.5s ease;
+  cursor: pointer;
   overflow: hidden;
+  height: 500px;
+}
+.sec07 .testimonial-item.active .testimonial-bubble {
+  transform: translateY(0);
+}
+.sec07 .testimonial-card {
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
   height: 100%;
+  max-height: 500px;
+  transition: all 0.5s ease;
 }
 .sec07 .testimonial-card img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
   -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.5s ease;
 }
-.sec07 .testimonial-large {
-  height: 500px;
-}
-.sec07 .testimonial-large .testimonial-bubble {
+.sec07 .testimonial-bubble {
   position: absolute;
-  top: 7%;
-  left: 30px;
-  width: 55%;
-  background-color: #DAE598;
-  border-radius: 32px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   padding: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 0 0 12px 12px;
+  transform: translateY(100%);
+  transition: transform 0.5s ease;
 }
-.sec07 .testimonial-large .testimonial-bubble .user-info {
+.sec07 .user-info {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
-.sec07 .testimonial-large .testimonial-bubble .user-info .user-avatar {
+.sec07 .user-info .user-avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #E8F4EA;
-  margin-right: 10px;
   overflow: hidden;
+  margin-right: 10px;
 }
-.sec07 .testimonial-large .testimonial-bubble .user-info .user-avatar img {
+.sec07 .user-info .user-avatar img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
-.sec07 .testimonial-large .testimonial-bubble .user-info .user-name {
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: #7B848D;
+.sec07 .user-info .user-name {
   margin: 0;
-}
-.sec07 .testimonial-large .testimonial-bubble .testimonial-text {
   font-size: 1.6rem;
+  font-weight: 600;
+  color: #2C3136;
+}
+.sec07 .testimonial-text {
+  font-size: 1.4rem;
   line-height: 1.5;
-  color: #4D5359;
+  margin: 0;
+  color: #3A4046;
 }
-.sec07 .testimonial-medium {
-  height: 500px;
-  border-radius: 32px;
-  overflow: hidden;
+@media (max-width: 991px) {
+  .sec07 {
+    padding: 80px 0;
+  }
+  .sec07 .title {
+    font-size: 3.6rem;
+    margin-bottom: 4rem;
+  }
+  .sec07 .testimonial-item {
+    margin-bottom: 20px;
+  }
+  .sec07 .testimonial-bubble {
+    transform: translateY(0);
+    position: relative;
+    background: #fff;
+  }
 }
-.sec07 .testimonial-small {
-  height: 500px;
-  border-radius: 32px;
-  overflow: hidden;
+@media (max-width: 767px) {
+  .sec07 {
+    padding: 60px 0;
+  }
+  .sec07 .title {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+  }
+  .sec07 .testimonial-item {
+    width: 100%;
+  }
+  .sec07 .testimonial-item.active,
+  .sec07 .testimonial-item:not(.active) {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+@media (max-width: 576px) {
+  .sec07 {
+    padding: 40px 0;
+  }
+  .sec07 .title {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
 }
 
 .sec-faq {
