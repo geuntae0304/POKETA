@@ -1177,7 +1177,13 @@ SECTION 07 - 후기 섹션
   overflow: hidden;
   height: 500px;
 }
+.sec07 .testimonial-item.active .testimonial-card {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
 .sec07 .testimonial-item.active .testimonial-bubble {
+  transform: translateY(0);
+}
+.sec07 .testimonial-item:hover .testimonial-bubble {
   transform: translateY(0);
 }
 .sec07 .testimonial-card {
@@ -1201,7 +1207,7 @@ SECTION 07 - 후기 섹션
   left: 0;
   width: 100%;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.9);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
   border-radius: 0 0 12px 12px;
@@ -1353,97 +1359,10 @@ SECTION 07 - 후기 섹션
   }
 }
 
-.modal-content {
-  border-radius: 15px;
-  border: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-.modal-header {
-  border-bottom: 1px solid #eee;
-  padding: 1.5rem 2.4rem;
-}
-.modal-header .modal-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-top: 1rem;
-  color: #1F2124;
-}
-.modal-header .btn-close {
-  font-size: 1rem;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-.modal-header .btn-close:hover {
-  opacity: 1;
-  transform: rotate(90deg);
-}
-.modal-body {
-  padding: 2.4rem;
-}
-.modal-body .form-label {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #2C3136;
-  margin-bottom: 0.5rem;
-}
-.modal-body .form-control {
-  font-size: 1.4rem;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
-}
-.modal-body .form-control:focus {
-  box-shadow: 0 0 0 3px #999;
-  border-color: #398989;
-}
-.modal-body .form-control::-moz-placeholder {
-  color: #aaa;
-  font-size: 1.3rem;
-}
-.modal-body .form-control::placeholder {
-  color: #aaa;
-  font-size: 1.3rem;
-}
-.modal-body textarea.form-control {
-  resize: none;
-}
-.modal-footer {
-  border-top: 1px solid #eee;
-  padding: 2.4rem;
-}
-.modal-footer .btn {
-  font-size: 1.4rem;
-  padding: 1.2rem 2.4rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-}
-.modal-footer .btn-secondary {
-  background-color: #f1f1f1;
-  color: #333;
-  border: none;
-}
-.modal-footer .btn-secondary:hover {
-  background-color: #e0e0e0;
-}
-.modal-footer .btn-primary {
-  background-color: #398989;
-  border: none;
-}
-.modal-footer .btn-primary:hover {
-  background-color: #2a6565;
-  transform: translateY(-2px);
-}
-
 .footer {
   background-color: #1F2124;
-  color: #fff;
+  color: #FFFFFF;
   padding: 5rem 0 2rem;
-  margin-top: 1rem;
-}
-.footer .container {
-  height: -moz-fit-content;
-  height: fit-content;
 }
 .footer .footer-logo {
   max-width: 50px;

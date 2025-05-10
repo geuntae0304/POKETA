@@ -507,8 +507,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        Poky is all ears ✉️</h5>
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -537,22 +536,27 @@
 
     <!-- Contact Modal Script -->
     <script>
+        // 메시지 전송 버튼 클릭 이벤트
         document.getElementById('sendMessageBtn').addEventListener('click', function() {
-
+            // 폼 데이터 가져오기
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
+            // 간단한 유효성 검사
             if (name && email && message) {
-
-                alert('Message sent successfully!');
+                // 실제로는 서버로 데이터를 전송하는 코드가 들어갈 자리입니다.
+                // 여기서는 간단한 알림으로 대체합니다.
+                alert('메시지가 성공적으로 전송되었습니다!');
                 
+                // 모달 닫기
                 const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
                 contactModal.hide();
                 
+                // 폼 초기화
                 document.getElementById('contactForm').reset();
             } else {
-                alert('Please fill in all fields.');
+                alert('모든 필드를 입력해주세요.');
             }
         });
     </script>

@@ -52,7 +52,7 @@
                         <div class="main-img">
                             <img src="assets/images/main-img.png" alt="main-img">
                             <div class="contact-button">
-                                <a href="#" class="btn btn-contact" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                                <a href="#contact" class="btn btn-contact">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -346,16 +346,16 @@
                     <h2 class="fw-bold mb-4">Frequently<br>Asked Questions.</h2>
                 </div>
                 <div class="col-md-6">
-                    <div class="accordion" id="faqAccordion">
+                    <main class="faq-main">
                         <!-- FAQ 항목 1 -->
-                        <div class="accordion-item border-0 mb-3">
-                            <h2 class="accordion-header" id="headingOne">
-                                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="border-bottom: 1px solid #ccc; padding: 1rem 0;">
-                                    <span class="fw-medium">the ingredients safe? 🍀</span>
-                                </button>
-                            </h2>
-                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body pt-0 pb-3">
+                        <div class="faq-accordion" id="faq1">
+                            <div class="title">
+                                <a href="#faq1">
+                                    <span class="fw-medium">Are the ingredients safe? 🍀</span>
+                                </a>
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
                                     <p>Absolutely! We only use safe, certified ingredients approved for daily consumption.
                                         Your health is our #1 priority — pinky promise 🤙</p>
                                 </div>
@@ -363,36 +363,36 @@
                         </div>
                         
                         <!-- FAQ 항목 2 -->
-                        <div class="accordion-item border-0 mb-3">
-                            <h2 class="accordion-header" id="headingTwo">
-                                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="border-bottom: 1px solid #ccc; padding: 1rem 0;">
+                        <div class="faq-accordion" id="faq2">
+                            <div class="title">
+                                <a href="#faq2">
                                     <span class="fw-medium">Can I scan my palm for someone else? ✋👀</span>
-                                </button>
-                            </h2>
-                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body pt-0 pb-3">
+                                </a>
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
                                     <p>Nope — your scan is uniquely yours!
-                                        Poky creates a personalized drink based on your palm scan, so sharing wouldn’t work.
+                                        Poky creates a personalized drink based on your palm scan, so sharing wouldn't work.
                                         But bring your friend — they can scan their own palm and get a match made just for them too! 🧃🧑‍🤝‍🧑</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- FAQ 항목 3 -->
-                        <div class="accordion-item border-0 mb-3">
-                            <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed bg-transparent" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="border-bottom: 1px solid #ccc; padding: 1rem 0;">
+                        <div class="faq-accordion" id="faq3">
+                            <div class="title">
+                                <a href="#faq3">
                                     <span class="fw-medium">Are all your products recyclable? 🌍</span>
-                                </button>
-                            </h2>
-                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
-                                <div class="accordion-body pt-0 pb-3">
-                                    <p>Yep! Every bottle, and  cap is recyclable or reusable.
+                                </a>
+                            </div>
+                            <div class="wrapper">
+                                <div class="content">
+                                    <p>Yep! Every bottle, and cap is recyclable or reusable.
                                         Go green, drink clean 💚</p>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </main>
                 </div>
             </div>
         </div>
@@ -499,61 +499,6 @@
                     });
                 });
             });
-        });
-    </script>
-
-    <!-- Contact Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        Poky is all ears ✉️</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="sendMessageBtn">Send Message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Modal Script -->
-    <script>
-        document.getElementById('sendMessageBtn').addEventListener('click', function() {
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-
-                alert('Message sent successfully!');
-                
-                const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-                contactModal.hide();
-                
-                document.getElementById('contactForm').reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
         });
     </script>
 </body>

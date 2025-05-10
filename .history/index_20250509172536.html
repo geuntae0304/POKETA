@@ -507,8 +507,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        Poky is all ears ✉️</h5>
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -537,19 +536,24 @@
 
     <!-- Contact Modal Script -->
     <script>
+        // Message send button click event
         document.getElementById('sendMessageBtn').addEventListener('click', function() {
-
+            // Get form data
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
+            // Simple validation
             if (name && email && message) {
-
+                // In a real application, this would send data to a server.
+                // Here we just show a simple alert.
                 alert('Message sent successfully!');
                 
+                // Close modal
                 const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
                 contactModal.hide();
                 
+                // Reset form
                 document.getElementById('contactForm').reset();
             } else {
                 alert('Please fill in all fields.');

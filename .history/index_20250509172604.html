@@ -467,30 +467,21 @@
     
     <!-- 리뷰 카드 확장 기능을 위한 스크립트 -->
     <script>
-        // 페이지 로드 완료 후 실행
         document.addEventListener('DOMContentLoaded', function() {
-            // 모든 리뷰 카드 요소 가져오기
             const testimonialItems = document.querySelectorAll('.testimonial-item');
             
-            // 각 카드에 클릭 이벤트 리스너 추가
             testimonialItems.forEach(item => {
                 item.addEventListener('click', function() {
-                    // 현재 활성화된 카드의 active 클래스 제거
                     document.querySelector('.testimonial-item.active').classList.remove('active');
-                    
-                    // 클릭한 카드에 active 클래스 추가
                     this.classList.add('active');
-                    
-                    // 카드 ID 가져오기
                     const id = this.id;
                     
-                    // 카드 크기 조정
                     testimonialItems.forEach(card => {
-                        // 기본 크기로 초기화
+                        card.classList.remove('col-lg-6');
+                    testimonialItems.forEach(card => {
                         card.classList.remove('col-lg-6');
                         card.classList.remove('col-lg-3');
                         
-                        // 활성화된 카드는 크게, 나머지는 작게 설정
                         if (card.id === id) {
                             card.classList.add('col-lg-6');
                         } else {
@@ -507,8 +498,7 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        Poky is all ears ✉️</h5>
+                    <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

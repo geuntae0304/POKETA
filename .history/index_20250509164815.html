@@ -52,7 +52,7 @@
                         <div class="main-img">
                             <img src="assets/images/main-img.png" alt="main-img">
                             <div class="contact-button">
-                                <a href="#" class="btn btn-contact" data-bs-toggle="modal" data-bs-target="#contactModal">Contact</a>
+                                <a href="#contact" class="btn btn-contact">Contact</a>
                             </div>
                         </div>
                     </div>
@@ -499,61 +499,6 @@
                     });
                 });
             });
-        });
-    </script>
-
-    <!-- Contact Modal -->
-    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        Poky is all ears ✉️</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form id="contactForm">
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="sendMessageBtn">Send Message</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Contact Modal Script -->
-    <script>
-        document.getElementById('sendMessageBtn').addEventListener('click', function() {
-
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-
-                alert('Message sent successfully!');
-                
-                const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-                contactModal.hide();
-                
-                document.getElementById('contactForm').reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
         });
     </script>
 </body>
