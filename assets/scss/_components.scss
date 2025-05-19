@@ -21,7 +21,7 @@
 
 // 햄버거 메뉴 스타일
 .hamburger-menu {
-    display: flex; // 기본적으로 표시, Bootstrap d-lg-none 클래스로 대형 화면에서 숨김
+    display: flex; // 기본적으로 표시, Bootstrap  -lg-none 클래스로 대형 화면에서 숨김
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -54,7 +54,8 @@
     }
 }
 
-// 네비게이션 메뉴 스타일
+// 네비게이션 메뉴 스타일 
+
 .nav-menu {
     display: flex;
     gap: 5.6rem;
