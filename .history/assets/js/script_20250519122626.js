@@ -31,33 +31,4 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // 헤더 스크롤 효과 구현
-    const header = document.querySelector('.header');
-    let lastScrollTop = 0; // 마지막 스크롤 위치 저장 변수
-    
-    // 스크롤 이벤트 리스너 추가
-    window.addEventListener('scroll', function() {
-        // 현재 스크롤 위치 가져오기
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // 스크롤 방향 감지
-        if (scrollTop > lastScrollTop) {
-            // 아래로 스크롤 - 헤더 숨기기
-            if (scrollTop > 50) { // 스크롤이 어느 정도 내려갔을 때만 숨기기 적용
-                header.classList.add('hide');
-            }
-        } else {
-            // 위로 스크롤 - 헤더 나타나기
-            header.classList.remove('hide');
-        }
-        
-        // 맨 위에 있을 때는 헤더 항상 표시
-        if (scrollTop <= 10) {
-            header.classList.remove('hide');
-        }
-        
-        // 현재 스크롤 위치 저장 (다음 이벤트와 비교하기 위함)
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
 });

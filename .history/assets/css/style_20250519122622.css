@@ -49,29 +49,11 @@ h6 {
   padding: 2rem 0;
   background-color: #1F2124;
   color: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+  position: relative;
   overflow-x: hidden;
-  transition: all 0.3s ease;
-}
-.header.hide {
-  transform: translateY(-100%);
-}
-.header.scrolled {
-  margin: 1rem 2rem;
-  border-radius: 9rem;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  width: calc(100% - 4rem);
 }
 .header .container {
   position: relative;
-}
-
-body {
-  padding-top: 80px;
 }
 
 .hamburger-menu {
@@ -656,7 +638,6 @@ body {
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 14rem;
-  padding-top: 8rem;
 }
 
 .sec01-title {

@@ -43,18 +43,16 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // 스크롤 방향 감지
         if (scrollTop > lastScrollTop) {
-            // 아래로 스크롤 - 헤더 숨기기
-            if (scrollTop > 50) { // 스크롤이 어느 정도 내려갔을 때만 숨기기 적용
-                header.classList.add('hide');
-            }
+            // 아래로 스크롤 - 헤더 유지 (이미 고정되어 있음)
+            header.classList.remove('hide');
         } else {
-            // 위로 스크롤 - 헤더 나타나기
-            header.classList.remove('hide');
-        }
-        
-        // 맨 위에 있을 때는 헤더 항상 표시
-        if (scrollTop <= 10) {
-            header.classList.remove('hide');
+            // 위로 스크롤 - 헤더 숨기기
+            if (scrollTop > 100) { // 스크롤이 어느 정도 내려갔을 때만 숨기기 적용
+                header.classList.add('hide');
+            } else {
+                // 맨 위에 가까우면 다시 표시
+                header.classList.remove('hide');
+            }
         }
         
         // 현재 스크롤 위치 저장 (다음 이벤트와 비교하기 위함)
