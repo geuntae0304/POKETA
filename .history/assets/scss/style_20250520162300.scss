@@ -626,36 +626,30 @@ SECTION 04 - 앱 소개 섹션
     }
 }
 
-@media (max-width:991px){
-    .sec04{
-        .sec04-content{
-            margin-top: 6rem;
-            padding-left: 0;
+@media (max-width:992px){
+    .sec04-content{
+        margin-top: 6rem;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        
+        .description {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .title{
             text-align: center;
-            align-items: center;
-            justify-content: center;
-            
-            .description {
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .title{
-                text-align: center;
-            }
-            .subtitle{
-                text-align: center;
-            }
         }
-        
-        /* 991px 이하에서 sec04 이미지 숨기기 */
-        .sec04-image-container {
-            display: none;
+        .subtitle{
+            text-align: center;
         }
-        
-        .sec04-img {
-            display: none;
-        }
+    }
+    
+    /* 992px 이하에서 Sec04의 모든 이미지 컨테이너 숨기기 */
+    .sec04 .sec04-image-container{
+        display: none;
     }
 }
 

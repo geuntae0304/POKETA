@@ -127,6 +127,19 @@ body {
     margin: 0 auto;
 }
 
+// 전역 타이틀 컨테이너 스타일
+.title-container {
+    margin-bottom: 3rem;
+}
+
+// 전역 섹션 타이틀 스타일
+.section-title {
+    font-size: 4rem;
+    font-weight: 600;
+    line-height: 1.3;
+    color: map-get(variables.$gray-scale, 900);
+}
+
 // 전역 subtitle 클래스 스타일
 .subtitle {
     font-size: 2rem;
@@ -134,7 +147,6 @@ body {
     color: #5EAB92;
     line-height: 1.4;
     margin-bottom: 1.5rem;
-    text-align: center;
 }
 
 .title{
@@ -142,7 +154,6 @@ body {
     font-weight: 600;
     color: map-get(variables.$gray-scale, 900);
     line-height: 1.4;
-    text-align: center;
 }
 
 .subtitle {
@@ -326,17 +337,15 @@ body {
 
 // ? Section02
 
-.sec02{
-    .title{
-        h2{
-            font-weight: 600;
-            color: map-get(variables.$gray-scale, 900);
-            line-height: 1.4;
-        }
-        span{
-            background-color: #D9E694;
-            padding: 0 10px;
-        }
+.title{
+    h2{
+        font-weight: 600;
+        color: map-get(variables.$gray-scale, 900);
+        line-height: 1.4;
+    }
+    span{
+        background-color: #D9E694;
+        padding: 0 10px;
     }
 }
 
@@ -561,10 +570,6 @@ SECTION 04 - 앱 소개 섹션
         color: map-get(variables.$gray-scale, 900);
         line-height: 1.4;
         margin-bottom: 4rem;
-        text-align: left;
-    }
-    .subtitle{
-        text-align: left;
     }
     .description{
         font-size: 1.5rem;
@@ -626,35 +631,18 @@ SECTION 04 - 앱 소개 섹션
     }
 }
 
-@media (max-width:991px){
-    .sec04{
-        .sec04-content{
-            margin-top: 6rem;
-            padding-left: 0;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            
-            .description {
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .title{
-                text-align: center;
-            }
-            .subtitle{
-                text-align: center;
-            }
-        }
+@media (max-width:992px){
+    .sec04-content{
+        margin-top: 6rem;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
         
-        /* 991px 이하에서 sec04 이미지 숨기기 */
-        .sec04-image-container {
-            display: none;
-        }
-        
-        .sec04-img {
-            display: none;
+        .description {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
@@ -737,6 +725,7 @@ SECTION 04 - 앱 소개 섹션
         border: 1px solid #c7d1dd;
         
         .card-bg-effect {
+            // background-color: #4B96FF;
             img{
                 width: 100%;
                 height: 100%;
@@ -747,10 +736,12 @@ SECTION 04 - 앱 소개 섹션
     
     // 초록색 카드 (Personalization)
     .belief-card-green {
-        background-color: #f7fff5;
-        border: 1px solid #b5d5b1;
+        background-color: transparent; // 배경색 제거
+        border: none; // 테두리 제거
         
         .card-bg-effect {
+            // 배경 효과 제거
+            opacity: 0; // 완전히 투명하게 설정
             left: 55%;
             top: -60%;
             width: 75%;
@@ -758,6 +749,7 @@ SECTION 04 - 앱 소개 섹션
             img{
                 width: 100%;
                 height: 100%;
+                opacity: 0; // 이미지도 투명하게 설정
             }
         }
     }
@@ -768,6 +760,7 @@ SECTION 04 - 앱 소개 섹션
         border: 1px solid #d5ccb1;
         
         .card-bg-effect {
+            // background-color: #FFD84B;
             left: 45%; // 위치 조정
             top: -25%;   // 위치 조정
             width: 75%; // 크기 조정
@@ -780,8 +773,12 @@ SECTION 04 - 앱 소개 섹션
     }
 }
 
-// Sec05 반응형 스타일
+// 반응형 타이틀 스타일
 @media (max-width: 992px) {
+    .section-title {
+        font-size: 3.2rem;
+    }
+    
     .sec05 {
         .title {
             font-size: 3.6rem;
@@ -794,6 +791,10 @@ SECTION 04 - 앱 소개 섹션
 }
 
 @media (max-width: 768px) {
+    .section-title {
+        font-size: 2.8rem;
+    }
+    
     .sec05 {
         padding: 60px 0;
         
@@ -880,14 +881,12 @@ SECTION 06 - 스토리 섹션
             font-weight: 600;
             color: map-get(variables.$gray-scale, 900);
             margin-bottom: 2.5rem;
-            text-align: left;
         }
         
         .description {
             font-size: 1.8rem;
             color: map-get(variables.$gray-scale, 700);
             line-height: 1.6;
-            text-align: left;
         }
         
         // Learn More 버튼 스타일

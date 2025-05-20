@@ -134,7 +134,6 @@ body {
     color: #5EAB92;
     line-height: 1.4;
     margin-bottom: 1.5rem;
-    text-align: center;
 }
 
 .title{
@@ -142,7 +141,6 @@ body {
     font-weight: 600;
     color: map-get(variables.$gray-scale, 900);
     line-height: 1.4;
-    text-align: center;
 }
 
 .subtitle {
@@ -326,17 +324,15 @@ body {
 
 // ? Section02
 
-.sec02{
-    .title{
-        h2{
-            font-weight: 600;
-            color: map-get(variables.$gray-scale, 900);
-            line-height: 1.4;
-        }
-        span{
-            background-color: #D9E694;
-            padding: 0 10px;
-        }
+.title{
+    h2{
+        font-weight: 600;
+        color: map-get(variables.$gray-scale, 900);
+        line-height: 1.4;
+    }
+    span{
+        background-color: #D9E694;
+        padding: 0 10px;
     }
 }
 
@@ -561,10 +557,6 @@ SECTION 04 - 앱 소개 섹션
         color: map-get(variables.$gray-scale, 900);
         line-height: 1.4;
         margin-bottom: 4rem;
-        text-align: left;
-    }
-    .subtitle{
-        text-align: left;
     }
     .description{
         font-size: 1.5rem;
@@ -626,35 +618,18 @@ SECTION 04 - 앱 소개 섹션
     }
 }
 
-@media (max-width:991px){
-    .sec04{
-        .sec04-content{
-            margin-top: 6rem;
-            padding-left: 0;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            
-            .description {
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .title{
-                text-align: center;
-            }
-            .subtitle{
-                text-align: center;
-            }
-        }
+@media (max-width:992px){
+    .sec04-content{
+        margin-top: 6rem;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
         
-        /* 991px 이하에서 sec04 이미지 숨기기 */
-        .sec04-image-container {
-            display: none;
-        }
-        
-        .sec04-img {
-            display: none;
+        .description {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
@@ -880,14 +855,12 @@ SECTION 06 - 스토리 섹션
             font-weight: 600;
             color: map-get(variables.$gray-scale, 900);
             margin-bottom: 2.5rem;
-            text-align: left;
         }
         
         .description {
             font-size: 1.8rem;
             color: map-get(variables.$gray-scale, 700);
             line-height: 1.6;
-            text-align: left;
         }
         
         // Learn More 버튼 스타일
@@ -976,6 +949,7 @@ SECTION 07 - 후기 섹션
     .title {
         font-size: 4.2rem;
         font-weight: 600;
+        background-color: red;
         color: map-get(variables.$gray-scale, 900);
         line-height: 1.4;
         margin-bottom: 5rem;

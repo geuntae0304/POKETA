@@ -134,7 +134,6 @@ body {
     color: #5EAB92;
     line-height: 1.4;
     margin-bottom: 1.5rem;
-    text-align: center;
 }
 
 .title{
@@ -142,7 +141,6 @@ body {
     font-weight: 600;
     color: map-get(variables.$gray-scale, 900);
     line-height: 1.4;
-    text-align: center;
 }
 
 .subtitle {
@@ -326,17 +324,15 @@ body {
 
 // ? Section02
 
-.sec02{
-    .title{
-        h2{
-            font-weight: 600;
-            color: map-get(variables.$gray-scale, 900);
-            line-height: 1.4;
-        }
-        span{
-            background-color: #D9E694;
-            padding: 0 10px;
-        }
+.title{
+    h2{
+        font-weight: 600;
+        color: map-get(variables.$gray-scale, 900);
+        line-height: 1.4;
+    }
+    span{
+        background-color: #D9E694;
+        padding: 0 10px;
     }
 }
 
@@ -349,10 +345,13 @@ SECTION 02 - 소개 섹션
     .title{
         text-align: center;
         margin-bottom: 3rem;
-    }
-    
-    h2{
-        margin-bottom: 0;
+        
+        h2 {
+            font-size: 3.8rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 0;
+        }
     }
     
     .container {
@@ -473,7 +472,19 @@ SECTION 02 - 소개 섹션
     .title{
         text-align: center;
         align-items: center;
-    }
+        margin-bottom: 3rem;
+        
+        .subtitle {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        h2.title {
+            font-size: 3.8rem; // 통일된 크기 설정
+            font-weight: 600;
+            line-height: 1.3;
+        }
     h2{
         font-weight: 600;
         color: map-get(variables.$gray-scale, 900);
@@ -561,10 +572,6 @@ SECTION 04 - 앱 소개 섹션
         color: map-get(variables.$gray-scale, 900);
         line-height: 1.4;
         margin-bottom: 4rem;
-        text-align: left;
-    }
-    .subtitle{
-        text-align: left;
     }
     .description{
         font-size: 1.5rem;
@@ -626,35 +633,18 @@ SECTION 04 - 앱 소개 섹션
     }
 }
 
-@media (max-width:991px){
-    .sec04{
-        .sec04-content{
-            margin-top: 6rem;
-            padding-left: 0;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-            
-            .description {
-                width: 70%;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .title{
-                text-align: center;
-            }
-            .subtitle{
-                text-align: center;
-            }
-        }
+@media (max-width:992px){
+    .sec04-content{
+        margin-top: 6rem;
+        padding-left: 0;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
         
-        /* 991px 이하에서 sec04 이미지 숨기기 */
-        .sec04-image-container {
-            display: none;
-        }
-        
-        .sec04-img {
-            display: none;
+        .description {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
         }
     }
 }
@@ -667,10 +657,10 @@ SECTION 04 - 앱 소개 섹션
     padding: 80px 0;
     
     .title{
-        font-size: 4.2rem;
+        font-size: 3.8rem; // 통일된 크기 설정
         font-weight: 600;
         color: map-get(variables.$gray-scale, 900);
-        line-height: 1.4;
+        line-height: 1.3;
         margin-bottom: 5.7rem;
     }
     
@@ -737,6 +727,7 @@ SECTION 04 - 앱 소개 섹션
         border: 1px solid #c7d1dd;
         
         .card-bg-effect {
+            // background-color: #4B96FF;
             img{
                 width: 100%;
                 height: 100%;
@@ -747,10 +738,12 @@ SECTION 04 - 앱 소개 섹션
     
     // 초록색 카드 (Personalization)
     .belief-card-green {
-        background-color: #f7fff5;
-        border: 1px solid #b5d5b1;
+        background-color: transparent; // 배경색 제거
+        border: none; // 테두리 제거
         
         .card-bg-effect {
+            // 배경 효과 제거
+            opacity: 0; // 완전히 투명하게 설정
             left: 55%;
             top: -60%;
             width: 75%;
@@ -758,6 +751,7 @@ SECTION 04 - 앱 소개 섹션
             img{
                 width: 100%;
                 height: 100%;
+                opacity: 0; // 이미지도 투명하게 설정
             }
         }
     }
@@ -768,6 +762,7 @@ SECTION 04 - 앱 소개 섹션
         border: 1px solid #d5ccb1;
         
         .card-bg-effect {
+            // background-color: #FFD84B;
             left: 45%; // 위치 조정
             top: -25%;   // 위치 조정
             width: 75%; // 크기 조정
@@ -782,9 +777,9 @@ SECTION 04 - 앱 소개 섹션
 
 // Sec05 반응형 스타일
 @media (max-width: 992px) {
-    .sec05 {
-        .title {
-            font-size: 3.6rem;
+    .sec02, .sec03, .sec05, .sec06 {
+        .title, h2.title, .story-content .title {
+            font-size: 3.2rem; // 태블릿에서 통일된 크기
         }
         
         .belief-card {
@@ -794,6 +789,12 @@ SECTION 04 - 앱 소개 섹션
 }
 
 @media (max-width: 768px) {
+    .sec02, .sec03, .sec05, .sec06 {
+        .title, h2.title, .story-content .title {
+            font-size: 2.8rem; // 모바일에서 통일된 크기
+        }
+    }
+    
     .sec05 {
         padding: 60px 0;
         
@@ -876,18 +877,17 @@ SECTION 06 - 스토리 섹션
         padding-left: 13rem;
         
         .title {
-            font-size: 4.2rem;
+            font-size: 3.8rem; // 통일된 크기 설정
             font-weight: 600;
             color: map-get(variables.$gray-scale, 900);
+            line-height: 1.3;
             margin-bottom: 2.5rem;
-            text-align: left;
         }
         
         .description {
             font-size: 1.8rem;
             color: map-get(variables.$gray-scale, 700);
             line-height: 1.6;
-            text-align: left;
         }
         
         // Learn More 버튼 스타일

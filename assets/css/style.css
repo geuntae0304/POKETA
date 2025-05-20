@@ -549,6 +549,7 @@ body {
   color: #5EAB92;
   line-height: 1.4;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .title {
@@ -556,6 +557,7 @@ body {
   font-weight: 600;
   color: #1F2124;
   line-height: 1.4;
+  text-align: center;
 }
 
 .subtitle {
@@ -712,12 +714,12 @@ body {
   margin-top: 50px;
 }
 
-.title h2 {
+.sec02 .title h2 {
   font-weight: 600;
   color: #1F2124;
   line-height: 1.4;
 }
-.title span {
+.sec02 .title span {
   background-color: #D9E694;
   padding: 0 10px;
 }
@@ -904,6 +906,10 @@ SECTION 04 - 앱 소개 섹션
   color: #1F2124;
   line-height: 1.4;
   margin-bottom: 4rem;
+  text-align: left;
+}
+.sec04 .subtitle {
+  text-align: left;
 }
 .sec04 .description {
   font-size: 1.5rem;
@@ -952,18 +958,33 @@ SECTION 04 - 앱 소개 섹션
   transform: scale(0.97);
 }
 
-@media (max-width: 992px) {
-  .sec04-content {
+@media (max-width: 991px) {
+  .sec04 {
+    /* 991px 이하에서 sec04 이미지 숨기기 */
+  }
+  .sec04 .sec04-content {
     margin-top: 6rem;
     padding-left: 0;
     text-align: center;
     align-items: center;
     justify-content: center;
   }
-  .sec04-content .description {
+  .sec04 .sec04-content .description {
     width: 70%;
     margin-left: auto;
     margin-right: auto;
+  }
+  .sec04 .sec04-content .title {
+    text-align: center;
+  }
+  .sec04 .sec04-content .subtitle {
+    text-align: center;
+  }
+  .sec04 .sec04-image-container {
+    display: none;
+  }
+  .sec04 .sec04-img {
+    display: none;
   }
 }
 .sec05 {
@@ -1037,8 +1058,8 @@ SECTION 04 - 앱 소개 섹션
   height: 100%;
 }
 .sec05 .belief-card-green {
-  background-color: #F5FFF7;
-  border: 1px solid #d1e7cf;
+  background-color: #f7fff5;
+  border: 1px solid #b5d5b1;
 }
 .sec05 .belief-card-green .card-bg-effect {
   left: 55%;
@@ -1142,11 +1163,13 @@ SECTION 06 - 스토리 섹션
   font-weight: 600;
   color: #1F2124;
   margin-bottom: 2.5rem;
+  text-align: left;
 }
 .sec06 .story-content .description {
   font-size: 1.8rem;
   color: #3A4046;
   line-height: 1.6;
+  text-align: left;
 }
 .sec06 .story-content .btn-learn-more {
   font-size: 1.6rem;

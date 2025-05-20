@@ -628,6 +628,12 @@ SECTION 04 - 앱 소개 섹션
 
 @media (max-width:991px){
     .sec04{
+        .sec04-image-container{
+            display: none;
+        }
+        .sec04-img{
+            display: block;
+        }
         .sec04-content{
             margin-top: 6rem;
             padding-left: 0;
@@ -646,15 +652,6 @@ SECTION 04 - 앱 소개 섹션
             .subtitle{
                 text-align: center;
             }
-        }
-        
-        /* 991px 이하에서 sec04 이미지 숨기기 */
-        .sec04-image-container {
-            display: none;
-        }
-        
-        .sec04-img {
-            display: none;
         }
     }
 }
