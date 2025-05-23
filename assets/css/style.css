@@ -539,7 +539,6 @@ body {
 }
 .app-hero .hero-image .phone-container .bubble img {
   width: 100%;
-  height: auto;
 }
 .app-hero .hero-image .phone-container .bubble.bubble-1 {
   top: -60px;
@@ -670,38 +669,36 @@ body {
 }
 
 .history {
-  height: 100vh;
+  padding: 12rem 0;
   display: flex;
+  background-color: #D5E7D9;
 }
-.history .left-galf, .history .right-galf {
-  width: 50%;
-  height: 100%;
+.history .title {
+  text-align: left;
 }
-.history .left-galf {
-  background-color: #fff;
-}
-.history .left-galf h2 {
+.history .title h2 {
   color: #1F2124;
   font-size: 4.2rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 10rem;
 }
-.history .left-galf h3 {
+.history .title h3 {
   color: #1F2124;
-  font-size: 2.2rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1.4;
   margin-bottom: 1.7rem;
 }
-.history .left-galf p {
-  color: #4D5359;
-  font-size: 2rem;
+.history .title p {
+  color: #7B848D;
+  font-size: 1.6rem;
   font-weight: 500;
   line-height: 1.6;
 }
-.history .right-galf {
-  background-color: #D5E7D9;
+.history img {
+  margin-left: 6rem;
+  width: 90%;
 }
 
 .app-cta {
