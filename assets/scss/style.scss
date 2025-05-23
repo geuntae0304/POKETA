@@ -1,9 +1,9 @@
-@use 'common'; // 사이트 공통 스타일(기본값/초기화)
-
+@use 'common'; // 사이트 공통 스타일(기본/초기화)
 @use 'variables'; // 스타일 에셋 (컬러/폰트)
 @use 'components'; // 컴포넌트 (버튼/카드)
-@use 'animations'; // 애니메이션
+@use 'animations'; // 애니메이션  
 @use 'responsive'; //미디어 쿼리(반응형)
+@use 'app'; // 서브페이지(app) 스타일
 
 *{
     margin: 0;
@@ -145,6 +145,18 @@ body {
     text-align: center;
 }
 
+/* 모든 섹션에 공통으로 적용되는 스타일 */
+.sec01, .sec02, .sec03, .sec04, .sec05, .sec06, .sec07{
+    padding: 10rem 0;
+    height: fit-content;
+}
+
+/* 모든 섹션의 컨테이너 높이도 fit-content로 통일 */
+.sec01 .container, .sec02 .container, .sec03 .container, .sec04 .container, 
+.sec05 .container, .sec06 .container, .sec07 .container{
+    height: fit-content;
+}
+
 .subtitle {
     font-size: 2rem;
     font-weight: 700;
@@ -275,9 +287,6 @@ body {
 .sec01{
     .container{
         width: 80%;
-        height: fit-content;
-        margin-bottom: 14rem;
-        padding-top:  8rem;
     }
 }
 
@@ -344,7 +353,7 @@ body {
 SECTION 02 - 소개 섹션
 ========================================================================== */
 .sec02{
-    padding: 4rem 0;
+    /* 패딩은 공통 스타일로 이동됨 (3rem) */
     
     .title{
         text-align: center;
@@ -354,35 +363,81 @@ SECTION 02 - 소개 섹션
     h2{
         margin-bottom: 0;
     }
-    
-    .container {
-        height: fit-content;
-        margin-bottom: 8rem; 
-    }
 }
 
-.sec02-images {
+.sec02-videos {
     // 컨테이너 내부에서 적절한 여백 유지
     
-    .image-card {
+    .video-item {
         margin-bottom: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        height: 40rem; // 고정 높이 60rem으로 설정
+        
+        // 비활성화된 비디오 아이템에 블러 효과 추가
+        &:not(.active) {
+            .video-wrapper {
+                video {
+                    filter: blur(3px) brightness(0.9); // 블러와 약간 어두운 효과 추가
+                    transition: filter 0.3s ease;
+                }
+            }
+        }
+        
+        // 활성화된 비디오 아이템 스타일
+        &.active {
+            .video-wrapper {
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+                
+                video {
+                    filter: blur(0) brightness(1); // 블러 제거, 밝기 정상화
+                }
+            }
+        }
     }
     
-    .image-wrapper {
+    // 991px 이하에서 비디오 표시 설정
+    @media (max-width: 991px) {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding: 1rem 0;
+        gap: 1rem;
+        
+        .video-item {
+            min-width: 80%;
+            flex: 0 0 auto;
+            margin-right: 1rem;
+            
+            &.active {
+                min-width: 90%;
+                order: -1; // 활성화된 카드를 제일 앞에 배치
+            }
+        }
+    }
+    
+    .video-wrapper {
         height: 100%;
         width: 100%;
         overflow: hidden;
-        border-radius: 62px;
+        border-radius: 32px;
         box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex; // 플렉스박스로 설정
+        align-items: center; // 수직 가운데 정렬
+        justify-content: center; // 수평 가운데 정렬
     }
     
-    // 이미지 스타일 공통
-    img {
+    // 비디오 스타일 공통
+    video {
         width: 100%;
         height: 100%;
-        object-fit: cover; // 이미지 비율 유지
-        border-radius: 52px; // 이미지 모서리 둥글게
+        object-fit: cover; // 비디오 비율 유지하면서 영역 꽉 채우기
+        border-radius: 32px; // 비디오 모서리 둥글게
         transition: transform 0.3s ease;
+        display: block; // 바탑 여백 제거
+        min-height: 100%; // 최소 높이 설정
     }
     
     // 첫 번째와 세 번째 이미지 스타일 (작은 이미지)
@@ -393,7 +448,8 @@ SECTION 02 - 소개 섹션
     
     // 가운데 이미지 스타일 (큰 이미지)
     .main-image img {
-        height: 400px; // 높이 조정
+        width: 100%;
+        height: 40rem; // 높이 조정
         z-index: 2; // 앞으로 배치
         transform: scale(1.05); // 약간 크게
     }
@@ -407,18 +463,18 @@ SECTION 02 - 소개 섹션
         }
         
         img {
-            height: 300px;
+            height: 30rem;
             opacity: 1; // 모든 이미지 투명도 동일하게 설정
         }
         
         .first-image img,
         .last-image img {
-            height: 300px; // 모든 이미지 동일한 높이로 설정
+            height: 30rem; // 모든 이미지 동일한 높이로 설정
             opacity: 1; // 투명도 제거
         }
         
         .main-image img {
-            height: 350px;
+            height: 35rem;
             transform: scale(1); // 크기 조정 제거
         }
     }
@@ -483,7 +539,6 @@ SECTION 02 - 소개 섹션
     // 카드 컨테이너 스타일
     .card-container {
         margin-top: 1rem;
-        // margin-bottom: 5rem;
     }
     
     // 제품 카드 스타일
@@ -529,16 +584,94 @@ SECTION 02 - 소개 섹션
     }
 }
 
+/* ==========================================================================
+DATA SECTION - 데이터 섹션
+========================================================================== */
+.data-section {
+    background-color: #e0ede0;
+    padding: 8rem 0;
+    
+    .title{
+        margin-bottom: 6.2rem;
+        font-weight: 700;
+    }
+    
+    .card {
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        height: 100%;
+        padding: 0 3rem;
+        position: relative; // 상대적 위치 설정
+        
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .display-5 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        h2{
+            margin-bottom: 1.4rem;
+            margin-top: 7rem;
+            font-weight: 700;
+            font-size: 3.8rem;
+            color: map-get(variables.$gray-scale, 900);
+        }
+        
+        p {
+            color: map-get(variables.$gray-scale, 500);
+            font-size: 1.8rem;
+            margin-bottom: 4.2rem;
+        }
+        
+        .bg-dark {
+            background-color: #333 !important;
+        }
+        
+        // 검은 동그라미 컨테이너 스타일
+        .dot-container {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            z-index: 1;
+        }
+        
+        // 검은 동그라미 스타일
+        .black-dot {
+            width: 14px;
+            height: 14px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .card {
+            margin-bottom: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+}
+
+
 
 /* ==========================================================================
 SECTION 04 - 앱 소개 섹션
    ========================================================================== */
 .sec04{
-    padding: 40px 0 80px 0;
+    /* 패딩은 공통 스타일로 이동됨 (3rem) */
     background: linear-gradient(to Top, #EEEEEE, #FFFFFF);
     
     .container{
-        padding-top: 5rem;
         height: fit-content;
     }
     
@@ -570,59 +703,62 @@ SECTION 04 - 앱 소개 섹션
         font-size: 1.5rem;
         width: 80%;
         font-weight: 400;
-        line-height: 1.6;
+        line-height: 1.8;
+        letter-spacing: 0.05em;
         color: map-get(variables.$gray-scale, 500);
         margin-bottom: 6.7rem;
     }
-    .btn-learn-more{
-        font-size: 1.6rem;
-        font-weight: 600;
-        color: map-get(variables.$gray-scale, 700);
+    .cta {
         position: relative;
-        display: inline-block;
-        text-decoration: none;
+        margin: auto;
+        padding: 12px 18px;
+        transition: all 0.2s ease;
+        border: none;
+        background: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+    }
+    .cta:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        border-radius: 50px;
+        background: #D5E7D9;
+        width: 45px;
+        height: 45px;
         transition: all 0.3s ease;
-        padding-right: 10px;
-        
-        // 밑줄 애니메이션을 위한 가상 요소
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: map-get(variables.$gray-scale, 900);
-            transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        
-        // 화살표 아이콘 스타일
-        img {
-            display: inline-block;
-            margin-left: 8px;
-            transform: translateX(0);
-            transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-        }
-        
-        // 호버 시 효과
-        &:hover {
-            color: darken(map-get(variables.$gray-scale, 700), 15%);
-            
-            // 밑줄 확장 애니메이션
-            &::after {
-                width: calc(100% - 30px); // 화살표 아이콘 제외
-            }
-            
-            // 화살표 이동 애니메이션
-            img {
-                transform: translateX(8px);
-            }
-        }
-        
-        // 클릭 효과
-        &:active {
-            transform: scale(0.97);
-        }
+    }
+    .cta span {
+        position: relative;
+        font-size: 1.8rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: #277058;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .cta i {
+        position: relative;
+        font-size: 2rem;
+        color: #277058;
+        margin-left: .6rem;
+        transform: translateX(-5px);
+        transition: all 0.3s ease;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .cta:hover:before {
+        width: 100%;
+        background: #D5E7D9;
+    }
+    .cta:hover i {
+        transform: translateX(0);
+    }
+    .cta:active {
+        transform: scale(0.95);
     }
 }
 
@@ -634,7 +770,7 @@ SECTION 04 - 앱 소개 섹션
             text-align: center;
             align-items: center;
             justify-content: center;
-            
+
             .description {
                 width: 70%;
                 margin-left: auto;
@@ -648,13 +784,14 @@ SECTION 04 - 앱 소개 섹션
             }
         }
         
-        /* 991px 이하에서 sec04 이미지 숨기기 */
         .sec04-image-container {
             display: none;
-        }
-        
-        .sec04-img {
-            display: none;
+            
+            .sec04-img{
+                img{
+                    display: none;
+                }
+            }
         }
     }
 }
@@ -664,7 +801,7 @@ SECTION 04 - 앱 소개 섹션
     .container{
         height: fit-content;
     }
-    padding: 80px 0;
+    /* 패딩은 공통 스타일로 이동됨 (3rem) */
     
     .title{
         font-size: 4.2rem;
@@ -852,7 +989,7 @@ SECTION 04 - 앱 소개 섹션
 SECTION 06 - 스토리 섹션
    ========================================================================== */
 .sec06 {
-    padding: 100px 0;
+    /* 패딩은 공통 스타일로 이동됨 (3rem) */
     background-color: #D5E7D9; 
     
     .container {
@@ -889,57 +1026,54 @@ SECTION 06 - 스토리 섹션
             line-height: 1.6;
             text-align: left;
         }
-        
-        // Learn More 버튼 스타일
-        .btn-learn-more{
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: map-get(variables.$gray-scale, 700);
+        .cta {
             position: relative;
-            display: inline-block;
-            text-decoration: none;
+            margin: auto;
+            padding: 12px 18px;
+            transition: all 0.2s ease;
+            border: none;
+            background: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        .cta:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            border-radius: 50px;
+            background: #bad5c0;
+            width: 45px;
+            height: 45px;
             transition: all 0.3s ease;
-            padding-right: 10px;
-            
-            // 밑줄 애니메이션을 위한 가상 요소
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 0;
-                width: 0;
-                height: 2px;
-                background-color: map-get(variables.$gray-scale, 900);
-                transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-            }
-            
-            // 화살표 아이콘 스타일
-            img {
-                display: inline-block;
-                margin-left: 8px;
-                transform: translateX(0);
-                transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-            }
-            
-            // 호버 시 효과
-            &:hover {
-                color: darken(map-get(variables.$gray-scale, 700), 15%);
-                
-                // 밑줄 확장 애니메이션
-                &::after {
-                    width: calc(100% - 30px); // 화살표 아이콘 제외
-                }
-                
-                // 화살표 이동 애니메이션
-                img {
-                    transform: translateX(8px);
-                }
-            }
-            
-            // 클릭 효과
-            &:active {
-                transform: scale(0.97);
-            }
+        }
+        .cta span {
+            position: relative;
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: #277058;
+        }
+        .cta i {
+            position: relative;
+            font-size: 2rem;
+            color: #277058;
+            top: 0;
+            margin-left: .6rem;
+            transform: translateX(-5px);
+            transition: all 0.3s ease;
+        }
+        .cta:hover:before {
+            width: 100%;
+            background: #bad5c0;
+        }
+        .cta:hover i {
+            transform: translateX(0);
+        }
+        .cta:active {
+            transform: scale(0.95);
         }
     }
 }
@@ -951,6 +1085,13 @@ SECTION 06 - 스토리 섹션
             text-align: center;
             align-items: center;
             justify-content: center;
+            .title{
+                text-align: center;
+            }
+            .description{
+                text-align: center;
+                opacity: 0.7;
+            }
         }
         .story-content p{
             width: 70%;
@@ -965,7 +1106,7 @@ SECTION 06 - 스토리 섹션
 SECTION 07 - 후기 섹션
    ========================================================================== */
 .sec07 {
-    padding: 100px 0;
+    /* 패딩은 공통 스타일로 이동됨 (3rem) */
     background-color: #F9F9F9;
     
     .container {
@@ -998,6 +1139,12 @@ SECTION 07 - 후기 섹션
             .testimonial-card {
                 filter: blur(2px); // 블러 효과 추가
                 opacity: 0.7; // 투명도 추가
+            }
+        }
+        // 호버 시 블러 효과 제거
+        &:not(.active):hover {
+            .testimonial-card {
+                filter: blur(1px) brightness(0.95); // 호버 시 블러 감소
             }
         }
         
@@ -1036,7 +1183,7 @@ SECTION 07 - 후기 섹션
         background: rgba(255, 255, 255, 0.7);
         backdrop-filter: blur(5px);
         border-radius: 0 0 12px 12px;
-        transform: translateY(100%); // 기본적으로 숨겨진 상태
+        transform: translateY(100%); // 데스크탑에서는 기본적으로 숨겨진 상태
         transition: transform 0.5s ease;
     }
     
@@ -1085,20 +1232,62 @@ SECTION 07 - 후기 섹션
             margin-bottom: 4rem;
         }
         
-        .testimonial-item {
-            margin-bottom: 20px;
-            
-            // 모바일에서도 선택되지 않은 카드의 이미지에 딤 처리 유지
-            &:not(.active) img {
-                filter: brightness(0.7) sepia(0.2) hue-rotate(120deg) saturate(0.8);
-                opacity: 0.85;
+        /* 첫 번째 리뷰는 991px부터 안 보이게 설정 */
+        #testimonial-1 {
+            display: none !important;
+        }
+        
+        /* 두 번째 카드 이미지 위치 조정 */
+        #testimonial-2 {
+            img {
+                object-position: center top !important; /* 사진의 위쪽 부분을 보이게 설정 */
+                object-fit: cover !important;
+                height: 100% !important;
             }
         }
         
+        .testimonial-item {
+            margin-bottom: 20px;
+            height: 30rem;
+        }
+        
+        /* 991px 이하에서는 모든 카드에 블러 효과 제거 */
+        .testimonial-card {
+            filter: none !important;
+            opacity: 1 !important;
+            height: 50rem;
+            display: flex !important;
+            flex-direction: column !important;
+        }
+        
+        /* 991px 이하에서는 모든 리뷰가 기본적으로 보이도록 설정 */
         .testimonial-bubble {
-            transform: translateY(0); // 모바일에서는 항상 표시
-            position: relative;
+            transform: none !important; // 모바일에서는 항상 표시
+            position: static !important; // absolute 제거
             background: #fff;
+            display: block !important;
+            margin-top: 10px !important;
+            height: auto !important;
+            visibility: visible !important;
+        }
+        
+        /* 이미지에도 블러 효과 제거 */
+        img {
+            filter: none !important;
+            opacity: 1 !important;
+            max-height: 200px !important; // 이미지 높이 제한
+        }
+        
+        /* 활성화 여부와 상관없이 모든 카드의 리뷰 표시 */
+        .testimonial-item:not(.active) .testimonial-bubble {
+            transform: none !important;
+            display: block !important;
+            visibility: visible !important;
+        }
+        
+        /* 추가 - 리뷰 카드 전체 스타일 재정의 */
+        .testimonial-item, .testimonial-card {
+            overflow: visible !important;
         }
     }
     
@@ -1237,7 +1426,7 @@ SECTION 07 - 후기 섹션
         }
         
         .btn-close {
-            font-size: 1rem;
+            font-size: 1.8rem;
             opacity: 0.7;
             transition: all 0.3s ease;
             
@@ -1247,7 +1436,51 @@ SECTION 07 - 후기 섹션
             }
         }
     }
-    
+    button {
+        font-family: inherit;
+        font-size: 1.8rem;
+        background: #398989;
+        color: white;
+        padding: 1.5rem 2.4rem;
+        padding-left: 0.9em;
+        display: flex;
+        align-items: center;
+        border: none;
+        border-radius: 16px;
+        overflow: hidden;
+        transition: all 0.2s;
+        cursor: pointer;
+    }
+    button span {
+        display: block;
+        margin-left: 0.3em;
+        transition: all 0.3s ease-in-out;
+    }
+    button svg {
+        display: block;
+        transform-origin: center center;
+        transition: transform 0.3s ease-in-out;
+    }
+    button:hover .svg-wrapper {
+        animation: fly-1 0.6s ease-in-out infinite alternate;
+    }
+    button:hover svg {
+        transform: translateX(1.2em) rotate(45deg) scale(1.1);
+    }
+    button:hover span {
+        transform: translateX(5em);
+    }
+    button:active {
+        transform: scale(0.95);
+    }
+    @keyframes fly-1 {
+        from {
+            transform: translateY(0.1em);
+        }
+        to {
+            transform: translateY(-0.1em);
+        }
+    }
     &-body {
         padding: 2.4rem;
         
@@ -1433,6 +1666,15 @@ SECTION 07 - 후기 섹션
     }
     
     // 반응형 스타일
+    @media (max-width: 991px){
+        #testimonial-2{
+            .testimonial-card img{
+                object-position: center 60%;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
+    }
     @media (max-width: 768px){
         padding: 4rem 0 2rem;
         

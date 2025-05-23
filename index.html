@@ -6,6 +6,17 @@
     <title>POKETA</title>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- regular 스타일 -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"
+/>
+
+<!-- bold 스타일 -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
+/>
 
 </head>
 <body>
@@ -79,23 +90,23 @@
                     </div>
                 </div>
             </div>
-            <div class="row g-4 justify-content-center sec02-images">
-                <!-- 첫 번째 이미지 -->
-                <div class="col-lg-3 col-md-12 col-sm-10 image-card first-image">
-                    <div class="image-wrapper">
-                        <img src="assets/images/sec02-1.png" alt="sec02-img1" class="img-fluid">
+            <div class="row g-4 justify-content-center sec02-videos">
+                <!-- 첫 번째 영상 (기본 활성화) -->
+                <div class="col-lg-6 col-md-12 col-sm-12 video-item active" id="video-1">
+                    <div class="video-wrapper h-100">
+                        <video src="assets/videos/review1.mp4" alt="sec02-video1" class="video-content" autoplay muted loop playsinline></video>
                     </div>
                 </div>
-                <!-- 두 번째 이미지 -->
-                <div class="col-lg-6 col-md-12 col-sm-10 image-card main-image">
-                    <div class="image-wrapper">
-                        <img src="assets/images/sec02-2.png" alt="sec02-img2" class="img-fluid">
+                <!-- 두 번째 영상 -->
+                <div class="col-lg-3 col-md-12 col-sm-10 video-item" id="video-2">
+                    <div class="video-wrapper h-100">
+                        <video src="assets/videos/review2.mp4" alt="sec02-video2" class="video-content" muted playsinline></video>
                     </div>
                 </div>
-                <!-- 세 번째 이미지 -->
-                <div class="col-lg-3 col-md-12 col-sm-10 image-card last-image">
-                    <div class="image-wrapper">
-                        <img src="assets/images/sec02-3.png" alt="sec02-img3" class="img-fluid">
+                <!-- 세 번째 영상 -->
+                <div class="col-lg-3 col-md-12 col-sm-10 video-item" id="video-3">
+                    <div class="video-wrapper h-100">
+                        <video src="assets/videos/review3.mp4" alt="sec02-video3" class="video-content" muted playsinline></video>
                     </div>
                 </div>
             </div>
@@ -159,8 +170,56 @@
             </div>
         </div>
     </section>
+    <!-- Data Section -->
+    <section class="data-section" style="background-color: #e0ede0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="title">Proof in Every Sip</h2>
+                </div>
+            </div>
+            <div class="row">
+                <!-- 첫 번째 데이터 카드 -->
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card">
+                        <div class="dot-container">
+                            <div class="black-dot"></div>
+                        </div>
+                        <div class="card-body">
+                            <h2>128,000+</h2>
+                            <p>Nutrients Tracked</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 두 번째 데이터 카드 -->
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card">
+                        <div class="dot-container">
+                            <div class="black-dot"></div>
+                        </div>
+                        <div class="card-body">
+                            <h2>53,000+</h2>
+                            <p>Custom Drinks</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- 세 번째 데이터 카드 -->
+                <div class="col-md-4 col-sm-12 mb-4">
+                    <div class="card">
+                        <div class="dot-container">
+                            <div class="black-dot"></div>
+                        </div>
+                        <div class="card-body">
+                            <h2>83%</h2>
+                            <p>Repurchase rate</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Section 04 -->
-    <section id="about" class="sec04">
+    <section class="sec04">
         <div class="container">
             <div class="row align-items-center">
                 <!-- 왼쪽 텍스트 영역 -->
@@ -169,11 +228,14 @@
                         <p class="subtitle">Look Back, Sip Smarter</p>
                         <h2 class="title">Your drinks, vitamins, <br>daily wellness-all in one!</h2>
                         <p class="description">
-                            Your Poketa app keeps track of every blend you've tried - 
+                            Your Poketa app keeps track of every blend you've tried  
                             from your first sip to your latest boost. Check your flavor 
                             favorites, nutrition stats, and personalized recs anytime.
                         </p>
-                        <a href="#" class="btn-learn-more">Learn More <img src="assets/images/icon/arrow.png" alt="arrow"></a>
+                        <a href="App.html" class="cta">
+                            <span>Learn More</span>
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
                     </div>
                 </div>
                 
@@ -185,7 +247,7 @@
         </div>
     </section>
     <!-- Section 05 -->
-    <section id="fnq" class="sec05 custom-padding">
+    <section id="about" class="sec05 custom-padding">
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-md-8 text-center">
@@ -262,7 +324,10 @@
                         <p class="description mb-6">
                             Using patented chip technology, our vending machines analyze your biomarkers in real-time to create personalized drinks for your daily health.
                         </p>
-                        <a href="#" class="btn-learn-more">Learn More <img src="assets/images/icon/arrow.png" alt="arrow"></a>
+                        <a href="App.html" class="cta">
+                            <span>Learn More</span>
+                            <i class="ph-bold ph-arrow-up-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -461,12 +526,104 @@
 
     <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/js/script.js"></script>
-    
-    <!-- 리뷰 카드 확장 기능을 위한 스크립트 -->
     <script>
-        // 페이지 로드 완료 후 실행
         document.addEventListener('DOMContentLoaded', function() {
+            // 모바일 메뉴 토글
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            if (hamburgerMenu) {
+                hamburgerMenu.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+            
+            // sec02 비디오 카드 기능 구현
+            const videoItems = document.querySelectorAll('.video-item');
+            
+            // 모든 비디오 카드의 높이를 동일하게 맞추는 함수
+            function equalizeVideoHeights() {
+                // 첫 번째 비디오 카드의 높이 가져오기
+                const firstVideoItem = document.getElementById('video-1');
+                if (!firstVideoItem) return;
+                
+                const firstVideoHeight = firstVideoItem.offsetHeight;
+                
+                // 모든 비디오 카드에 동일한 높이 적용
+                videoItems.forEach(item => {
+                    item.style.height = `${firstVideoHeight}px`;
+                    
+                    // 비디오 요소에도 동일한 높이 적용
+                    const videoWrapper = item.querySelector('.video-wrapper');
+                    if (videoWrapper) {
+                        videoWrapper.style.height = '100%';
+                    }
+                });
+            }
+            
+            // 페이지 로드 후 및 리사이즈 시 높이 동기화
+            window.addEventListener('load', equalizeVideoHeights);
+            window.addEventListener('resize', equalizeVideoHeights);
+            
+            // 각 비디오 카드에 호버 이벤트 리스너 추가
+            videoItems.forEach(item => {
+                // 비디오 요소 가져오기
+                const video = item.querySelector('video');
+                
+                // 초기 상태 설정 - 활성화된 카드만 비디오 재생
+                if (item.classList.contains('active')) {
+                    video.play();
+                    video.loop = true;
+                } else {
+                    video.pause();
+                    video.currentTime = 0;
+                    video.loop = false;
+                }
+                
+                // 마우스 오버 이벤트 리스너 추가
+                item.addEventListener('mouseenter', function() {
+                    // 이미 활성화된 카드면 아무 작업도 하지 않음
+                    if (this.classList.contains('active')) return;
+                    
+                    // 현재 활성화된 카드 찾기
+                    const activeItem = document.querySelector('.video-item.active');
+                    const activeVideo = activeItem.querySelector('video');
+                    
+                    // 현재 활성화된 카드의 비디오 일시정지
+                    activeVideo.pause();
+                    activeVideo.currentTime = 0;
+                    activeVideo.loop = false;
+                    
+                    // 현재 활성화된 카드의 active 클래스 제거
+                    activeItem.classList.remove('active');
+                    
+                    // 호버한 카드에 active 클래스 추가
+                    this.classList.add('active');
+                    
+                    // 호버한 카드의 비디오 재생
+                    video.play();
+                    video.loop = true;
+                    
+                    // 카드 크기 조정
+                    videoItems.forEach(card => {
+                        // 기본 크기로 초기화
+                        card.classList.remove('col-lg-6');
+                        card.classList.remove('col-lg-3');
+                        
+                        // 활성화된 카드는 크게, 나머지는 작게 설정
+                        if (card === this) {
+                            card.classList.add('col-lg-6');
+                        } else {
+                            card.classList.add('col-lg-3');
+                        }
+                    });
+                    
+                    // 높이 동기화 다시 적용
+                    setTimeout(equalizeVideoHeights, 100);
+                });
+            });
+            
             // 모든 리뷰 카드 요소 가져오기
             const testimonialItems = document.querySelectorAll('.testimonial-item');
             
@@ -526,8 +683,27 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="sendMessageBtn">Send Message</button>
+                    <button type="button" class="btn btn-secondary" 
+                    data-bs-dismiss="modal "sendMessageBtn">Close</button>
+                    <button>
+                        <div class="svg-wrapper-1">
+                            <div class="svg-wrapper">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    width="24"
+                                    height="24"
+                                >
+                                    <path fill="none" d="M0 0h24v24H0z"></path>
+                                    <path
+                                        fill="currentColor"
+                                        d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                                    ></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <span>Send</span>
+                    </button>
                 </div>
             </div>
         </div>

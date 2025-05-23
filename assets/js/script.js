@@ -1,5 +1,6 @@
 // 햄버거 메뉴 토글 기능
 document.addEventListener('DOMContentLoaded', function() {
+    
     // 햄버거 메뉴 버튼과 네비게이션 메뉴 요소 가져오기
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.nav-menu');
@@ -60,4 +61,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // 현재 스크롤 위치 저장 (다음 이벤트와 비교하기 위함)
         lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
     });
+    
+
 });
