@@ -1,0 +1,17 @@
+@use 'common';
+
+// 히어로 섹션
+.hero{
+    height: 100vh;
+    background-color: #F1F3F5;
+    padding: 12rem 0;
+
+    .title{
+        h2{
+            color: #1F2124;
+            font-size: 5.2rem;
+        }
+    }
+
+
+}
