@@ -150,6 +150,8 @@
     
     .team-members {
         max-width: 1200px;
+        margin: 0 auto 6.2rem;
+        padding: 0 1.5rem;
     }
     
     .member-card {
@@ -168,15 +170,8 @@
         }
         
         .member-info {
-            background-color: #fff;
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 1.5rem 3rem; /* 좌우 패딩 늘림 */
-            border-radius: 14px;
-            min-width: 80%; /* 최소 너비 설정 */
-            text-align: left /* 텍스트 중앙 정렬 */
+            padding: 1.6rem;
+            position: relative;
             
             h4 {
                 color: #1F2124;
@@ -190,6 +185,25 @@
                 font-size: 1.4rem;
                 font-weight: 400;
                 margin-bottom: 0;
+            }
+            
+            .plus-icon {
+                position: absolute;
+                right: 1.6rem;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: #1F2124;
+                color: white;
+                width: 2.4rem;
+                height: 2.4rem;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                
+                i {
+                    font-size: 1.4rem;
+                }
             }
         }
     }
