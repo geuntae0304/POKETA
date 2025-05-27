@@ -1,0 +1,177 @@
+@use 'variables';
+// 컴포넌트 | 버튼, 카드, 폼 등 재사용 가능한 UI 단위 컴포넌트
+
+
+
+// Header
+
+.header {
+    width: 100%; 
+    padding: 2rem 0; // 좌우 패딩 제거하고 상하 패딩만 적용
+    background-color: map-get(variables.$gray-scale, 900);
+    color: map-get(variables.$gray-scale, white);
+    position: fixed; // 고정 위치로 변경
+    top: 0; // 상단에 고정
+    left: 0;
+    right: 0;
+    z-index: 1000; // 다른 요소보다 위에 표시
+    overflow-x: hidden; // 좌우 스크롤 방지
+    transition: all 0.3s ease; // 모든 속성에 전환 효과 적용
+    
+    // 스크롤 시 숨겨질 때의 스타일
+    &.hide {
+        transform: translateY(-100%); // 위로 숨기기
+    }
+    
+    // 스크롤 시 스타일 변경 효과
+    &.scrolled {
+        margin: 1rem 2rem; // 상하좌우 여백 추가
+        border-radius: 9rem; // 둘근 모서리 적용
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); // 그림자 효과
+        width: calc(100% - 4rem); // 좌우 여백을 고려한 너비 조정
+    }
+    
+    // Bootstrap 그리드 시스템에 맞게 컨테이너 스타일 적용
+    .container {
+        position: relative;
+    }
+}
+
+// 헤더가 fixed 포지션이므로 body에 패딩 추가
+body {
+    padding-top: 80px; // 헤더 높이에 맞게 조정
+}
+
+// 햄버거 메뉴 스타일
+.hamburger-menu {
+    display: flex; // 기본적으로 표시, Bootstrap  -lg-none 클래스로 대형 화면에서 숨김
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;  
+    z-index: 10; // 다른 요소 위에 표시되도록 z-index 설정
+    
+    span {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: map-get(variables.$gray-scale, white);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+    }
+    
+    // 햄버거 메뉴 활성화 시 애니메이션 효과
+    &.active {
+        span {
+            &:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+    }
+}
+
+// 네비게이션 메뉴 스타일 
+
+.nav-menu {
+    display: flex;
+    gap: 5.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+    
+    a {
+        color: map-get(variables.$gray-scale, 500);
+        text-decoration: none;
+        font-size: 1.8rem;
+        font-weight: 400;
+        &:hover{
+            text-decoration: underline;
+            color: variables.$primary-color;
+            transition: all .2s ease;
+        }
+        &:active{
+            font-weight: 500;
+        }
+    }
+}
+// 반응형 스타일 추가 - Bootstrap 5의 lg 중단점(992px)에 맞춤
+@media (max-width: 992px) {
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%; // 초기에는 화면 밖으로 숨김
+        width: 70%;
+        height: 100vh;
+        background-color: map-get(variables.$gray-scale, 900);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        padding: 2rem;
+        z-index: 5;
+        transition: right 0.3s ease;
+        
+        &.active {
+            right: 0; // 메뉴 활성화 시 화면에 표시
+            display: flex; // 모바일에서 메뉴 활성화 시 표시
+        }
+        
+        li {
+            width: 100%;
+            text-align: center;
+        }
+        
+        a {
+            font-size: 2rem;
+            display: block;
+            padding: 1rem 0;
+        }
+    }
+}
+    
+// 작은 화면 반응형 스타일
+@media (max-width: 480px) {
+    .header .container {
+        padding: 0 1rem;
+    }
+    
+    .nav-menu {
+        width: 80%; // 더 작은 화면에서는 메뉴 너비 확장
+    }
+}
+
+// 버튼 스타일
+.btn {
+    display: inline-block;
+    padding: 1.2rem 2.4rem;
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.btn-contact {
+    background-color: variables.$tertiary-color;
+    color: white;
+    border: none;
+    
+    &:hover {
+        background-color: darken(variables.$tertiary-color, 10%);
+    }
+}

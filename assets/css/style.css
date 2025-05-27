@@ -114,14 +114,34 @@ body {
   text-decoration: none;
   font-size: 1.8rem;
   font-weight: 400;
+  position: relative;
+  padding-bottom: 0.3rem;
+  /* 호버 시 스타일 */
+  /* 클릭 시 스타일 */
+  /* 현재 페이지 표시 스타일 */
 }
 .nav-menu a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: #96CA94;
   transition: all 0.2s ease;
 }
 .nav-menu a:active {
   font-weight: 500;
+}
+.nav-menu a.active {
+  color: #96CA94;
+  font-weight: 600;
+  /* 밑줄 효과 */
+}
+.nav-menu a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #96CA94;
+  border-radius: 2px;
 }
 
 @media (max-width: 992px) {
@@ -856,6 +876,79 @@ body {
   font-size: 2rem;
   font-weight: 500;
   color: #D5E7D9;
+  padding: 1rem 2rem;
+  border-radius: 1.5rem;
+  position: relative;
+  transition: all 0.4s ease;
+  cursor: pointer;
+  overflow: hidden;
+  z-index: 1;
+  /* 기본 상태에서 배경이 보이지 않도록 투명도 0으로 설정 */
+  /* 각 가치별 효과 적용 */
+}
+.our-values .value-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 1.5rem;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.our-values .value-item:nth-child(1) {
+  color: #6CD8FF;
+}
+.our-values .value-item:nth-child(1):hover {
+  color: #1F2124;
+  transform: translateY(-5px);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.our-values .value-item:nth-child(1):hover::before {
+  background: linear-gradient(135deg, #64B6FF, #6CD8FF);
+  box-shadow: 0 5px 15px rgba(100, 182, 255, 0.5);
+  opacity: 1;
+}
+.our-values .value-item:nth-child(2) {
+  color: #FFB8B8;
+}
+.our-values .value-item:nth-child(2):hover {
+  color: #1F2124;
+  transform: translateY(-5px);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.our-values .value-item:nth-child(2):hover::before {
+  background: linear-gradient(135deg, #FF6B6B, #FFB8B8);
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+  opacity: 1;
+}
+.our-values .value-item:nth-child(3) {
+  color: #FFF3C4;
+}
+.our-values .value-item:nth-child(3):hover {
+  color: #1F2124;
+  transform: translateY(-5px);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.our-values .value-item:nth-child(3):hover::before {
+  background: linear-gradient(135deg, #FFD166, #FFF3C4);
+  box-shadow: 0 5px 15px rgba(255, 209, 102, 0.5);
+  opacity: 1;
+}
+.our-values .value-item:nth-child(4) {
+  color: #A5F8E7;
+}
+.our-values .value-item:nth-child(4):hover {
+  color: #1F2124;
+  transform: translateY(-5px);
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+.our-values .value-item:nth-child(4):hover::before {
+  background: linear-gradient(135deg, #06D6A0, #A5F8E7);
+  box-shadow: 0 5px 15px rgba(6, 214, 160, 0.5);
+  opacity: 1;
 }
 .our-values p {
   font-size: 1.6rem;
@@ -905,12 +998,18 @@ body {
   margin-right: 6.2rem;
 }
 .interview button {
+  position: relative;
   background-color: #1F2124;
   color: #fff;
   border-radius: 999rem;
   font-size: 1.6rem;
   font-weight: 500;
   padding: 1.2rem 2.4rem;
+  border: none;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  z-index: 1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .team {
@@ -936,7 +1035,7 @@ body {
 }
 .team .member-card {
   background-color: #F1F3F5;
-  border-radius: 2rem;
+  border-radius: 3.2rem;
   overflow: hidden;
   margin-bottom: 2rem;
   position: relative;
@@ -946,29 +1045,54 @@ body {
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  border-top-left-radius: 3.2rem;
+  border-top-right-radius: 3.2rem;
 }
 .team .member-card .member-info {
   background-color: #fff;
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
-  padding: 1.5rem 3rem; /* 좌우 패딩 늘림 */
-  border-radius: 14px;
+  padding: 2rem; /* 좌우 패딩 늘림 */
+  border-radius: 2rem;
   min-width: 80%; /* 최소 너비 설정 */
-  text-align: left h4;
-  text-align-color: #1F2124;
-  text-align-font-size: 1.8rem;
-  text-align-font-weight: 600;
-  text-align-margin-bottom: 0.4rem;
+  text-align: left;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  transition: all 0.3s ease; /* 부드러운 전환 효과 */
+}
+.team .member-card .member-info:hover {
+  transform: translateX(-50%) translateY(-5px); /* 위로 살짝 올라가는 효과 */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* 그림자 강화 */
+  cursor: pointer; /* 마우스 커서 변경 */
+}
+.team .member-card .member-info i {
+  font-size: 3.5rem;
+  transition: color 0.3s ease; /* 아이콘 색상 전환 효과 */
+  border-radius: 13px;
+}
+.team .member-card .member-info i:hover {
+  color: #1F2124; /* 아이콘에 호버 시 색상 변경 */
+}
+.team .member-card .member-info i:hover {
+  color: #7E9F85;
+}
+.team .member-card .member-info i:active {
+  color: #5b7660;
+}
+.team .member-card .member-info h4 {
+  color: #1F2124;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
 }
 .team .member-card .member-info p {
   color: #7B848D;
   font-size: 1.4rem;
   font-weight: 400;
-  margin-bottom: 0;
+  margin-bottom: 0rem;
 }
 .team .team-description {
   margin-top: 6.2rem;
