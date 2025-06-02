@@ -1,12 +1,11 @@
 @use 'common'; // 사이트 공통 스타일(기본/초기화)
 @use 'variables'; // 스타일 에셋 (컬러/폰트)
-@use 'components'; // 컴포넌트 (버튼/카드)
-@use 'animations'; // 애니메이션  
-@use 'responsive/_index' as responsive; // 모듈화된 반응형 스타일
+@use 'animations'; // 애니메이션
 
-// 서브페이지
-@use 'app'; // 서브페이지(app) 스타일
-@use 'ourstory'; // 서브페이지(ourstory) 스타일
+// 모듈화된 컴포넌트 및 페이지 스타일
+@use 'components/_index' as components; // 모듈화된 컴포넌트 스타일
+@use 'pages/_index' as pages; // 모듈화된 페이지 스타일
+@use 'responsive/_index' as responsive; // 모듈화된 반응형 스타일
 
 *{
     margin: 0;

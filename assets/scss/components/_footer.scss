@@ -1,0 +1,116 @@
+@use '../variables';
+
+// 푸터 스타일
+.footer {
+    background-color: map-get(variables.$gray-scale, 900);
+    color: map-get(variables.$gray-scale, white);
+    padding: 5rem 0 2rem;
+    
+    .container{
+        height: fit-content;
+    }
+
+    // 푸터 로고 스타일
+    .footer-logo {
+        max-width: 50px; // 로고 크기
+        height: auto;
+        margin-bottom: 1rem;
+    }
+    
+    // 브랜드 이름 스타일
+    h5 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #FFFFFF;
+        margin-bottom: 1rem;
+    }
+    
+    // 브랜드 태그라인 스타일
+    .footer-tagline {
+        font-size: 1.2rem;
+        color: #AAAAAA; // 약간 어두운 회색
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+    }
+    
+    // 푸터 섹션 제목 스타일
+    .footer-heading {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #FFFFFF;
+        margin-bottom: 1.5rem;
+        text-transform: uppercase; // 대문자로 표시
+        letter-spacing: 0.5px; // 글자 간격 조정
+    }
+    
+    // 푸터 링크 목록 스타일
+    .footer-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+            margin-bottom: 0.8rem;
+        }
+        
+        a {
+            color: #AAAAAA; // 약간 어두운 회색
+            text-decoration: none;
+            font-size: 1.3rem;
+            transition: color 0.3s ease;
+            
+            &:hover {
+                color: #FFFFFF; // 호버 시 흰색으로 변경
+                text-decoration: none;
+            }
+        }
+    }
+    
+    // 푸터 하단부 스타일
+    .footer-bottom {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333333; // 구분선
+        
+        // 저작권 텍스트 스타일
+        .copyright {
+            font-size: 0.9rem;
+            color: #777777; // 더 어두운 회색
+            margin-bottom: 0;
+        }
+        
+        // 소셜 미디어 링크 스타일
+        .social-links {
+            display: flex;
+            justify-content: flex-end; // 오른쪽 정렬
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            
+            li {
+                margin-left: 1rem;
+                
+                a {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 32px;
+                    height: 32px;
+                    border-radius: 50%;
+                    background-color: #333333; // 아이콘 배경색
+                    transition: background-color 0.3s ease;
+                    
+                    img {
+                        width: 16px;
+                        height: 16px;
+                        filter: brightness(0) invert(1); // SVG 아이콘을 흰색으로 변경
+                    }
+                    
+                    &:hover {
+                        background-color: #555555; // 호버 시 배경색 변경
+                    }
+                }
+            }
+        }
+    }
+}

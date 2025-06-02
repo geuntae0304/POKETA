@@ -9,7 +9,7 @@ import { initNavigation } from './common/navigation.js';
 import { initVideoCards } from './components/videoCards.js';
 import { initTestimonialCards } from './components/testimonialCards.js';
 import { initCountingAnimation } from './components/countingAnimation.js';
-import { initBlackDots } from './components/blackDots.js';
+// 검은색 동그라미 기능 제거
 import { initContactForm } from './components/contactForm.js';
 
 // DOM이 로드된 후 실행
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initVideoCards();
     initTestimonialCards();
     initCountingAnimation();
-    initBlackDots();
+    // 검은색 동그라미 기능 제거
     initContactForm();
     
     // AOS 초기화 확인

@@ -197,7 +197,11 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                 <!-- 첫 번째 데이터 카드 -->
                 <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-
+                        <div class="dot-container">
+                            <div class="black-dot" role="button" aria-label="자세한 정보 보기">
+                                <div class="dot-icon">i</div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <h2 class="counting-animation" data-value="128000" data-suffix="+">0</h2>
                             <p>Nutrients Tracked</p>
@@ -212,7 +216,11 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                 <!-- 두 번째 데이터 카드 -->
                 <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card">
-
+                        <div class="dot-container">
+                            <div class="black-dot" role="button" aria-label="자세한 정보 보기">
+                                <div class="dot-icon">i</div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <h2 class="counting-animation" data-value="53000" data-suffix="+">0</h2>
                             <p>Custom Drinks</p>
@@ -227,7 +235,11 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                 <!-- 세 번째 데이터 카드 -->
                 <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card">
-
+                        <div class="dot-container">
+                            <div class="black-dot" role="button" aria-label="자세한 정보 보기">
+                                <div class="dot-icon">i</div>
+                            </div>
+                        </div>
                         <div class="card-body">
                             <h2 class="counting-animation" data-value="83" data-suffix="%">0</h2>
                             <p>Repurchase rate</p>
@@ -605,6 +617,65 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
 
     <!-- 모듈화된 JavaScript 파일 로드 -->
     <script type="module" src="assets/js/index.js"></script>
+    
+    <!-- 검은 동그라미 버튼 클릭 기능을 위한 인라인 스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 검은 동그라미 버튼 클릭 이벤트
+            const blackDots = document.querySelectorAll('.black-dot');
+            blackDots.forEach(dot => {
+                dot.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // 클릭한 버튼이 있는 카드 찾기
+                    const card = this.closest('.card');
+                    if (!card) return;
+                    
+                    // 해당 카드의 상세 정보 찾기
+                    const cardDetail = card.querySelector('.card-detail');
+                    if (!cardDetail) return;
+                    
+                    // 모든 카드의 상세 정보 숨기기
+                    const allCardDetails = document.querySelectorAll('.card-detail');
+                    allCardDetails.forEach(detail => {
+                        if (detail !== cardDetail) {
+                            detail.classList.remove('active');
+                        }
+                    });
+                    
+                    // 현재 카드의 상세 정보 토글
+                    cardDetail.classList.toggle('active');
+                });
+            });
+            
+            // 닫기 버튼 클릭 이벤트
+            const closeButtons = document.querySelectorAll('.detail-close');
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // 가장 가까운 card-detail 찾기
+                    const cardDetail = this.closest('.card-detail');
+                    if (cardDetail) {
+                        cardDetail.classList.remove('active');
+                    }
+                });
+            });
+            
+            // 문서 클릭 시 모든 카드 상세 정보 숨기기
+            document.addEventListener('click', function(e) {
+                // 클릭된 요소가 검은 점이나 카드 상세 정보가 아닌 경우에만 처리
+                if (!e.target.closest('.black-dot') && !e.target.closest('.card-detail')) {
+                    const allCardDetails = document.querySelectorAll('.card-detail');
+                    allCardDetails.forEach(detail => {
+                        detail.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>

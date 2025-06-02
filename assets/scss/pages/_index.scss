@@ -1,0 +1,8 @@
+// 모든 페이지 스타일 파일을 통합하는 인덱스 파일
+// 이 파일은 메인 style.scss에서 @use 'pages' 형태로 임포트됩니다.
+
+// 각 페이지 스타일 파일을 forward하여 외부에서 접근 가능하게 함
+@forward 'home';
+@forward 'app';
+@forward 'ourstory';
+@forward 'ourstory-sections';
