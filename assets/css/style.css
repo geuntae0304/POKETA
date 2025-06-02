@@ -855,140 +855,230 @@ body {
 .our-values {
   background-color: #1F2124;
   padding: 12rem 0;
-}
-.our-values h2 {
-  color: #F8F9FA;
-  font-size: 4rem;
-  font-weight: 700;
-  margin-bottom: 6.8rem;
-  text-align: center;
-}
-.our-values .values-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  margin-bottom: 6.8rem;
-}
-@media (max-width: 768px) {
-  .our-values .values-wrapper {
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-}
-.our-values .value-item {
-  font-size: 2rem;
-  font-weight: 500;
-  color: #D5E7D9;
-  padding: 1rem 2rem;
-  border-radius: 1.5rem;
   position: relative;
-  transition: all 0.4s ease;
-  cursor: pointer;
   overflow: hidden;
-  z-index: 1;
-  /* 기본 상태에서 배경이 보이지 않도록 투명도 0으로 설정 */
-  /* 각 가치별 효과 적용 */
+  /* 배경 효과 추가 */
+  /* 카드 컨테이너 스타일 */
+  /* 카드 스타일 */
+  /* 카드 내부 컨테이너 */
+  /* 카드 앞면 */
+  /* 카드 뒷면 */
+  /* 모바일용 설명 텍스트 */
 }
-.our-values .value-item::before {
+.our-values::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  border-radius: 1.5rem;
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  background: radial-gradient(circle at 20% 30%, rgba(126, 159, 133, 0.15) 0%, rgba(31, 33, 36, 0) 50%);
+  z-index: 1;
 }
-.our-values .value-item:nth-child(1) {
+.our-values::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 80% 70%, rgba(108, 216, 255, 0.1) 0%, rgba(31, 33, 36, 0) 50%);
+  z-index: 1;
+}
+.our-values .container {
+  position: relative;
+  z-index: 2;
+}
+.our-values .section-title {
+  color: #F8F9FA;
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 6.8rem;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+}
+.our-values .values-container {
+  margin-top: 3rem;
+}
+.our-values .values-card-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  perspective: 1000px; /* 3D 효과를 위한 원근감 설정 */
+}
+.our-values .value-card {
+  width: 260px;
+  height: 320px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  cursor: pointer;
+  /* 호버 시 카드 회전 효과 */
+  /* 첫 번째 카드 (투명성) */
+  /* 두 번째 카드 (개인화) */
+  /* 세 번째 카드 (재미) */
+  /* 네 번째 카드 (지속가능성) */
+}
+.our-values .value-card:hover .value-card-inner {
+  transform: rotateY(180deg);
+}
+.our-values .value-card[data-value=transparency] .value-card-front {
+  background: linear-gradient(135deg, rgba(100, 182, 255, 0.2), rgba(108, 216, 255, 0.4));
+  border: 1px solid rgba(108, 216, 255, 0.3);
+  box-shadow: 0 8px 20px rgba(108, 216, 255, 0.2);
+}
+.our-values .value-card[data-value=transparency] .value-card-front .value-icon {
   color: #6CD8FF;
 }
-.our-values .value-item:nth-child(1):hover {
-  color: #1F2124;
-  transform: translateY(-5px);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+.our-values .value-card[data-value=personalization] .value-card-front {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 184, 184, 0.4));
+  border: 1px solid rgba(255, 184, 184, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.2);
 }
-.our-values .value-item:nth-child(1):hover::before {
-  background: linear-gradient(135deg, #64B6FF, #6CD8FF);
-  box-shadow: 0 5px 15px rgba(100, 182, 255, 0.5);
-  opacity: 1;
-}
-.our-values .value-item:nth-child(2) {
+.our-values .value-card[data-value=personalization] .value-card-front .value-icon {
   color: #FFB8B8;
 }
-.our-values .value-item:nth-child(2):hover {
-  color: #1F2124;
-  transform: translateY(-5px);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+.our-values .value-card[data-value=playfulness] .value-card-front {
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.2), rgba(255, 243, 196, 0.4));
+  border: 1px solid rgba(255, 243, 196, 0.3);
+  box-shadow: 0 8px 20px rgba(255, 209, 102, 0.2);
 }
-.our-values .value-item:nth-child(2):hover::before {
-  background: linear-gradient(135deg, #FF6B6B, #FFB8B8);
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
-  opacity: 1;
-}
-.our-values .value-item:nth-child(3) {
+.our-values .value-card[data-value=playfulness] .value-card-front .value-icon {
   color: #FFF3C4;
 }
-.our-values .value-item:nth-child(3):hover {
-  color: #1F2124;
-  transform: translateY(-5px);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+.our-values .value-card[data-value=sustainability] .value-card-front {
+  background: linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(165, 248, 231, 0.4));
+  border: 1px solid rgba(165, 248, 231, 0.3);
+  box-shadow: 0 8px 20px rgba(6, 214, 160, 0.2);
 }
-.our-values .value-item:nth-child(3):hover::before {
-  background: linear-gradient(135deg, #FFD166, #FFF3C4);
-  box-shadow: 0 5px 15px rgba(255, 209, 102, 0.5);
-  opacity: 1;
-}
-.our-values .value-item:nth-child(4) {
+.our-values .value-card[data-value=sustainability] .value-card-front .value-icon {
   color: #A5F8E7;
 }
-.our-values .value-item:nth-child(4):hover {
-  color: #1F2124;
-  transform: translateY(-5px);
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-}
-.our-values .value-item:nth-child(4):hover::before {
-  background: linear-gradient(135deg, #06D6A0, #A5F8E7);
-  box-shadow: 0 5px 15px rgba(6, 214, 160, 0.5);
-  opacity: 1;
-}
-.our-values .value-descriptions {
-  margin-top: 3rem;
-  min-height: 5rem;
+.our-values .value-card-inner {
   position: relative;
-  overflow: hidden;
-}
-.our-values .value-descriptions p {
-  transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
-  position: absolute;
-  left: 0;
-  right: 0;
-  opacity: 0;
-  transform: translateY(20px);
-  pointer-events: none;
   width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.5s ease-in-out;
+  transform-style: preserve-3d;
 }
-.our-values .value-descriptions p.active {
-  opacity: 1;
-  transform: translateY(0);
-  position: relative;
-  pointer-events: auto;
-}
-.our-values .value-descriptions p.hidden {
-  display: block;
-  opacity: 0;
-  transform: translateY(-20px);
+.our-values .value-card-front {
   position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
 }
-.our-values .value-descriptions p.fade-out {
-  opacity: 0;
-  transform: translateY(-20px);
+.our-values .value-card-front .value-icon {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.5s ease;
 }
-.our-values .value-descriptions p.fade-in {
-  opacity: 1;
-  transform: translateY(0);
+.our-values .value-card-front h3 {
+  color: #F8F9FA;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.our-values .value-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  border-radius: 20px;
+  background: rgba(31, 33, 36, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  /* 각 가치별 일렁이는 빛 효과 색상 - 색상 강화 */
+}
+.our-values .value-card-back p {
+  color: #F8F9FA;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.value-card[data-value=transparency] .our-values .value-card-back {
+  background: rgba(20, 25, 30, 0.9);
+  border-left: 3px solid #3498db;
+}
+.value-card[data-value=transparency] .our-values .value-card-back p {
+  color: #ffffff;
+}
+.value-card[data-value=personalization] .our-values .value-card-back {
+  background: rgba(20, 25, 30, 0.9);
+  border-left: 3px solid #e74c3c;
+}
+.value-card[data-value=personalization] .our-values .value-card-back p {
+  color: #ffffff;
+}
+.value-card[data-value=playfulness] .our-values .value-card-back {
+  background: rgba(20, 25, 30, 0.9);
+  border-left: 3px solid #f39c12;
+}
+.value-card[data-value=playfulness] .our-values .value-card-back p {
+  color: #ffffff;
+}
+.value-card[data-value=sustainability] .our-values .value-card-back {
+  background: rgba(20, 25, 30, 0.9);
+  border-left: 3px solid #2ecc71;
+}
+.value-card[data-value=sustainability] .our-values .value-card-back p {
+  color: #ffffff;
+}
+.our-values .value-card-back p {
+  color: #F8F9FA;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+.our-values .value-mobile-description {
+  margin-top: 3rem;
+  padding: 0 1.5rem;
+  display: none;
+}
+@media (max-width: 768px) {
+  .our-values .value-mobile-description {
+    display: block;
+  }
+}
+.our-values .value-mobile-description p {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #AAB2B9;
+  margin: 0 auto;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.our-values .value-mobile-description p.hidden {
+  display: none;
+}
+.our-values .value-mobile-description p.active {
+  display: block;
 }
 .our-values p {
   font-size: 1.6rem;

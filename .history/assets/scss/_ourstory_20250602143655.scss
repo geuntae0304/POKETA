@@ -36,7 +36,48 @@
     }
 }
 
-// 애니메이션 키프레임 제거
+//* 물결 효과 애니메이션 키프레임 */
+@keyframes subtle-shift {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(5px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+    75% {
+        transform: translateX(-5px) translateY(5px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes soft-pulse {
+    0% {
+        opacity: 0.4;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 0.4;
+    }
+}
+
+@keyframes subtle-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+}
 
 // 가치 섹션
 .our-values{
@@ -104,7 +145,7 @@
         height: 320px;
         position: relative;
         transform-style: preserve-3d;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.6s ease;
         cursor: pointer;
         
         /* 호버 시 카드 회전 효과 */
@@ -171,7 +212,7 @@
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
     }
     
@@ -221,50 +262,123 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         overflow: hidden;
         
-        p {
-            color: #F8F9FA;
-            font-size: 1.5rem;
-            font-weight: 400;
-            line-height: 1.6;
-            text-align: center;
-            position: relative;
-            z-index: 2;
+        
+        
+    
+        
+        /* 추가 빛 효과 */
+        .light-effect {
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+            border-radius: 35%;
+            animation: wave 10s infinite linear, pulse 4s infinite ease-in-out 0.5s, colorPulse 7s infinite ease-in-out 1s;
+            opacity: 0.4;
+            mix-blend-mode: screen;
         }
         
         /* 각 가치별 일렁이는 빛 효과 색상 - 색상 강화 */
         .value-card[data-value="transparency"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #3498db;
+            background: rgba(15, 20, 25, 0.85);
+            box-shadow: inset 0 0 40px rgba(108, 216, 255, 0.2), 0 0 20px rgba(108, 216, 255, 0.1);
+            border: 1px solid rgba(108, 216, 255, 0.2);
+            
+            &::before {
+                background: radial-gradient(ellipse at center, rgba(108, 216, 255, 0.5) 0%, rgba(108, 216, 255, 0) 70%);
+                opacity: 0.8;
+            }
+            
+            &::after {
+                background: radial-gradient(ellipse at center, rgba(108, 216, 255, 0.4) 0%, rgba(108, 216, 255, 0) 75%);
+                opacity: 0.6;
+            }
+            
+            .light-effect {
+                background: radial-gradient(ellipse at center, rgba(108, 216, 255, 0.35) 0%, rgba(108, 216, 255, 0) 60%);
+                opacity: 0.5;
+            }
             
             p {
-                color: #ffffff;
+                text-shadow: 0 0 15px rgba(108, 216, 255, 0.5);
+                color: rgba(255, 255, 255, 0.95);
             }
         }
         
         .value-card[data-value="personalization"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #e74c3c;
+            background: rgba(15, 20, 25, 0.85);
+            box-shadow: inset 0 0 40px rgba(255, 107, 107, 0.2), 0 0 20px rgba(255, 107, 107, 0.1);
+            border: 1px solid rgba(255, 107, 107, 0.2);
+            
+            &::before {
+                background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.5) 0%, rgba(255, 107, 107, 0) 70%);
+                opacity: 0.8;
+            }
+            
+            &::after {
+                background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.4) 0%, rgba(255, 107, 107, 0) 75%);
+                opacity: 0.6;
+            }
+            
+            .light-effect {
+                background: radial-gradient(ellipse at center, rgba(255, 107, 107, 0.35) 0%, rgba(255, 107, 107, 0) 60%);
+                opacity: 0.5;
+            }
             
             p {
-                color: #ffffff;
+                text-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
+                color: rgba(255, 255, 255, 0.95);
             }
         }
         
         .value-card[data-value="playfulness"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #f39c12;
+            background: rgba(15, 20, 25, 0.85);
+            box-shadow: inset 0 0 40px rgba(255, 209, 102, 0.2), 0 0 20px rgba(255, 209, 102, 0.1);
+            border: 1px solid rgba(255, 209, 102, 0.2);
+            
+            &::before {
+                background: radial-gradient(ellipse at center, rgba(255, 209, 102, 0.5) 0%, rgba(255, 209, 102, 0) 70%);
+                opacity: 0.8;
+            }
+            
+            &::after {
+                background: radial-gradient(ellipse at center, rgba(255, 209, 102, 0.4) 0%, rgba(255, 209, 102, 0) 75%);
+                opacity: 0.6;
+            }
+            
+            .light-effect {
+                background: radial-gradient(ellipse at center, rgba(255, 209, 102, 0.35) 0%, rgba(255, 209, 102, 0) 60%);
+                opacity: 0.5;
+            }
             
             p {
-                color: #ffffff;
+                text-shadow: 0 0 15px rgba(255, 209, 102, 0.5);
+                color: rgba(255, 255, 255, 0.95);
             }
         }
         
         .value-card[data-value="sustainability"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #2ecc71;
+            background: rgba(20, 25, 30, 0.85);
+            box-shadow: inset 0 0 30px rgba(6, 214, 160, 0.1);
+            
+            &::before {
+                background: radial-gradient(ellipse at center, rgba(6, 214, 160, 0.35) 0%, rgba(6, 214, 160, 0) 70%);
+                opacity: 0.7;
+            }
+            
+            &::after {
+                background: radial-gradient(ellipse at center, rgba(6, 214, 160, 0.3) 0%, rgba(6, 214, 160, 0) 75%);
+                opacity: 0.5;
+            }
+            
+            .light-effect {
+                background: radial-gradient(ellipse at center, rgba(6, 214, 160, 0.25) 0%, rgba(6, 214, 160, 0) 60%);
+                opacity: 0.4;
+            }
             
             p {
-                color: #ffffff;
+                text-shadow: 0 0 10px rgba(6, 214, 160, 0.3);
             }
         }
         

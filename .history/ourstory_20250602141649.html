@@ -103,7 +103,6 @@
                                             <h3>Transparency</h3>
                                         </div>
                                         <div class="value-card-back">
-                                            <div class="light-effect"></div>
                                             <p>We openly share every ingredient and process. Because you have the right to know exactly what you're drinking.</p>
                                         </div>
                                     </div>
@@ -117,7 +116,6 @@
                                             <h3>Personalization</h3>
                                         </div>
                                         <div class="value-card-back">
-                                            <div class="light-effect"></div>
                                             <p>Everyone is different. POKETA provides a personalized wellness experience tailored to your unique health needs.</p>
                                         </div>
                                     </div>
@@ -131,7 +129,6 @@
                                             <h3>Playfulness</h3>
                                         </div>
                                         <div class="value-card-back">
-                                            <div class="light-effect"></div>
                                             <p>Health should be enjoyable. We strive to make wellness a fun and accessible experience for everyone.</p>
                                         </div>
                                     </div>
@@ -145,7 +142,6 @@
                                             <h3>Sustainability</h3>
                                         </div>
                                         <div class="value-card-back">
-                                            <div class="light-effect"></div>
                                             <p>We're creating a healthier world through sustainable practices that consider the well-being of our planet.</p>
                                         </div>
                                     </div>
@@ -400,129 +396,34 @@
 <!-- JavaScript 코드 추가 -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // 카드 효과 관련 초기화
-        initValueCards();
+        // 가치 아이템 요소들 가져오기
+        const valueItems = document.querySelectorAll('.value-item');
         
-        // 패럴랙스 효과 초기화 확인
-        if (typeof initParallaxEffect === 'function') {
-            initParallaxEffect();
-        }
-        
-        // AOS 초기화 확인
-        if (typeof AOS !== 'undefined') {
-            AOS.refresh();
-        }
-    });
-    
-    // 가치 카드 초기화 함수
-    function initValueCards() {
-        // 가치 카드 요소들 가져오기
-        const valueCards = document.querySelectorAll('.value-card');
-        
-        // 모바일용 설명 텍스트 관련
-        const defaultMobileDesc = document.getElementById('default-value-mobile');
-        
-        // 각 카드에 클릭 이벤트 추가 (모바일용)
-        valueCards.forEach(card => {
-            // 터치 이벤트를 위한 플립 토글 기능 (모바일용)
-            card.addEventListener('touchstart', function(e) {
-                // 터치 이벤트에서는 카드 플립 수동 토글
-                const inner = this.querySelector('.value-card-inner');
-                inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
-                
-                // 모바일용 설명 텍스트 업데이트
+        // 각 가치 아이템에 클릭 이벤트 추가
+        valueItems.forEach(item => {
+            item.addEventListener('click', function() {
+                // 현재 선택된 가치 값 가져오기
                 const value = this.getAttribute('data-value');
-                updateMobileDescription(value);
                 
-                e.preventDefault(); // 기본 동작 방지
-            });
-            
-            // 클릭 이벤트 (데스크탑용)
-            card.addEventListener('click', function() {
-                // 모바일용 설명 텍스트 업데이트
-                const value = this.getAttribute('data-value');
-                updateMobileDescription(value);
-            });
-        });
-        
-        // 효과 추가: 카드에 마우스 이동 시 3D 틸트 효과
-        valueCards.forEach(card => {
-            card.addEventListener('mousemove', function(e) {
-                // 마우스 위치에 따른 틸트 효과 계산
-                const rect = this.getBoundingClientRect();
-                const x = e.clientX - rect.left; // 카드 내부에서의 X 좌표
-                const y = e.clientY - rect.top;  // 카드 내부에서의 Y 좌표
-                
-                // 카드 중앙에서의 상대적 위치 (-1 ~ 1 범위)
-                const centerX = (x / rect.width) * 2 - 1;
-                const centerY = (y / rect.height) * 2 - 1;
-                
-                // 틸트 각도 제한 (최대 10도)
-                const tiltX = centerY * 10;
-                const tiltY = -centerX * 10;
-                
-                // 틸트 효과 적용 (카드가 플립되지 않았을 때만)
-                const inner = this.querySelector('.value-card-inner');
-                if (inner.style.transform !== 'rotateY(180deg)') {
-                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
-                }
-                
-                // 반짝임 효과 (기본 카드 앞면에만)
-                const front = this.querySelector('.value-card-front');
-                const glareX = (centerX + 1) / 2 * 100; // 0~100% 범위로 변환
-                const glareY = (centerY + 1) / 2 * 100;
-                front.style.background = `
-                    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)),
-                    radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.2), transparent 80%),
-                    ${getCardGradient(this.getAttribute('data-value'))}
-                `;
-            });
-            
-            // 마우스가 카드를 떠날 때 원래 상태로 복규
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-                
-                // 배경 그라디언트 복규
-                const front = this.querySelector('.value-card-front');
-                front.style.background = getCardGradient(this.getAttribute('data-value'));
-            });
-        });
-        
-        // 모바일용 설명 텍스트 업데이트 함수
-        function updateMobileDescription(value) {
-            // 모바일용 설명 텍스트 업데이트
-            if (window.innerWidth <= 768) {
-                const allMobileDescs = document.querySelectorAll('.value-mobile-description p');
-                allMobileDescs.forEach(desc => {
+                // 모든 설명 텍스트 숨기기
+                const allDescriptions = document.querySelectorAll('.value-descriptions p');
+                allDescriptions.forEach(desc => {
                     desc.classList.remove('active');
                     desc.classList.add('hidden');
                 });
                 
-                // 선택된 가치에 해당하는 설명 텍스트 표시
-                const cardBack = document.querySelector(`.value-card[data-value="${value}"] .value-card-back p`);
-                if (cardBack && defaultMobileDesc) {
-                    defaultMobileDesc.textContent = cardBack.textContent;
-                    defaultMobileDesc.classList.remove('hidden');
-                    defaultMobileDesc.classList.add('active');
+                // 선택된 가치에 해당하는 설명 표시
+                const selectedDescription = document.getElementById(`${value}-value`);
+                if (selectedDescription) {
+                    selectedDescription.classList.remove('hidden');
+                    selectedDescription.classList.add('active');
                 }
-            }
-        }
-        
-        // 카드 가치별 그라디언트 반환 함수
-        function getCardGradient(value) {
-            switch(value) {
-                case 'transparency':
-                    return 'linear-gradient(135deg, rgba(100, 182, 255, 0.2), rgba(108, 216, 255, 0.4))';
-                case 'personalization':
-                    return 'linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 184, 184, 0.4))';
-                case 'playfulness':
-                    return 'linear-gradient(135deg, rgba(255, 209, 102, 0.2), rgba(255, 243, 196, 0.4))';
-                case 'sustainability':
-                    return 'linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(165, 248, 231, 0.4))';
-                default:
-                    return 'linear-gradient(135deg, rgba(31, 33, 36, 0.2), rgba(31, 33, 36, 0.4))';
-            }
-        }
-    }
+                
+                // 선택된 가치 아이템 스타일 변경
+                valueItems.forEach(v => v.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    });
 </script>
 </html>

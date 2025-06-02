@@ -36,8 +36,6 @@
     }
 }
 
-// 애니메이션 키프레임 제거
-
 // 가치 섹션
 .our-values{
     background-color: #1F2124;
@@ -81,7 +79,19 @@
         text-align: center;
         position: relative;
         display: inline-block;
-    
+        
+        /* 타이틀 밑에 장식 효과 */
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #64B6FF, #06D6A0);
+            border-radius: 2px;
+        }
     }
     
     /* 카드 컨테이너 스타일 */
@@ -104,7 +114,7 @@
         height: 320px;
         position: relative;
         transform-style: preserve-3d;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         cursor: pointer;
         
         /* 호버 시 카드 회전 효과 */
@@ -171,7 +181,7 @@
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
     }
     
@@ -219,7 +229,6 @@
         padding: 2rem;
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
         
         p {
             color: #F8F9FA;
@@ -227,55 +236,6 @@
             font-weight: 400;
             line-height: 1.6;
             text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* 각 가치별 일렁이는 빛 효과 색상 - 색상 강화 */
-        .value-card[data-value="transparency"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #3498db;
-            
-            p {
-                color: #ffffff;
-            }
-        }
-        
-        .value-card[data-value="personalization"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #e74c3c;
-            
-            p {
-                color: #ffffff;
-            }
-        }
-        
-        .value-card[data-value="playfulness"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #f39c12;
-            
-            p {
-                color: #ffffff;
-            }
-        }
-        
-        .value-card[data-value="sustainability"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #2ecc71;
-            
-            p {
-                color: #ffffff;
-            }
-        }
-        
-        p {
-            color: #F8F9FA;
-            font-size: 1.5rem;
-            font-weight: 400;
-            line-height: 1.6;
-            text-align: center;
-            position: relative;
-            z-index: 2;
         }
     }
     
@@ -305,8 +265,13 @@
             &.active {
                 display: block;
             }
+            
+            &.fade-in {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-    }
+    
     
     p {
         font-size: 1.6rem;

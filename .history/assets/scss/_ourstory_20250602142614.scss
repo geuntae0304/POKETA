@@ -36,7 +36,27 @@
     }
 }
 
-// 애니메이션 키프레임 제거
+//* 물결 효과 애니메이션 키프레임 */
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.3;
+    }
+}
 
 // 가치 섹션
 .our-values{
@@ -104,7 +124,7 @@
         height: 320px;
         position: relative;
         transform-style: preserve-3d;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         cursor: pointer;
         
         /* 호버 시 카드 회전 효과 */
@@ -171,7 +191,7 @@
         width: 100%;
         height: 100%;
         text-align: center;
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         transform-style: preserve-3d;
     }
     
@@ -221,50 +241,73 @@
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         overflow: hidden;
         
-        p {
-            color: #F8F9FA;
-            font-size: 1.5rem;
-            font-weight: 400;
-            line-height: 1.6;
-            text-align: center;
-            position: relative;
-            z-index: 2;
+        /* 일렁이는 빛 효과를 위한 공통 스타일 */
+        &::before,
+        &::after,
+        .light-effect {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            mix-blend-mode: soft-light;
+            z-index: 1;
         }
         
-        /* 각 가치별 일렁이는 빛 효과 색상 - 색상 강화 */
+        &::before {
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 40%;
+            animation: wave 15s infinite linear, pulse 5s infinite ease-in-out;
+            opacity: 0.5;
+        }
+        
+        &::after {
+            width: 180%;
+            height: 180%;
+            top: -40%;
+            left: -40%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0) 65%);
+            border-radius: 45%;
+            animation: wave 12s infinite linear reverse, pulse 7s infinite ease-in-out 1s;
+            opacity: 0.3;
+        }
+        
+        /* 추가 빛 효과 */
+        .light-effect {
+            width: 150%;
+            height: 150%;
+            top: -25%;
+            left: -25%;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 60%);
+            border-radius: 35%;
+            animation: wave 10s infinite linear, pulse 4s infinite ease-in-out 0.5s;
+            opacity: 0.2;
+        }
+        
+        /* 각 가치별 일렁이는 빛 효과 색상 */
         .value-card[data-value="transparency"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #3498db;
-            
-            p {
-                color: #ffffff;
+            &::before, &::after {
+                background: radial-gradient(ellipse at center, rgba(108, 216, 255, 0.15) 0%, rgba(108, 216, 255, 0) 70%);
             }
         }
         
         .value-card[data-value="personalization"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #e74c3c;
-            
-            p {
-                color: #ffffff;
+            &::before, &::after {
+                background: radial-gradient(ellipse at center, rgba(255, 184, 184, 0.15) 0%, rgba(255, 184, 184, 0) 70%);
             }
         }
         
         .value-card[data-value="playfulness"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #f39c12;
-            
-            p {
-                color: #ffffff;
+            &::before, &::after {
+                background: radial-gradient(ellipse at center, rgba(255, 243, 196, 0.15) 0%, rgba(255, 243, 196, 0) 70%);
             }
         }
         
         .value-card[data-value="sustainability"] & {
-            background: rgba(20, 25, 30, 0.9);
-            border-left: 3px solid #2ecc71;
-            
-            p {
-                color: #ffffff;
+            &::before, &::after {
+                background: radial-gradient(ellipse at center, rgba(165, 248, 231, 0.15) 0%, rgba(165, 248, 231, 0) 70%);
             }
         }
         
