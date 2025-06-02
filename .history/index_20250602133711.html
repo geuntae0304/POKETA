@@ -186,68 +186,47 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
         </div>
     </section>
     <!-- Data Section -->
-    <section class="data-section">
+    <section class="data-section" style="background-color: #e0ede0;">
         <div class="container">
             <div class="row">
-                <div class="col-12 text-center">
+                <div class="col-12">
                     <h2 class="title">Proof in Every Sip</h2>
                 </div>
             </div>
             <div class="row">
                 <!-- 첫 번째 데이터 카드 -->
-                <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-4 col-sm-12 mb-4">
                     <div class="card">
                         <div class="dot-container">
-                            <div class="black-dot" role="button" aria-label="자세한 정보 보기">
-                                <div class="dot-icon">i</div>
-                            </div>
+                            <div class="black-dot"></div>
                         </div>
                         <div class="card-body">
-                            <h2 class="counting-animation" data-value="128000" data-suffix="+">0</h2>
+                            <h2>128,000+</h2>
                             <p>Nutrients Tracked</p>
-                            <div class="card-detail">
-                                <h4>Nutrient Tracking</h4>
-                                <p>AI-powered system tracking 128,000+ nutrients to deliver your perfect nutritional balance.</p>
-                                <div class="detail-close">&times;</div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 두 번째 데이터 카드 -->
-                <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-md-4 col-sm-12 mb-4">
                     <div class="card">
                         <div class="dot-container">
-                            <div class="black-dot" role="button" aria-label="자세한 정보 보기">
-                                <div class="dot-icon">i</div>
-                            </div>
+                            <div class="black-dot"></div>
                         </div>
                         <div class="card-body">
-                            <h2 class="counting-animation" data-value="53000" data-suffix="+">0</h2>
+                            <h2>53,000+</h2>
                             <p>Custom Drinks</p>
-                            <div class="card-detail">
-                                <h4>Custom Drinks</h4>
-                                <p>53,000+ personalized beverages optimized for your unique lifestyle and nutritional needs.</p>
-                                <div class="detail-close">&times;</div>
-                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 세 번째 데이터 카드 -->
-                <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="col-md-4 col-sm-12 mb-4">
                     <div class="card">
                         <div class="dot-container">
-                            <div class="black-dot" role="button" aria-label="자세한 정보 보기">
-                                <div class="dot-icon">i</div>
-                            </div>
+                            <div class="black-dot"></div>
                         </div>
                         <div class="card-body">
-                            <h2 class="counting-animation" data-value="83" data-suffix="%">0</h2>
+                            <h2>83%</h2>
                             <p>Repurchase rate</p>
-                            <div class="card-detail">
-                                <h4>Customer Loyalty</h4>
-                                <p>83% of customers return after their first purchase, proving Poky's exceptional taste and effectiveness.</p>
-                                <div class="detail-close">&times;</div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -691,112 +670,6 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                 });
             });
         });
-
-        // 숫자 카운팅 애니메이션 함수
-        function startCountingAnimation() {
-            const countingElements = document.querySelectorAll('.counting-animation');
-            
-            // 각 카운팅 요소에 대해 처리
-            countingElements.forEach(element => {
-                const targetValue = parseInt(element.getAttribute('data-value'));
-                const suffix = element.getAttribute('data-suffix') || '';
-                let startValue = 0;
-                const duration = 2000; // 애니메이션 지속 시간 (밀리초)
-                const frameRate = 30; // 초당 프레임 수
-                const totalFrames = duration / (1000 / frameRate);
-                const increment = targetValue / totalFrames;
-                let currentFrame = 0;
-                
-                // 숫자 포맷 함수
-                const formatNumber = (num) => {
-                    if (num >= 1000) {
-                        return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-                    }
-                    return num;
-                };
-                
-                // 애니메이션 시작
-                const counter = setInterval(() => {
-                    currentFrame++;
-                    const newValue = Math.min(Math.floor(increment * currentFrame), targetValue);
-                    
-                    // 숫자 업데이트
-                    element.textContent = formatNumber(newValue);
-                    
-                    // 애니메이션 완료 시
-                    if (currentFrame >= totalFrames) {
-                        clearInterval(counter);
-                        element.textContent = formatNumber(targetValue);
-                    }
-                }, 1000 / frameRate);
-            });
-        }
-        
-        // 인터섹션 옵저버 설정 - 요소가 화면에 보일 때 애니메이션 시작
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startCountingAnimation();
-                    observer.disconnect(); // 한 번만 실행하도록 연결 해제
-                }
-            });
-        }, { threshold: 0.3 }); // 30% 이상 보일 때 실행
-        
-        // 데이터 섹션 관찰 시작
-        const dataSection = document.querySelector('.data-section');
-        if (dataSection) {
-            observer.observe(dataSection);
-        }
-        
-        // 검은 점 호버 및 클릭 효과
-        const blackDots = document.querySelectorAll('.black-dot');
-        blackDots.forEach(dot => {
-            // 호버 효과
-            dot.addEventListener('mouseenter', function() {
-                const card = this.closest('.card');
-                card.classList.add('dot-hovered');
-            });
-            
-            dot.addEventListener('mouseleave', function() {
-                const card = this.closest('.card');
-                card.classList.remove('dot-hovered');
-            });
-            
-            // 클릭 효과 - 상세 정보 표시
-            dot.addEventListener('click', function(e) {
-                e.stopPropagation(); // 클릭 이벤트 전파 방지
-                const cardBody = this.closest('.card').querySelector('.card-body');
-                
-                // 상세 정보 표시
-                cardBody.classList.add('show-detail');
-                
-                // 검은 동그라미 아이콘 변경
-                const dotIcon = this.querySelector('.dot-icon');
-                if (dotIcon) {
-                    dotIcon.textContent = 'x';
-                    dotIcon.style.opacity = '1';
-                }
-            });
-        });
-        
-        // 닫기 버튼 클릭 이벤트
-        const closeButtons = document.querySelectorAll('.detail-close');
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation(); // 클릭 이벤트 전파 방지
-                const cardBody = this.closest('.card-body');
-                cardBody.classList.remove('show-detail');
-                
-                // 검은 동그라미 아이콘 되돌리기
-                const card = this.closest('.card');
-                const blackDot = card.querySelector('.black-dot');
-                const dotIcon = blackDot.querySelector('.dot-icon');
-                if (dotIcon) {
-                    dotIcon.textContent = 'i';
-                    dotIcon.style.opacity = '0.8';
-                }
-            });
-        });
     </script>
 
     <!-- Contact Modal -->
@@ -805,7 +678,7 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        <span>Poky is all ears ✨</span></h5>
+                        Poky is all ears ✉️</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -826,8 +699,8 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" 
-                    data-bs-dismiss="modal">Close</button>
-                    <button type="button" id="sendMessageBtn">
+                    data-bs-dismiss="modal "sendMessageBtn">Close</button>
+                    <button>
                         <div class="svg-wrapper-1">
                             <div class="svg-wrapper">
                                 <svg

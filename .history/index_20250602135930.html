@@ -206,8 +206,8 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                             <h2 class="counting-animation" data-value="128000" data-suffix="+">0</h2>
                             <p>Nutrients Tracked</p>
                             <div class="card-detail">
-                                <h4>Nutrient Tracking</h4>
-                                <p>AI-powered system tracking 128,000+ nutrients to deliver your perfect nutritional balance.</p>
+                                <h4>영양소 추적 시스템</h4>
+                                <p>포키는 새로운 AI 기반 영양소 추적 시스템을 통해 128,000개 이상의 영양소를 분석하고 추적합니다. 이를 통해 당신에게 가장 적합한 영양 규형을 제공합니다.</p>
                                 <div class="detail-close">&times;</div>
                             </div>
                         </div>
@@ -225,8 +225,8 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                             <h2 class="counting-animation" data-value="53000" data-suffix="+">0</h2>
                             <p>Custom Drinks</p>
                             <div class="card-detail">
-                                <h4>Custom Drinks</h4>
-                                <p>53,000+ personalized beverages optimized for your unique lifestyle and nutritional needs.</p>
+                                <h4>맞춤형 음료 제조</h4>
+                                <p>포키는 개인의 영양 요구에 맞춰 53,000개 이상의 맞춤형 음료를 제조했습니다. 각 고객님의 생활스타일과 영양 요구에 맞는 최적화된 음료를 제공합니다.</p>
                                 <div class="detail-close">&times;</div>
                             </div>
                         </div>
@@ -244,8 +244,8 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
                             <h2 class="counting-animation" data-value="83" data-suffix="%">0</h2>
                             <p>Repurchase rate</p>
                             <div class="card-detail">
-                                <h4>Customer Loyalty</h4>
-                                <p>83% of customers return after their first purchase, proving Poky's exceptional taste and effectiveness.</p>
+                                <h4>높은 재구매율</h4>
+                                <p>포키를 한번 경험한 고객 중 83%가 다시 구매하는 높은 재구매율을 보여주고 있습니다. 이는 포키의 효과와 맛에 대한 고객님들의 높은 만족도를 반영합니다.</p>
                                 <div class="detail-close">&times;</div>
                             </div>
                         </div>
@@ -748,10 +748,9 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
             observer.observe(dataSection);
         }
         
-        // 검은 점 호버 및 클릭 효과
+        // 검은 점 호버 효과
         const blackDots = document.querySelectorAll('.black-dot');
         blackDots.forEach(dot => {
-            // 호버 효과
             dot.addEventListener('mouseenter', function() {
                 const card = this.closest('.card');
                 card.classList.add('dot-hovered');
@@ -760,41 +759,6 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
             dot.addEventListener('mouseleave', function() {
                 const card = this.closest('.card');
                 card.classList.remove('dot-hovered');
-            });
-            
-            // 클릭 효과 - 상세 정보 표시
-            dot.addEventListener('click', function(e) {
-                e.stopPropagation(); // 클릭 이벤트 전파 방지
-                const cardBody = this.closest('.card').querySelector('.card-body');
-                
-                // 상세 정보 표시
-                cardBody.classList.add('show-detail');
-                
-                // 검은 동그라미 아이콘 변경
-                const dotIcon = this.querySelector('.dot-icon');
-                if (dotIcon) {
-                    dotIcon.textContent = 'x';
-                    dotIcon.style.opacity = '1';
-                }
-            });
-        });
-        
-        // 닫기 버튼 클릭 이벤트
-        const closeButtons = document.querySelectorAll('.detail-close');
-        closeButtons.forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation(); // 클릭 이벤트 전파 방지
-                const cardBody = this.closest('.card-body');
-                cardBody.classList.remove('show-detail');
-                
-                // 검은 동그라미 아이콘 되돌리기
-                const card = this.closest('.card');
-                const blackDot = card.querySelector('.black-dot');
-                const dotIcon = blackDot.querySelector('.dot-icon');
-                if (dotIcon) {
-                    dotIcon.textContent = 'i';
-                    dotIcon.style.opacity = '0.8';
-                }
             });
         });
     </script>

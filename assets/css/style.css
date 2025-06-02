@@ -1307,6 +1307,20 @@ body {
   position: relative;
 }
 
+.header .logo a {
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+.header .logo a img {
+  max-width: 100%;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+.header .logo a:hover img {
+  transform: scale(1.1);
+  filter: brightness(1.1);
+}
+
 .container {
   width: 100%;
   height: -moz-fit-content;
@@ -1698,23 +1712,74 @@ DATA SECTION - 데이터 섹션
 .data-section {
   background-color: #e0ede0;
   padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.data-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='pattern' width='40' height='40' viewBox='0 0 40 40' patternUnits='userSpaceOnUse' patternTransform='rotate(45)'%3E%3Crect width='100%25' height='100%25' fill='%23e0ede0'/%3E%3Ccircle cx='20' cy='20' r='1' fill='%235EAB92' opacity='0.3'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23pattern)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  z-index: 0;
 }
 .data-section .title {
   margin-bottom: 6.2rem;
   font-weight: 700;
+  position: relative;
+  z-index: 1;
+}
+.data-section .row {
+  position: relative;
+  z-index: 1;
 }
 .data-section .card {
   background-color: #fff;
   border-radius: 20px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   height: 100%;
   padding: 0 3rem;
   position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.data-section .card:hover {
+.data-section .card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(94, 171, 146, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.6s ease;
+}
+.data-section .card:hover, .data-section .card.dot-hovered {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 30px rgba(94, 171, 146, 0.2);
+}
+.data-section .card:hover::before, .data-section .card.dot-hovered::before {
+  opacity: 1;
+  transform: scale(1);
+}
+.data-section .card:hover .black-dot, .data-section .card.dot-hovered .black-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1);
+}
+.data-section .card:hover h2, .data-section .card.dot-hovered h2 {
+  color: #5EAB92;
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+.data-section .card:hover p, .data-section .card.dot-hovered p {
+  transform: translateY(-3px);
+}
+.data-section .card:hover::after, .data-section .card.dot-hovered::after {
+  opacity: 1;
 }
 .data-section .card .display-5 {
   font-size: 2.8rem;
@@ -1728,11 +1793,78 @@ DATA SECTION - 데이터 섹션
   font-weight: 700;
   font-size: 3.8rem;
   color: #1F2124;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+.data-section .card h2::after {
+  content: attr(data-suffix);
+  font-size: 2.4rem;
+  color: #5EAB92;
+  position: relative;
+  top: -0.5rem;
+  margin-left: 0.2rem;
+  opacity: 0.8;
 }
 .data-section .card p {
   color: #7B848D;
   font-size: 1.8rem;
   margin-bottom: 4.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+.data-section .card .card-detail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+}
+.data-section .card .card-detail h4 {
+  color: #5EAB92;
+  font-weight: 700;
+  font-size: 2.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+.data-section .card .card-detail p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 0;
+}
+.data-section .card .card-detail .detail-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  color: #aaa;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+.data-section .card .card-detail .detail-close:hover {
+  color: #333;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.data-section .card .card-body.show-detail .card-detail {
+  transform: translateY(0);
+  opacity: 1;
 }
 .data-section .card .bg-dark {
   background-color: #333 !important;
@@ -1744,10 +1876,57 @@ DATA SECTION - 데이터 섹션
   z-index: 1;
 }
 .data-section .card .black-dot {
-  width: 14px;
-  height: 14px;
+  width: 24px;
+  height: 24px;
   background-color: #000;
   border-radius: 50%;
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data-section .card .black-dot .dot-icon {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+.data-section .card .black-dot:hover .dot-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.data-section .card .black-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.4s ease;
+}
+.data-section .card .black-dot:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+.data-section .counting-animation {
+  animation: countUp 2s ease-out forwards;
+  display: inline-block;
+}
+@keyframes countUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 @media (max-width: 768px) {
   .data-section .card {
@@ -2387,66 +2566,193 @@ SECTION 07 - 후기 섹션
   }
 }
 
+.modal {
+  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
 .modal-content {
-  border-radius: 15px;
+  border-radius: 20px;
   border: none;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
 }
 .modal-header {
-  border-bottom: 1px solid #eee;
-  padding: 1.5rem 2.4rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2rem 2.5rem;
+  background-color: #ffffff;
 }
 .modal-header .modal-title {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  margin-top: 1rem;
-  color: #1F2124;
+  margin: 0;
+  margin-top: 2rem;
+  color: #333333;
+  line-height: 1.3;
+}
+.modal-header .modal-title br + span {
+  color: #5EAB92;
+  font-weight: 600;
 }
 .modal-header .btn-close {
-  font-size: 1.8rem;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
   opacity: 0.7;
   transition: all 0.3s ease;
+}
+.modal-header .btn-close::before, .modal-header .btn-close::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #333;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s ease;
+}
+.modal-header .btn-close::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.modal-header .btn-close::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 .modal-header .btn-close:hover {
   opacity: 1;
   transform: rotate(90deg);
 }
-.modal button {
+.modal-header .btn-close:hover::before, .modal-header .btn-close:hover::after {
+  background-color: #5EAB92;
+}
+.modal-body {
+  padding: 2.5rem;
+}
+.modal-body .form-label {
+  display: inline-block;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #555;
+  transition: all 0.3s ease;
+}
+.modal-body .form-control {
+  height: 5.2rem;
+  padding: 1.2rem 1.6rem;
+  font-size: 1.6rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  box-shadow: none;
+}
+.modal-body .form-control:focus {
+  border-color: #5EAB92;
+  box-shadow: 0 0 0 3px rgba(94, 171, 146, 0.15);
+  background-color: #fff;
+}
+.modal-body .form-control::-moz-placeholder {
+  color: #aaa;
+  font-size: 1.5rem;
+}
+.modal-body .form-control::placeholder {
+  color: #aaa;
+  font-size: 1.5rem;
+}
+.modal-body textarea.form-control {
+  height: auto;
+  min-height: 12rem;
+  resize: none;
+}
+.modal-body .mb-3 {
+  margin-bottom: 2rem;
+  position: relative;
+}
+.modal-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 2rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+}
+.modal-footer .btn-secondary {
   font-family: inherit;
-  font-size: 1.8rem;
-  background: #398989;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #666;
+  background-color: transparent;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.2rem 2.4rem;
+  transition: all 0.3s ease;
+}
+.modal-footer .btn-secondary:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+.modal-footer button:not(.btn-secondary) {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #5EAB92, #4A9980);
   color: white;
-  padding: 1.5rem 2.4rem;
-  padding-left: 0.9em;
+  padding: 1.2rem 2.8rem;
   display: flex;
   align-items: center;
+  justify-content: center;
   border: none;
-  border-radius: 16px;
+  border-radius: 12px;
   overflow: hidden;
-  transition: all 0.2s;
-  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(94, 171, 146, 0.3);
 }
-.modal button span {
-  display: block;
-  margin-left: 0.3em;
-  transition: all 0.3s ease-in-out;
+.modal-footer button:not(.btn-secondary):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(94, 171, 146, 0.4);
 }
-.modal button svg {
-  display: block;
-  transform-origin: center center;
-  transition: transform 0.3s ease-in-out;
+.modal-footer button:not(.btn-secondary):active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(94, 171, 146, 0.3);
 }
-.modal button:hover .svg-wrapper {
-  animation: fly-1 0.6s ease-in-out infinite alternate;
+.modal-footer button:not(.btn-secondary) span {
+  display: inline-block;
+  margin-left: 1rem;
+  font-weight: 600;
 }
-.modal button:hover svg {
-  transform: translateX(1.2em) rotate(45deg) scale(1.1);
+.modal-footer button:not(.btn-secondary) .svg-wrapper-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.modal button:hover span {
-  transform: translateX(5em);
+.modal-footer button:not(.btn-secondary) .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
 }
-.modal button:active {
-  transform: scale(0.95);
+.modal-footer button:not(.btn-secondary) svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+.modal-footer button:not(.btn-secondary):hover .svg-wrapper {
+  animation: float 1s ease-in-out infinite alternate;
+}
+.modal-footer button:not(.btn-secondary):hover svg {
+  transform: rotate(-10deg);
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-4px);
+  }
 }
 @keyframes fly-1 {
   from {
@@ -2455,37 +2761,6 @@ SECTION 07 - 후기 섹션
   to {
     transform: translateY(-0.1em);
   }
-}
-.modal-body {
-  padding: 2.4rem;
-}
-.modal-body .form-label {
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: #2C3136;
-  margin-bottom: 0.5rem;
-}
-.modal-body .form-control {
-  font-size: 1.4rem;
-  padding: 0.8rem 1rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  transition: all 0.3s ease;
-}
-.modal-body .form-control:focus {
-  box-shadow: 0 0 0 3px #999;
-  border-color: #398989;
-}
-.modal-body .form-control::-moz-placeholder {
-  color: #aaa;
-  font-size: 1.3rem;
-}
-.modal-body .form-control::placeholder {
-  color: #aaa;
-  font-size: 1.3rem;
-}
-.modal-body textarea.form-control {
-  resize: none;
 }
 .modal-footer {
   border-top: 1px solid #eee;
@@ -2503,13 +2778,28 @@ SECTION 07 - 후기 섹션
   border: none;
 }
 .modal-footer .btn-secondary:hover {
-  background-color: #e0e0e0;
+  background-color: #e5e5e5;
 }
-.modal-footer .btn-primary {
-  background-color: #398989;
+.modal-footer #sendMessageBtn {
+  background: linear-gradient(135deg, #5EAB92, #398989);
+  color: white;
   border: none;
+  box-shadow: 0 4px 15px rgba(94, 171, 146, 0.3);
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  overflow: hidden;
 }
-.modal-footer .btn-primary:hover {
+.modal-footer #sendMessageBtn .svg-wrapper-1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+.modal-footer #sendMessageBtn:hover {
   background-color: #2a6565;
   transform: translateY(-2px);
 }

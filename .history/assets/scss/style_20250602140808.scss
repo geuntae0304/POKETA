@@ -692,7 +692,7 @@ DATA SECTION - 데이터 섹션
             }
         }
         
-        // 트랜지션 효과
+        // 트랜지션 효과 강화
         transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         
         &:hover::after, &.dot-hovered::after {
@@ -716,7 +716,7 @@ DATA SECTION - 데이터 섹션
             position: relative;
             display: inline-block;
             
-            // 숫자 뒤에 + 기호에 스타일 적용
+            // 숫자 뒤에 + 기호에 특별한 스타일 적용
             &::after {
                 content: attr(data-suffix);
                 font-size: 2.4rem;
@@ -758,19 +758,19 @@ DATA SECTION - 데이터 섹션
                 color: #5EAB92;
                 font-weight: 700;
                 font-size: 2.2rem;
-                margin-bottom: 2rem;
+                margin-bottom: 1.5rem;
                 position: relative;
                 
-                // &::after {
-                //     content: '';
-                //     position: absolute;
-                //     bottom: -0.8rem;
-                //     left: 0;
-                //     width: 40px;
-                //     height: 3px;
-                //     background: #5EAB92;
-                //     border-radius: 2px;
-                // }
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -0.8rem;
+                    left: 0;
+                    width: 40px;
+                    height: 3px;
+                    background: #5EAB92;
+                    border-radius: 2px;
+                }
             }
             
             p {
@@ -785,7 +785,7 @@ DATA SECTION - 데이터 섹션
                 position: absolute;
                 top: 1.5rem;
                 right: 1.5rem;
-                font-size: 3rem;
+                font-size: 2rem;
                 color: #aaa;
                 cursor: pointer;
                 width: 30px;
