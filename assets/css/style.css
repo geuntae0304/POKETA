@@ -262,14 +262,329 @@ body {
   animation: slideDown 0.5s ease-out forwards;
 }
 
-/* ==========================================================================
-공통 반응형 스타일 (Responsive Styles)
-   ========================================================================== */
-/* ==========================================================================
-각 섹션별 반응형 스타일
-   ========================================================================== */
-/* Section 01 - 헤더 반응형 */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
+  .header .logo a img {
+    max-width: 80px;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem 0;
+  }
+  .header .logo a img {
+    max-width: 70px;
+  }
+}
+@media (max-width: 992px) {
+  .navbar .navbar-toggler {
+    display: block;
+  }
+  .navbar .navbar-collapse {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: #fff;
+    z-index: 1000;
+    transition: right 0.3s ease;
+    padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+  }
+  .navbar .navbar-collapse.show {
+    right: 0;
+  }
+  .navbar .navbar-nav {
+    flex-direction: column;
+  }
+  .navbar .navbar-nav .nav-item {
+    margin: 1rem 0;
+  }
+  .navbar .navbar-nav .nav-item .nav-link {
+    font-size: 1.8rem;
+    padding: 1rem 0;
+  }
+}
+@media (max-width: 768px) {
+  .navbar .navbar-collapse {
+    width: 90%;
+  }
+  .navbar .navbar-collapse .navbar-nav .nav-item .nav-link {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 992px) {
+  .footer {
+    padding: 4rem 0 2rem;
+  }
+  .footer .footer-heading {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .footer .social-links {
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+  }
+  .footer .social-links li {
+    margin-left: 0;
+    margin-right: 1rem;
+  }
+  .footer .footer-bottom {
+    text-align: center;
+  }
+  .footer .footer-bottom .copyright {
+    margin-bottom: 1rem;
+  }
+  .footer .footer-bottom .social-links {
+    justify-content: center;
+  }
+}
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+  }
+  .footer h5 {
+    font-size: 1.6rem;
+  }
+  .footer .footer-tagline {
+    font-size: 1.1rem;
+  }
+  .footer .footer-heading {
+    font-size: 1.1rem;
+  }
+  .footer .footer-links a {
+    font-size: 1.2rem;
+  }
+  .footer .footer-bottom {
+    margin-top: 3rem;
+  }
+  .footer .footer-bottom .copyright {
+    font-size: 0.8rem;
+  }
+  .footer .footer-bottom .social-links li a {
+    width: 28px;
+    height: 28px;
+  }
+  .footer .footer-bottom .social-links li a img {
+    width: 14px;
+    height: 14px;
+  }
+}
+/* Section 07 - 후기 섹션 반응형 */
+@media (max-width: 992px) {
+  .sec07 {
+    padding: 80px 0;
+  }
+  .sec07 .title {
+    font-size: 3.6rem;
+    margin-bottom: 4rem;
+  }
+  .sec07 .testimonial-large {
+    height: 450px;
+    margin-bottom: 30px;
+  }
+  .sec07 .testimonial-medium,
+  .sec07 .testimonial-small {
+    height: 300px;
+  }
+}
+@media (max-width: 768px) {
+  .sec07 {
+    padding: 60px 0;
+  }
+  .sec07 .title {
+    font-size: 3.2rem;
+    margin-bottom: 3rem;
+  }
+  .sec07 .testimonial-large {
+    height: 400px;
+    margin-bottom: 30px;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sec07 .testimonial-large .testimonial-bubble {
+    top: 15%;
+    left: 20px;
+    width: 80%;
+    padding: 15px;
+  }
+  .sec07 .testimonial-medium,
+  .sec07 .testimonial-small {
+    height: 250px;
+    margin-bottom: 20px;
+  }
+}
+@media (max-width: 576px) {
+  .sec07 {
+    padding: 40px 0;
+  }
+  .sec07 .title {
+    font-size: 2.8rem;
+    margin-bottom: 2.5rem;
+  }
+  .sec07 .testimonial-large {
+    height: 350px;
+    width: 100%;
+  }
+  .sec07 .testimonial-large .testimonial-bubble {
+    top: 10%;
+    padding: 15px;
+  }
+  .sec07 .testimonial-large .testimonial-bubble .user-avatar {
+    width: 35px;
+    height: 35px;
+  }
+  .sec07 .testimonial-large .testimonial-bubble .user-name {
+    font-size: 1.5rem;
+  }
+  .sec07 .testimonial-large .testimonial-bubble .testimonial-text {
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+  .sec07 .testimonial-medium,
+  .sec07 .testimonial-small {
+    height: 220px;
+    margin-bottom: 15px;
+  }
+}
+@media (max-width: 992px) {
+  .sec02-videos .video-item {
+    height: 35rem;
+  }
+  .sec02-videos .video-item .video-overlay .video-title {
+    font-size: 1.8rem;
+  }
+  .sec02-videos .video-item .video-overlay .video-description {
+    font-size: 1.4rem;
+  }
+  .value-card {
+    width: 240px;
+    height: 300px;
+  }
+  .value-card .value-card-front h3 {
+    font-size: 2rem;
+  }
+  .value-card .value-card-back p {
+    font-size: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .sec02-videos .video-item {
+    height: 30rem;
+  }
+  .sec02-videos .video-item .video-overlay .video-title {
+    font-size: 1.6rem;
+  }
+  .sec02-videos .video-item .video-overlay .video-description {
+    font-size: 1.3rem;
+  }
+  .value-card {
+    width: 220px;
+    height: 280px;
+  }
+  .value-card .value-card-front h3 {
+    font-size: 1.8rem;
+  }
+  .value-card .value-card-back p {
+    font-size: 1.4rem;
+    padding: 1.2rem;
+  }
+  .member-card .member-info {
+    padding: 1.2rem;
+  }
+  .member-card .member-info h4 {
+    font-size: 1.5rem;
+  }
+  .member-card .member-info p {
+    font-size: 1.2rem;
+  }
+}
+@media (max-width: 992px) {
+  .black-dot {
+    width: 12px;
+    height: 12px;
+  }
+  .black-dot-card.active .black-dot {
+    transform: scale(1.3);
+  }
+}
+@media (max-width: 768px) {
+  .black-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+@media (max-width: 992px) {
+  .btn {
+    font-size: 1.6rem;
+    padding: 1.2rem 2.4rem;
+  }
+  .contact-button .btn {
+    font-size: 1.8rem;
+    padding: 1.5rem 3.5rem;
+  }
+  .btn-learn-more {
+    font-size: 1.6rem;
+  }
+  .btn-learn-more::after {
+    width: 20px;
+    margin-left: 0.8rem;
+  }
+}
+@media (max-width: 768px) {
+  .btn {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+  .contact-button .btn {
+    font-size: 1.6rem;
+    padding: 1.2rem 3rem;
+  }
+  .btn-learn-more {
+    font-size: 1.5rem;
+  }
+  .btn-learn-more::after {
+    width: 18px;
+    margin-left: 0.7rem;
+  }
+}
+@media (max-width: 992px) {
+  .interview button {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+  }
+  .interview button:hover {
+    padding: 1.3rem 2.6rem;
+  }
+  .interview button:active {
+    padding: 1.1rem 2.2rem;
+  }
+}
+@media (max-width: 768px) {
+  .interview button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+  .interview button:hover {
+    padding: 1.1rem 2.2rem;
+  }
+  .interview button:active {
+    padding: 0.9rem 1.8rem;
+  }
+}
+/* Section 01 - 메인 배너 반응형 */
+@media (max-width: 1200px) {
+  .sec01 .contact-button .btn {
+    padding: 1.8rem 4.7rem;
+  }
+}
+@media (max-width: 992px) {
+  .sec01 .contact-button .btn {
+    font-size: 1.8rem;
+    padding: 1.5rem 3.5rem;
+  }
   .sec01 .main-img-container {
     display: none;
   }
@@ -292,6 +607,12 @@ body {
     background-size: cover;
     background-position: center;
     margin-top: 2rem;
+  }
+}
+@media (max-width: 768px) {
+  .sec01 .contact-button .btn {
+    font-size: 1.6rem;
+    padding: 1.2rem 3rem;
   }
 }
 /* Section 02 - 소개 섹션 반응형 */
@@ -373,9 +694,8 @@ body {
     margin-right: auto;
   }
 }
-/* Section 05 - 브랜드 가치 소개 섹션 반응형 */
 /* Section 06 - 스토리 섹션 반응형 */
-@media (max-width: 991px) {
+@media (max-width: 992px) {
   .sec06 {
     padding: 80px 0;
     background-image: url("../images/sec06-bg.png");
@@ -383,6 +703,8 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
+    /* col-lg-5 숨기기 */
+    /* 텍스트 영역이 전체 너비를 사용하도록 설정 */
   }
   .sec06::before {
     content: "";
@@ -409,8 +731,6 @@ body {
     margin: 0 auto;
     z-index: 999;
     color: #fff;
-    /* col-lg-5 숨기기 */
-    /* 텍스트 영역이 전체 너비를 사용하도록 설정 */
   }
   .sec06 .story-content .title {
     color: #ffffff !important;
@@ -440,91 +760,385 @@ body {
   .sec06 .story-content .story-image {
     display: none;
   }
-  .sec06 .story-content .col-lg-5 {
+  .sec06 .col-lg-5 {
     display: none;
   }
-  .sec06 .story-content .col-lg-7 {
+  .sec06 .col-lg-7 {
     width: 100%;
     max-width: 100%;
     flex: 0 0 100%;
   }
-  /* Section 07 - 후기 섹션 반응형 */
 }
-@media (max-width: 991px) and (max-width: 991px) {
-  .sec07 {
-    padding: 80px 0;
+/* 히어로 섹션 반응형 */
+@media (max-width: 992px) {
+  .hero {
+    padding: 8rem 0;
+    margin-top: 5rem;
   }
-  .sec07 .title {
-    font-size: 3.6rem;
+  .hero .title h2 {
+    font-size: 4rem;
     margin-bottom: 4rem;
   }
-  .sec07 .testimonial-large {
-    height: 450px;
-    margin-bottom: 30px;
+  .hero .title p {
+    font-size: 1.6rem;
+    margin-bottom: 4rem;
   }
-  .sec07 .testimonial-medium,
-  .sec07 .testimonial-small {
-    height: 300px;
+  .hero img {
+    margin-top: 2rem;
   }
 }
-@media (max-width: 991px) and (max-width: 768px) {
-  .sec07 {
-    padding: 60px 0;
+@media (max-width: 768px) {
+  .hero {
+    padding: 6rem 0;
+    margin-top: 4rem;
   }
-  .sec07 .title {
+  .hero .title h2 {
     font-size: 3.2rem;
     margin-bottom: 3rem;
   }
-  .sec07 .testimonial-large {
-    height: 400px;
-    margin-bottom: 30px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+  .hero .title h3 {
+    font-size: 1.8rem;
   }
-  .sec07 .testimonial-large .testimonial-bubble {
-    top: 15%;
-    left: 20px;
-    width: 80%;
-    padding: 15px;
-  }
-  .sec07 .testimonial-medium,
-  .sec07 .testimonial-small {
-    height: 250px;
-    margin-bottom: 20px;
+  .hero .title p {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
   }
 }
-@media (max-width: 991px) and (max-width: 576px) {
-  .sec07 {
-    padding: 40px 0;
+/* 가치 섹션 반응형 */
+@media (max-width: 992px) {
+  .our-values {
+    padding: 8rem 0;
+    /* 모바일용 설명 텍스트 */
   }
-  .sec07 .title {
-    font-size: 2.8rem;
-    margin-bottom: 2.5rem;
+  .our-values .section-title {
+    font-size: 3.6rem;
+    margin-bottom: 5rem;
   }
-  .sec07 .testimonial-large {
-    height: 350px;
-    width: 100%;
+  .our-values .values-card-container {
+    gap: 2rem;
   }
-  .sec07 .testimonial-large .testimonial-bubble {
-    top: 10%;
-    padding: 15px;
+  .our-values .value-card {
+    width: 240px;
+    height: 300px;
   }
-  .sec07 .testimonial-large .testimonial-bubble .user-avatar {
+  .our-values .value-mobile-description {
+    display: block;
+  }
+  .our-values .value-mobile-description h3 {
+    font-size: 2rem;
+  }
+  .our-values .value-mobile-description p {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .our-values {
+    padding: 6rem 0;
+  }
+  .our-values .section-title {
+    font-size: 3.2rem;
+    margin-bottom: 4rem;
+  }
+  .our-values .values-card-container {
+    gap: 1.5rem;
+  }
+  .our-values .value-card {
+    width: 220px;
+    height: 280px;
+  }
+  .our-values .value-card .value-card-front h3 {
+    font-size: 2rem;
+  }
+  .our-values .value-card .value-card-back p {
+    font-size: 1.4rem;
+  }
+  .our-values .value-mobile-description h3 {
+    font-size: 1.8rem;
+  }
+  .our-values .value-mobile-description p {
+    font-size: 1.4rem;
+  }
+}
+/* 인터뷰 섹션 반응형 */
+@media (max-width: 992px) {
+  .interview {
+    padding: 8rem 0;
+  }
+  .interview .content {
+    padding: 4rem;
+  }
+  .interview span {
+    font-size: 1.8rem;
+  }
+  .interview h2 {
+    font-size: 3.6rem;
+  }
+  .interview p {
+    font-size: 1.6rem;
+  }
+  .interview button {
+    padding: 1.2rem 2.4rem;
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 768px) {
+  .interview {
+    padding: 6rem 0;
+  }
+  .interview .content {
+    padding: 3rem;
+  }
+  .interview span {
+    font-size: 1.6rem;
+  }
+  .interview h2 {
+    font-size: 3rem;
+  }
+  .interview p {
+    font-size: 1.5rem;
+  }
+  .interview button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+  }
+}
+/* From Us To You 섹션 반응형 */
+@media (max-width: 992px) {
+  .from-us-to-you h2 {
+    font-size: 3.2rem;
+  }
+  .from-us-to-you .message-content .reminder {
+    font-size: 1.8rem;
+  }
+  .from-us-to-you .message-content .description {
+    font-size: 1.4rem;
+  }
+}
+/* 팀 섹션 반응형 */
+@media (max-width: 992px) {
+  .team {
+    padding: 8rem 0;
+  }
+  .team h2 {
+    font-size: 4rem;
+    margin-bottom: 0;
+  }
+  .team h3 {
+    font-size: 4rem;
+    margin-bottom: 4rem;
+  }
+  .team .member-card .member-info {
+    padding: 1.5rem;
+  }
+  .team .member-card .member-info h4 {
+    font-size: 1.6rem;
+  }
+  .team .member-card .member-info p {
+    font-size: 1.3rem;
+  }
+  .team .team-description {
+    margin-top: 4rem;
+  }
+  .team .team-description p {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 768px) {
+  .team {
+    padding: 6rem 0;
+  }
+  .team h2 {
+    font-size: 3.2rem;
+  }
+  .team h3 {
+    font-size: 3.2rem;
+    margin-bottom: 3rem;
+  }
+  .team .member-card .member-info {
+    padding: 1.2rem;
+  }
+  .team .member-card .member-info h4 {
+    font-size: 1.5rem;
+  }
+  .team .member-card .member-info p {
+    font-size: 1.2rem;
+  }
+  .team .team-description {
+    margin-top: 3rem;
+  }
+  .team .team-description p {
+    font-size: 1.4rem;
+  }
+}
+/* 앱 히어로 섹션 반응형 */
+@media (max-width: 992px) {
+  .app-hero {
+    padding: 80px 0;
+  }
+  .app-hero .hero-content {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .app-hero .hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+  .app-hero .hero-content p {
+    font-size: 1.4rem;
+  }
+  .app-hero .hero-image .phone-container {
+    max-width: 250px;
+  }
+  .app-hero .hero-image .phone-container .phone-img {
+    margin-top: 6rem;
+  }
+}
+@media (max-width: 768px) {
+  .app-hero {
+    padding: 60px 0;
+  }
+  .app-hero .hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+  .app-hero .hero-content p {
+    font-size: 1rem;
+  }
+  .app-hero .hero-content p br {
+    display: none;
+  }
+  .app-hero .hero-image .phone-container {
+    max-width: 200px;
+  }
+  .app-hero .hero-image .phone-container .bubble.bubble-1 {
+    width: 40px;
+    height: 40px;
+  }
+  .app-hero .hero-image .phone-container .bubble.bubble-2 {
     width: 35px;
     height: 35px;
   }
-  .sec07 .testimonial-large .testimonial-bubble .user-name {
-    font-size: 1.5rem;
+  .app-hero .hero-image .phone-container .bubble.bubble-3 {
+    width: 38px;
+    height: 38px;
   }
-  .sec07 .testimonial-large .testimonial-bubble .testimonial-text {
+}
+/* 앱 기능 섹션 반응형 */
+@media (max-width: 992px) {
+  .can-we-do {
+    padding: 8rem 2rem;
+  }
+  .can-we-do .appTitle {
+    font-size: 3.5rem;
+    padding-bottom: 4rem;
+  }
+  .can-we-do .card1, .can-we-do .card2 {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+  .can-we-do .img-card {
+    height: 300px;
+  }
+  .can-we-do h3 {
+    font-size: 1.8rem;
+    padding: 1.8rem 0 0.6rem 0;
+  }
+  .can-we-do p {
+    font-size: 1.6rem;
+  }
+}
+@media (max-width: 768px) {
+  .can-we-do {
+    padding: 6rem 1.5rem;
+  }
+  .can-we-do .appTitle {
+    font-size: 3rem;
+    padding-bottom: 3rem;
+  }
+  .can-we-do .img-card {
+    height: 250px;
+  }
+  .can-we-do .img2 {
+    width: 280px;
+  }
+  .can-we-do h3 {
+    font-size: 1.6rem;
+  }
+  .can-we-do p {
     font-size: 1.4rem;
-    line-height: 1.4;
   }
-  .sec07 .testimonial-medium,
-  .sec07 .testimonial-small {
-    height: 220px;
-    margin-bottom: 15px;
+}
+/* 히스토리 섹션 반응형 */
+@media (max-width: 992px) {
+  .history {
+    padding: 8rem 2rem;
+    flex-direction: column;
+  }
+  .history .title h2 {
+    font-size: 3.5rem;
+    margin-bottom: 5rem;
+    text-align: center;
+  }
+  .history .title h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+  .history .title p {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .history img {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 768px) {
+  .history {
+    padding: 6rem 1.5rem;
+  }
+  .history .title h2 {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+  .history .title h3 {
+    font-size: 1.6rem;
+  }
+  .history .title p {
+    font-size: 1.4rem;
+  }
+}
+/* CTA 섹션 반응형 */
+@media (max-width: 992px) {
+  .app-cta {
+    padding: 80px 0;
+  }
+  .app-cta h2 {
+    font-size: 2rem;
+  }
+  .app-cta p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  .app-cta .btn-primary, .app-cta .btn-secondary {
+    padding: 12px 25px;
+  }
+}
+@media (max-width: 768px) {
+  .app-cta {
+    padding: 60px 0;
+  }
+  .app-cta h2 {
+    font-size: 1.8rem;
+  }
+  .app-cta p {
+    font-size: 1rem;
+  }
+  .app-cta .btn-primary, .app-cta .btn-secondary {
+    display: block;
+    margin: 0 auto 15px;
+    max-width: 250px;
+    padding: 10px 20px;
   }
 }
 .app-hero {

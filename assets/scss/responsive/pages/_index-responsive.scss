@@ -1,0 +1,246 @@
+// 메인 페이지(index.html) 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+/* Section 01 - 메인 배너 반응형 */
+@include bp.respond-below(lg) {
+  .sec01 {
+    .contact-button .btn {
+      padding: 1.8rem 4.7rem;
+    }
+  }
+}
+
+@include bp.respond-below(md) {
+  .sec01 {
+    .contact-button .btn {
+      font-size: 1.8rem;
+      padding: 1.5rem 3.5rem;
+    }
+    
+    .main-img-container {
+      display: none;
+    }
+    
+    .banner-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+      .sec01-title {
+        margin-bottom: 2rem;
+        width: 100%;
+        text-align: center;
+      }
+      
+      &::after {
+        content: '';
+        display: block;
+        width: 100vw;
+        height: 30vh;
+        background-image: url('../images/main-full-bg.png');
+        background-size: cover;
+        background-position: center;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .sec01 {
+    .contact-button .btn {
+      font-size: 1.6rem;
+      padding: 1.2rem 3rem;
+    }
+  }
+}
+
+/* Section 02 - 소개 섹션 반응형 */
+@include bp.respond-below(md) {
+  .sec02 {
+    padding: 3rem 0;
+    
+    .container {
+      margin-bottom: 4rem;
+    }
+    
+    .image-card {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    
+    img {
+      height: 300px;
+      opacity: 1;
+    }
+    
+    .first-image img,
+    .last-image img {
+      height: 300px;
+      opacity: 1;
+    }
+    
+    .main-image img {
+      height: 350px;
+      transform: scale(1);
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .sec02 {
+    img {
+      height: 250px;
+    }
+    
+    .main-image img {
+      height: 280px;
+    }
+    
+    .first-image img, 
+    .last-image img {
+      opacity: 0.7;
+    }
+  }
+}
+
+@include bp.respond-below(xs) {
+  .sec02 {
+    padding: 2rem 0;
+    
+    .container {
+      margin-bottom: 3rem;
+    }
+    
+    img {
+      height: 220px;
+    }
+    
+    .main-image img {
+      height: 250px;
+      transform: none;
+    }
+    
+    .first-image img, 
+    .last-image img {
+      opacity: 1;
+    }
+  }
+}
+
+/* Section 03 - 프로덕트 섹션 반응형 */
+// 여기에 프로덕트 섹션 반응형 스타일 추가
+
+/* Section 04 - 앱 소개 섹션 반응형 */
+@include bp.respond-below(md) {
+  .sec04 {
+    .row {
+      flex-direction: column;
+    }
+    
+    .sec04-content {
+      text-align: center;
+      margin-bottom: 3rem;
+      
+      .description {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    
+    .sec04-image-container {
+      margin-bottom: 2rem;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+
+/* Section 06 - 스토리 섹션 반응형 */
+@include bp.respond-below(md) {
+  .sec06 {
+    padding: 80px 0;
+    background-image: url('../images/sec06-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+      z-index: 1;
+    }
+
+    .img-fluid {
+      display: none;
+    }
+    
+    .container {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .story-content {
+      padding-left: 0;
+      text-align: center;
+      margin: 0 auto;
+      z-index: 999;
+      color: #fff;
+      
+      .title {
+        color: #ffffff !important;
+        z-index: 999;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      
+      .description {
+        font-size: 1.6rem;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 90%;
+        color: #ffffff !important;
+        z-index: 999;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        line-height: 1.7;
+      }
+      
+      .btn-learn-more {
+        color: #fff !important;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+          
+        &::after {
+          background-color: #ffffff !important;
+        }
+          
+        img {
+          filter: brightness(0) invert(1);
+        }
+      }
+      
+      .story-image {
+        display: none;
+      }
+    }
+    
+    /* col-lg-5 숨기기 */
+    .col-lg-5 {
+      display: none;
+    }
+    
+    /* 텍스트 영역이 전체 너비를 사용하도록 설정 */
+    .col-lg-7 {
+      width: 100%;
+      max-width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+}

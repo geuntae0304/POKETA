@@ -2,7 +2,7 @@
 @use 'variables'; // 스타일 에셋 (컬러/폰트)
 @use 'components'; // 컴포넌트 (버튼/카드)
 @use 'animations'; // 애니메이션  
-@use 'responsive'; //미디어 쿼리(반응형)
+@use 'responsive/_index' as responsive; // 모듈화된 반응형 스타일
 
 // 서브페이지
 @use 'app'; // 서브페이지(app) 스타일

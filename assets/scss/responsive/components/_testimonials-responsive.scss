@@ -1,0 +1,97 @@
+// 테스티모니얼 카드 컴포넌트 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+/* Section 07 - 후기 섹션 반응형 */
+@include bp.respond-below(md) {
+  .sec07 {
+    padding: 80px 0;
+    
+    .title {
+      font-size: 3.6rem;
+      margin-bottom: 4rem;
+    }
+    
+    .testimonial-large {
+      height: 450px;
+      margin-bottom: 30px;
+    }
+    
+    .testimonial-medium, 
+    .testimonial-small {
+      height: 300px;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .sec07 {
+    padding: 60px 0;
+    
+    .title {
+      font-size: 3.2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .testimonial-large {
+      height: 400px;
+      margin-bottom: 30px;
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      
+      .testimonial-bubble {
+        top: 15%;
+        left: 20px;
+        width: 80%;
+        padding: 15px;
+      }
+    }
+    
+    .testimonial-medium, 
+    .testimonial-small {
+      height: 250px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@include bp.respond-below(xs) {
+  .sec07 {
+    padding: 40px 0;
+    
+    .title {
+      font-size: 2.8rem;
+      margin-bottom: 2.5rem;
+    }
+    
+    .testimonial-large {
+      height: 350px;
+      width: 100%;
+      
+      .testimonial-bubble {
+        top: 10%;
+        padding: 15px;
+        
+        .user-avatar {
+          width: 35px;
+          height: 35px;
+        }
+      
+        .user-name {
+          font-size: 1.5rem;
+        }
+      
+        .testimonial-text {
+          font-size: 1.4rem;
+          line-height: 1.4;
+        }
+      }
+    }
+    
+    .testimonial-medium, 
+    .testimonial-small {
+      height: 220px;
+      margin-bottom: 15px;
+    }
+  }
+}

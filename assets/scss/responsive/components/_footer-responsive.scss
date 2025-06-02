@@ -1,0 +1,82 @@
+// 푸터 컴포넌트 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+// 푸터 반응형 스타일
+@include bp.respond-below(md) {
+  .footer {
+    padding: 4rem 0 2rem;
+    
+    .footer-heading {
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+    
+    .social-links {
+      justify-content: flex-start; // 모바일에서는 왼쪽 정렬
+      margin-top: 1.5rem;
+      
+      li {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      
+      .copyright {
+        margin-bottom: 1rem;
+      }
+      
+      .social-links {
+        justify-content: center; // 모바일에서는 중앙 정렬
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .footer {
+    padding: 3rem 0 1.5rem;
+    
+    h5 {
+      font-size: 1.6rem;
+    }
+    
+    .footer-tagline {
+      font-size: 1.1rem;
+    }
+    
+    .footer-heading {
+      font-size: 1.1rem;
+    }
+    
+    .footer-links {
+      a {
+        font-size: 1.2rem;
+      }
+    }
+    
+    .footer-bottom {
+      margin-top: 3rem;
+      
+      .copyright {
+        font-size: 0.8rem;
+      }
+      
+      .social-links {
+        li {
+          a {
+            width: 28px;
+            height: 28px;
+            
+            img {
+              width: 14px;
+              height: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

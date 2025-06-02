@@ -1,0 +1,275 @@
+// Our Story 페이지 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+/* 히어로 섹션 반응형 */
+@include bp.respond-below(md) {
+  .hero {
+    padding: 8rem 0;
+    margin-top: 5rem;
+    
+    .title {
+      h2 {
+        font-size: 4rem;
+        margin-bottom: 4rem;
+      }
+      
+      p {
+        font-size: 1.6rem;
+        margin-bottom: 4rem;
+      }
+    }
+    
+    img {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .hero {
+    padding: 6rem 0;
+    margin-top: 4rem;
+    
+    .title {
+      h2 {
+        font-size: 3.2rem;
+        margin-bottom: 3rem;
+      }
+      
+      h3 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}
+
+/* 가치 섹션 반응형 */
+@include bp.respond-below(md) {
+  .our-values {
+    padding: 8rem 0;
+    
+    .section-title {
+      font-size: 3.6rem;
+      margin-bottom: 5rem;
+    }
+    
+    .values-card-container {
+      gap: 2rem;
+    }
+    
+    .value-card {
+      width: 240px;
+      height: 300px;
+    }
+    
+    /* 모바일용 설명 텍스트 */
+    .value-mobile-description {
+      display: block;
+      
+      h3 {
+        font-size: 2rem;
+      }
+      
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .our-values {
+    padding: 6rem 0;
+    
+    .section-title {
+      font-size: 3.2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .values-card-container {
+      gap: 1.5rem;
+    }
+    
+    .value-card {
+      width: 220px;
+      height: 280px;
+      
+      .value-card-front {
+        h3 {
+          font-size: 2rem;
+        }
+      }
+      
+      .value-card-back {
+        p {
+          font-size: 1.4rem;
+        }
+      }
+    }
+    
+    .value-mobile-description {
+      h3 {
+        font-size: 1.8rem;
+      }
+      
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+/* 인터뷰 섹션 반응형 */
+@include bp.respond-below(md) {
+  .interview {
+    padding: 8rem 0;
+    
+    .content {
+      padding: 4rem;
+    }
+    
+    span {
+      font-size: 1.8rem;
+    }
+    
+    h2 {
+      font-size: 3.6rem;
+    }
+    
+    p {
+      font-size: 1.6rem;
+    }
+    
+    button {
+      padding: 1.2rem 2.4rem;
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .interview {
+    padding: 6rem 0;
+    
+    .content {
+      padding: 3rem;
+    }
+    
+    span {
+      font-size: 1.6rem;
+    }
+    
+    h2 {
+      font-size: 3rem;
+    }
+    
+    p {
+      font-size: 1.5rem;
+    }
+    
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+    }
+  }
+}
+
+/* From Us To You 섹션 반응형 */
+@include bp.respond-below(md) {
+  .from-us-to-you {
+    h2 {
+      font-size: 3.2rem;
+    }
+    
+    .message-content {
+      .reminder {
+        font-size: 1.8rem;
+      }
+      
+      .description {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+/* 팀 섹션 반응형 */
+@include bp.respond-below(md) {
+  .team {
+    padding: 8rem 0;
+    
+    h2 {
+      font-size: 4rem;
+      margin-bottom: 0;
+    }
+    
+    h3 {
+      font-size: 4rem;
+      margin-bottom: 4rem;
+    }
+    
+    .member-card {
+      .member-info {
+        padding: 1.5rem;
+        
+        h4 {
+          font-size: 1.6rem;
+        }
+        
+        p {
+          font-size: 1.3rem;
+        }
+      }
+    }
+    
+    .team-description {
+      margin-top: 4rem;
+      
+      p {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .team {
+    padding: 6rem 0;
+    
+    h2 {
+      font-size: 3.2rem;
+    }
+    
+    h3 {
+      font-size: 3.2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .member-card {
+      .member-info {
+        padding: 1.2rem;
+        
+        h4 {
+          font-size: 1.5rem;
+        }
+        
+        p {
+          font-size: 1.2rem;
+        }
+      }
+    }
+    
+    .team-description {
+      margin-top: 3rem;
+      
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

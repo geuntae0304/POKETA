@@ -1,0 +1,90 @@
+// 버튼 컴포넌트 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+// 기본 버튼 반응형 스타일
+@include bp.respond-below(md) {
+  .btn {
+    // 태블릿에서 버튼 크기 조정
+    font-size: 1.6rem;
+    padding: 1.2rem 2.4rem;
+  }
+  
+  // 연락처 버튼 반응형
+  .contact-button {
+    .btn {
+      font-size: 1.8rem;
+      padding: 1.5rem 3.5rem;
+    }
+  }
+  
+  // 더 알아보기 버튼 반응형
+  .btn-learn-more {
+    font-size: 1.6rem;
+    
+    &::after {
+      width: 20px;
+      margin-left: 0.8rem;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .btn {
+    // 모바일에서 버튼 크기 조정
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+  
+  // 연락처 버튼 반응형
+  .contact-button {
+    .btn {
+      font-size: 1.6rem;
+      padding: 1.2rem 3rem;
+    }
+  }
+  
+  // 더 알아보기 버튼 반응형
+  .btn-learn-more {
+    font-size: 1.5rem;
+    
+    &::after {
+      width: 18px;
+      margin-left: 0.7rem;
+    }
+  }
+}
+
+// 인터뷰 섹션 버튼 반응형
+@include bp.respond-below(md) {
+  .interview {
+    button {
+      padding: 1.2rem 2.4rem;
+      font-size: 1.6rem;
+      
+      &:hover {
+        padding: 1.3rem 2.6rem;
+      }
+      
+      &:active {
+        padding: 1.1rem 2.2rem;
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .interview {
+    button {
+      padding: 1rem 2rem;
+      font-size: 1.5rem;
+      
+      &:hover {
+        padding: 1.1rem 2.2rem;
+      }
+      
+      &:active {
+        padding: 0.9rem 1.8rem;
+      }
+    }
+  }
+}

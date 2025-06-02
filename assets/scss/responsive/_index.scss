@@ -1,0 +1,20 @@
+// 반응형 스타일 모듈화를 위한 중앙 파일
+// 이 파일은 모든 반응형 스타일을 가져와서 내보냅니다.
+
+// 브레이크포인트 변수와 믹스인 가져오기
+@forward 'breakpoints';
+
+// 컴포넌트별 반응형 스타일 가져오기
+@forward 'components/header-responsive';
+@forward 'components/navigation-responsive';
+@forward 'components/footer-responsive';
+@forward 'components/testimonials-responsive';
+@forward 'components/cards-responsive';
+@forward 'components/buttons-responsive';
+
+// 페이지별 반응형 스타일 가져오기
+@forward 'pages/index-responsive';
+@forward 'pages/ourstory-responsive';
+@forward 'pages/app-responsive';
+
+// 추가 반응형 스타일이 필요한 경우 여기에 @forward 문을 추가하세요.

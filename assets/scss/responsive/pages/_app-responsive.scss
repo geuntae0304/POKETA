@@ -1,0 +1,228 @@
+// 앱 페이지 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+/* 앱 히어로 섹션 반응형 */
+@include bp.respond-below(md) {
+  .app-hero {
+    padding: 80px 0;
+    
+    .hero-content {
+      text-align: center;
+      margin-bottom: 3rem;
+      
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+      }
+      
+      p {
+        font-size: 1.4rem;
+      }
+    }
+    
+    .hero-image {
+      .phone-container {
+        max-width: 250px;
+        
+        .phone-img {
+          margin-top: 6rem;
+        }
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .app-hero {
+    padding: 60px 0;
+    
+    .hero-content {
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      
+      p {
+        font-size: 1rem;
+        
+        br {
+          display: none;
+        }
+      }
+    }
+    
+    .hero-image {
+      .phone-container {
+        max-width: 200px;
+        
+        .bubble {
+          &.bubble-1 {
+            width: 40px;
+            height: 40px;
+          }
+          
+          &.bubble-2 {
+            width: 35px;
+            height: 35px;
+          }
+          
+          &.bubble-3 {
+            width: 38px;
+            height: 38px;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* 앱 기능 섹션 반응형 */
+@include bp.respond-below(md) {
+  .can-we-do {
+    padding: 8rem 2rem;
+    
+    .appTitle {
+      font-size: 3.5rem;
+      padding-bottom: 4rem;
+    }
+    
+    .card1, .card2 {
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    
+    .img-card {
+      height: 300px;
+    }
+    
+    h3 {
+      font-size: 1.8rem;
+      padding: 1.8rem 0 0.6rem 0;
+    }
+    
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .can-we-do {
+    padding: 6rem 1.5rem;
+    
+    .appTitle {
+      font-size: 3rem;
+      padding-bottom: 3rem;
+    }
+    
+    .img-card {
+      height: 250px;
+    }
+    
+    .img2 {
+      width: 280px;
+    }
+    
+    h3 {
+      font-size: 1.6rem;
+    }
+    
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+/* 히스토리 섹션 반응형 */
+@include bp.respond-below(md) {
+  .history {
+    padding: 8rem 2rem;
+    flex-direction: column;
+    
+    .title {
+      h2 {
+        font-size: 3.5rem;
+        margin-bottom: 5rem;
+        text-align: center;
+      }
+      
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+      }
+      
+      p {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+      }
+    }
+    
+    img {
+      margin-left: 0;
+      width: 100%;
+      margin-top: 3rem;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .history {
+    padding: 6rem 1.5rem;
+    
+    .title {
+      h2 {
+        font-size: 3rem;
+        margin-bottom: 4rem;
+      }
+      
+      h3 {
+        font-size: 1.6rem;
+      }
+      
+      p {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+/* CTA 섹션 반응형 */
+@include bp.respond-below(md) {
+  .app-cta {
+    padding: 80px 0;
+    
+    h2 {
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+      padding: 12px 25px;
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .app-cta {
+    padding: 60px 0;
+    
+    h2 {
+      font-size: 1.8rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+    
+    .btn-primary, .btn-secondary {
+      display: block;
+      margin: 0 auto 15px;
+      max-width: 250px;
+      padding: 10px 20px;
+    }
+  }
+}

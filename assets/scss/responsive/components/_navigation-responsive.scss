@@ -1,0 +1,59 @@
+// 네비게이션 컴포넌트 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+// 네비게이션 반응형 스타일
+@include bp.respond-below(md) {
+  // 햄버거 메뉴 표시 및 기본 메뉴 숨김
+  .navbar {
+    .navbar-toggler {
+      display: block;
+    }
+    
+    .navbar-collapse {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      height: 100vh;
+      background-color: #fff;
+      z-index: 1000;
+      transition: right 0.3s ease;
+      padding: 2rem;
+      box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+      
+      &.show {
+        right: 0;
+      }
+    }
+    
+    .navbar-nav {
+      flex-direction: column;
+      
+      .nav-item {
+        margin: 1rem 0;
+        
+        .nav-link {
+          font-size: 1.8rem;
+          padding: 1rem 0;
+        }
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  // 모바일에서 네비게이션 추가 조정
+  .navbar {
+    .navbar-collapse {
+      width: 90%; // 더 넓게
+      
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            font-size: 1.6rem;
+          }
+        }
+      }
+    }
+  }
+}

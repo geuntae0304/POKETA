@@ -1,0 +1,45 @@
+// 헤더 컴포넌트 반응형 스타일
+@use '../../responsive/breakpoints' as bp;
+
+// 헤더 반응형 스타일
+@include bp.respond-below(lg) {
+  .header {
+    .logo {
+      a {
+        img {
+          // 로고 크기 조정
+        }
+      }
+    }
+    
+    // 헤더 내부 요소들 반응형 조정
+  }
+}
+
+@include bp.respond-below(md) {
+  .header {
+    // 태블릿 크기에서의 헤더 스타일
+    .logo {
+      a {
+        img {
+          max-width: 80px; // 로고 크기 축소
+        }
+      }
+    }
+  }
+}
+
+@include bp.respond-below(sm) {
+  .header {
+    // 모바일 크기에서의 헤더 스타일
+    padding: 1rem 0;
+    
+    .logo {
+      a {
+        img {
+          max-width: 70px; // 로고 크기 더 축소
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,61 @@
+// 반응형 디자인을 위한 브레이크포인트 정의
+// 모든 반응형 스타일에서 일관된 브레이크포인트를 사용하기 위한 파일입니다.
+
+// 브레이크포인트 변수 정의
+$breakpoints: (
+  xs: 576px,    // 모바일 기기
+  sm: 768px,    // 태블릿 세로
+  md: 992px,    // 태블릿 가로
+  lg: 1200px,   // 데스크탑
+  xl: 1400px    // 대형 디스플레이
+);
+
+// 브레이크포인트 믹스인 (max-width 기준)
+@mixin respond-below($breakpoint) {
+  // 해당 브레이크포인트 이하에서 적용되는 스타일
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+// 브레이크포인트 믹스인 (min-width 기준)
+@mixin respond-above($breakpoint) {
+  // 해당 브레이크포인트 이상에서 적용되는 스타일
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: (map-get($breakpoints, $breakpoint) + 1)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: ($breakpoint + 1)) {
+      @content;
+    }
+  }
+}
+
+// 브레이크포인트 범위 믹스인
+@mixin respond-between($lower, $upper) {
+  // 두 브레이크포인트 사이에서 적용되는 스타일
+  @if map-has-key($breakpoints, $lower) and map-has-key($breakpoints, $upper) {
+    @media (min-width: (map-get($breakpoints, $lower) + 1)) and (max-width: map-get($breakpoints, $upper)) {
+      @content;
+    }
+  } @else if map-has-key($breakpoints, $lower) {
+    @media (min-width: (map-get($breakpoints, $lower) + 1)) and (max-width: $upper) {
+      @content;
+    }
+  } @else if map-has-key($breakpoints, $upper) {
+    @media (min-width: ($lower + 1)) and (max-width: map-get($breakpoints, $upper)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: ($lower + 1)) and (max-width: $upper) {
+      @content;
+    }
+  }
+}
