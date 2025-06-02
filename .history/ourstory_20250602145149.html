@@ -445,21 +445,44 @@
             });
         });
         
-        // 호버 시 간단한 확대 효과만 적용
+        // 효과 추가: 카드에 마우스 이동 시 3D 틸트 효과
         valueCards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                // 카드가 플립되지 않았을 때만 확대 효과 적용
+            card.addEventListener('mousemove', function(e) {
+                // 마우스 위치에 따른 틸트 효과 계산
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left; // 카드 내부에서의 X 좌표
+                const y = e.clientY - rect.top;  // 카드 내부에서의 Y 좌표
+                
+                // 카드 중앙에서의 상대적 위치 (-1 ~ 1 범위)
+                const centerX = (x / rect.width) * 2 - 1;
+                const centerY = (y / rect.height) * 2 - 1;
+                
+                // 틸트 각도 제한 (최대 10도)
+                const tiltX = centerY * 10;
+                const tiltY = -centerX * 10;
+                
+                // 틸트 효과 적용 (카드가 플립되지 않았을 때만)
                 const inner = this.querySelector('.value-card-inner');
                 if (inner.style.transform !== 'rotateY(180deg)') {
-                    this.style.transform = 'scale3d(1.05, 1.05, 1.05)';
+                    this.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) scale3d(1.05, 1.05, 1.05)`;
                 }
+                
+                // 반짝임 효과 (기본 카드 앞면에만)
+                const front = this.querySelector('.value-card-front');
+                const glareX = (centerX + 1) / 2 * 100; // 0~100% 범위로 변환
+                const glareY = (centerY + 1) / 2 * 100;
+                front.style.background = `
+                    linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05)),
+                    radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.2), transparent 80%),
+                    ${getCardGradient(this.getAttribute('data-value'))}
+                `;
             });
             
-            // 마우스가 카드를 떠날 때 원래 상태로 복구
+            // 마우스가 카드를 떠날 때 원래 상태로 복규
             card.addEventListener('mouseleave', function() {
-                this.style.transform = 'scale3d(1, 1, 1)';
+                this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
                 
-                // 배경 그라디언트 복구
+                // 배경 그라디언트 복규
                 const front = this.querySelector('.value-card-front');
                 front.style.background = getCardGradient(this.getAttribute('data-value'));
             });
