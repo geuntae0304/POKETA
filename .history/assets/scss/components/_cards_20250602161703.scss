@@ -1,0 +1,236 @@
+@use '../variables';
+
+// 가치 카드 스타일
+.value-card {
+    width: 260px;
+    height: 320px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease-in-out;
+    cursor: pointer;
+    
+    /* 호버 시 카드 회전 효과 */
+    &:hover .value-card-inner {
+        transform: rotateY(180deg);
+    }
+    
+    /* 첫 번째 카드 (투명성) */
+    &[data-value="transparency"] {
+        .value-card-front {
+            background: linear-gradient(135deg, rgba(100, 182, 255, 0.2), rgba(108, 216, 255, 0.4));
+            border: 1px solid rgba(108, 216, 255, 0.3);
+            box-shadow: 0 8px 20px rgba(108, 216, 255, 0.2);
+            
+            .value-icon {
+                color: #6CD8FF;
+            }
+        }
+    }
+    
+    /* 두 번째 카드 (개인화) */
+    &[data-value="personalization"] {
+        .value-card-front {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 184, 184, 0.4));
+            border: 1px solid rgba(255, 184, 184, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.2);
+            
+            .value-icon {
+                color: #FFB8B8;
+            }
+        }
+    }
+    
+    /* 세 번째 카드 (재미) */
+    &[data-value="playfulness"] {
+        .value-card-front {
+            background: linear-gradient(135deg, rgba(255, 209, 102, 0.2), rgba(255, 243, 196, 0.4));
+            border: 1px solid rgba(255, 243, 196, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 209, 102, 0.2);
+            
+            .value-icon {
+                color: #FFF3C4;
+            }
+        }
+    }
+    
+    /* 네 번째 카드 (지속가능성) */
+    &[data-value="sustainability"] {
+        .value-card-front {
+            background: linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(165, 248, 231, 0.4));
+            border: 1px solid rgba(165, 248, 231, 0.3);
+            box-shadow: 0 8px 20px rgba(6, 214, 160, 0.2);
+            
+            .value-icon {
+                color: #A5F8E7;
+            }
+        }
+    }
+}
+
+/* 카드 내부 컨테이너 */
+.value-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+/* 카드 앞면 */
+.value-card-front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    
+    .value-icon {
+        font-size: 4.5rem;
+        margin-bottom: 2rem;
+        transition: transform 0.5s ease;
+    }
+    
+    h3 {
+        color: #F8F9FA;
+        font-size: 2.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
+}
+
+/* 카드 뒷면 */
+.value-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+    border-radius: 20px;
+    background: rgba(31, 33, 36, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    
+    /* 각 카드별 뒷면 스타일 */
+    .value-card[data-value="transparency"] & {
+        background: rgba(20, 25, 30, 0.9);
+        border-left: 3px solid #3498db;
+        
+        p {
+            color: #ffffff;
+        }
+    }
+    
+    .value-card[data-value="personalization"] & {
+        background: rgba(20, 25, 30, 0.9);
+        border-left: 3px solid #e74c3c;
+        
+        p {
+            color: #ffffff;
+        }
+    }
+    
+    .value-card[data-value="playfulness"] & {
+        background: rgba(20, 25, 30, 0.9);
+        border-left: 3px solid #f39c12;
+        
+        p {
+            color: #ffffff;
+        }
+    }
+    
+    .value-card[data-value="sustainability"] & {
+        background: rgba(20, 25, 30, 0.9);
+        border-left: 3px solid #06d6a0;
+        
+        p {
+            color: #ffffff;
+        }
+    }
+    
+    p {
+        color: #F8F9FA;
+        font-size: 1.5rem;
+        font-weight: 400;
+        line-height: 1.6;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+// 팀 멤버 카드 스타일
+.member-card {
+    background-color: #F1F3F5;
+    border-radius: 3.2rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-top-left-radius: 3.2rem;
+        border-top-right-radius: 3.2rem;
+    }
+    
+    .member-info {
+        background-color: #fff;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2rem; /* 좌우 패딩 늘림 */
+        border-radius: 2rem;
+        min-width: 80%; /* 최소 너비 설정 */
+        text-align: left;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        justify-content: space-between;
+        transition: all 0.3s ease; /* 부드러운 전환 효과 */
+        
+        &:hover {
+            transform: translateX(-50%) translateY(-5px); /* 위로 살짝 올라가는 효과 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* 그림자 강화 */
+            cursor: pointer; /* 마우스 커서 변경 */
+        }
+        
+        i{
+            font-size: 3.5rem;
+            transition: color 0.3s ease; /* 아이콘 색상 전환 효과 */
+            border-radius: 13px;
+            
+            &:hover {
+                color: #1F2124; /* 아이콘에 호버 시 색상 변경 */
+            }
+        }
+        i:hover{
+            color: #7E9F85;
+        }
+        i:active{
+            color: #5b7660;
+        }
+        
+        h4 {
+            color: #1F2124;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: .4rem;
+        }
+        
+        p {
+            color: #7B848D;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0rem;
+        }
+    }
+}

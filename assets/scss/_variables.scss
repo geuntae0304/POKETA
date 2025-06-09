@@ -1,8 +1,4 @@
-
-// Style Assets
-
-
-// colors- grayscale
+// 색상 변수 - 그레이스케일
 $gray-scale: (
     White: #fff,
     black: #000,
@@ -19,19 +15,13 @@ $gray-scale: (
     900: #1F2124
 );
 
-// colors- primary
+// 주요 색상 변수
 $primary-color:#96CA94;
-
-// colors- secondary
 $secondary-color:#DAE598;
-
-// colors- tertiary
 $tertiary-color:#5EAB92;
-
-// colors- quaternary
 $quaternary-color:#D5E7D9;
 
-// fonts
+// 폰트 크기 설정
 
 h1{
     font-size : 5.2rem

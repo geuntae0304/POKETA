@@ -1,93 +1,68 @@
 /**
- * 가치 카드 효과 관련 JavaScript
- * ourstory.html 페이지의 가치 카드 플립 및 호버 효과를 담당합니다.
+ * 가치 버튼 효과 관련 JavaScript
+ * ourstory.html 페이지의 가치 버튼 클릭 및 설명 표시 효과를 담당합니다.
  */
 
-// 가치 카드 초기화 함수
+// 가치 버튼 초기화 함수
 function initValueCards() {
-    // 가치 카드 요소들 가져오기
-    const valueCards = document.querySelectorAll('.value-card');
-    if (valueCards.length === 0) return; // 카드가 없으면 실행하지 않음
+    // 가치 버튼 요소들 가져오기
+    const valueButtons = document.querySelectorAll('.value-btn');
+    if (valueButtons.length === 0) return; // 버튼이 없으면 실행하지 않음
     
-    // 모바일용 설명 텍스트 관련
-    const defaultMobileDesc = document.getElementById('default-value-mobile');
+    // 가치 설명 영역
+    const valuesDescriptionArea = document.querySelector('.values-description-area');
+    const valueDescriptions = document.querySelectorAll('.value-description');
     
-    // 각 카드에 클릭 이벤트 추가 (모바일용)
-    valueCards.forEach(card => {
-        // 터치 이벤트를 위한 플립 토글 기능 (모바일용)
-        card.addEventListener('touchstart', function(e) {
-            // 터치 이벤트에서는 카드 플립 수동 토글
-            const inner = this.querySelector('.value-card-inner');
-            inner.style.transform = inner.style.transform === 'rotateY(180deg)' ? 'rotateY(0deg)' : 'rotateY(180deg)';
+    // 각 버튼에 클릭 이벤트 추가
+    valueButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 모든 버튼에서 active 클래스 제거
+            valueButtons.forEach(btn => btn.classList.remove('active'));
             
-            // 모바일용 설명 텍스트 업데이트
-            const value = this.getAttribute('data-value');
-            updateMobileDescription(value);
+            // 클릭된 버튼에 active 클래스 추가
+            this.classList.add('active');
             
-            e.preventDefault(); // 기본 동작 방지
-        });
-        
-        // 클릭 이벤트 (데스크탑용)
-        card.addEventListener('click', function() {
-            // 모바일용 설명 텍스트 업데이트
-            const value = this.getAttribute('data-value');
-            updateMobileDescription(value);
-        });
-    });
-    
-    // 호버 시 간단한 확대 효과만 적용
-    valueCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            // 카드가 플립되지 않았을 때만 확대 효과 적용
-            const inner = this.querySelector('.value-card-inner');
-            if (inner.style.transform !== 'rotateY(180deg)') {
-                this.style.transform = 'scale3d(1.05, 1.05, 1.05)';
+            // 선택된 가치 값 가져오기
+            const selectedValue = this.getAttribute('data-value');
+            
+            // 설명 영역의 data-active-value 속성 업데이트
+            if (valuesDescriptionArea) {
+                valuesDescriptionArea.setAttribute('data-active-value', selectedValue);
             }
-        });
-        
-        // 마우스가 카드를 떠날 때 원래 상태로 복구
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'scale3d(1, 1, 1)';
             
-            // 배경 그라디언트 복구
-            const front = this.querySelector('.value-card-front');
-            front.style.background = getCardGradient(this.getAttribute('data-value'));
-        });
-    });
-    
-    // 모바일용 설명 텍스트 업데이트 함수
-    function updateMobileDescription(value) {
-        // 모바일용 설명 텍스트 업데이트
-        if (window.innerWidth <= 768) {
-            const allMobileDescs = document.querySelectorAll('.value-mobile-description p');
-            allMobileDescs.forEach(desc => {
+            // 모든 설명 숨기기
+            valueDescriptions.forEach(desc => {
                 desc.classList.remove('active');
-                desc.classList.add('hidden');
             });
             
-            // 선택된 가치에 해당하는 설명 텍스트 표시
-            const cardBack = document.querySelector(`.value-card[data-value="${value}"] .value-card-back p`);
-            if (cardBack && defaultMobileDesc) {
-                defaultMobileDesc.textContent = cardBack.textContent;
-                defaultMobileDesc.classList.remove('hidden');
-                defaultMobileDesc.classList.add('active');
+            // 선택된 가치에 해당하는 설명만 표시
+            const selectedDescription = document.querySelector(`.value-description[data-value="${selectedValue}"]`);
+            if (selectedDescription) {
+                selectedDescription.classList.add('active');
             }
-        }
-    }
+        });
+    });
     
-    // 카드 가치별 그라디언트 반환 함수
-    function getCardGradient(value) {
-        switch(value) {
-            case 'transparency':
-                return 'linear-gradient(135deg, rgba(100, 182, 255, 0.2), rgba(108, 216, 255, 0.4))';
-            case 'personalization':
-                return 'linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 184, 184, 0.4))';
-            case 'playfulness':
-                return 'linear-gradient(135deg, rgba(255, 209, 102, 0.2), rgba(255, 243, 196, 0.4))';
-            case 'sustainability':
-                return 'linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(165, 248, 231, 0.4))';
-            default:
-                return 'linear-gradient(135deg, rgba(31, 33, 36, 0.2), rgba(31, 33, 36, 0.4))';
+    // 페이지 로드 시 첫 번째 버튼이 기본적으로 활성화되도록 설정
+    // 이미 HTML에서 첫 번째 버튼에 active 클래스를 추가했지만, 설명 표시를 위해 클릭 이벤트 시뮬레이션
+    if (valueButtons.length > 0) {
+        // 첫 번째 버튼의 data-value 가져오기
+        const firstValue = valueButtons[0].getAttribute('data-value');
+        
+        // 첫 번째 설명 활성화
+        if (valuesDescriptionArea) {
+            valuesDescriptionArea.setAttribute('data-active-value', firstValue);
+        }
+        
+        const firstDescription = document.querySelector(`.value-description[data-value="${firstValue}"]`);
+        if (firstDescription) {
+            // 모든 설명 비활성화
+            valueDescriptions.forEach(desc => {
+                desc.classList.remove('active');
+            });
+            
+            // 첫 번째 설명 활성화
+            firstDescription.classList.add('active');
         }
     }
 }

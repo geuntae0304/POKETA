@@ -17,6 +17,43 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
     }
 });
 
+// 가치 버튼 클릭 이벤트 처리
+document.addEventListener('DOMContentLoaded', function() {
+    // 가치 버튼과 설명 영역 요소 가져오기
+    const valueButtons = document.querySelectorAll('.value-btn');
+    const descriptionArea = document.querySelector('.values-description-area');
+    const valueDescriptions = document.querySelectorAll('.value-description');
+    
+    // 각 버튼에 클릭 이벤트 리스너 추가
+    valueButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // 현재 활성화된 버튼 클래스 제거
+            valueButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // 클릭한 버튼 활성화
+            this.classList.add('active');
+            
+            // 해당 가치 값 가져오기
+            const value = this.getAttribute('data-value');
+            
+            // 설명 영역 데이터 속성 업데이트
+            descriptionArea.setAttribute('data-active', value);
+            
+            // 모든 설명 비활성화
+            valueDescriptions.forEach(desc => desc.classList.remove('active'));
+            
+            // 선택한 가치에 해당하는 설명만 활성화
+            const activeDescription = document.querySelector(`.value-description[data-value="${value}"]`);
+            if (activeDescription) {
+                activeDescription.classList.add('active');
+            }
+        });
+    });
+    
+    // 페이지 로드 시 첫 번째 버튼 활성화 (이미 HTML에서 active 클래스 추가되어 있음)
+    // 첫 번째 설명도 활성화 (이미 HTML에서 active 클래스 추가되어 있음)
+});
+
 
 //헤더 스크롤 효과를 위한 스크립트
 

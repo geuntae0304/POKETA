@@ -259,141 +259,228 @@ body {
   background-color: #498d77;
 }
 
-.value-card {
-  width: 260px;
-  height: 320px;
+.value-btn {
+  width: 200px;
+  height: 200px;
   position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease-in-out;
   cursor: pointer;
-  /* 호버 시 카드 회전 효과 */
-  /* 첫 번째 카드 (투명성) */
-  /* 두 번째 카드 (개인화) */
-  /* 세 번째 카드 (재미) */
-  /* 네 번째 카드 (지속가능성) */
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: none;
+  outline: none;
+  background: rgba(31, 33, 36, 0.7);
+  /* 첫 번째 버튼 (투명성) */
+  /* 두 번째 버튼 (개인화) */
+  /* 세 번째 버튼 (재미) */
+  /* 네 번째 버튼 (지속가능성) */
 }
-.value-card:hover .value-card-inner {
-  transform: rotateY(180deg);
+.value-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(31, 33, 36, 0.1);
 }
-.value-card[data-value=transparency] .value-card-front {
+.value-btn.active {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(31, 33, 36, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+.value-btn h3 {
+  color: #FFFFFF;
+}
+.value-btn[data-value=transparency] {
+  background: rgba(108, 216, 255, 0.7);
+}
+.value-btn[data-value=personalization] {
+  background: rgba(255, 107, 107, 0.7);
+}
+.value-btn[data-value=playfulness] {
+  background: rgba(255, 209, 102, 0.7);
+}
+.value-btn[data-value=sustainability] {
+  background: rgba(6, 214, 160, 0.7);
+}
+@media (max-width: 768px) {
+  .value-btn {
+    width: 140px;
+    height: 140px;
+    padding: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .value-btn {
+    width: 120px;
+    height: 120px;
+    padding: 0.8rem;
+  }
+}
+.value-btn[data-value=transparency] {
   background: linear-gradient(135deg, rgba(100, 182, 255, 0.2), rgba(108, 216, 255, 0.4));
-  border: 1px solid rgba(108, 216, 255, 0.3);
-  box-shadow: 0 8px 20px rgba(108, 216, 255, 0.2);
 }
-.value-card[data-value=transparency] .value-card-front .value-icon {
+.value-btn[data-value=transparency] .value-icon {
   color: #6CD8FF;
+  background-color: rgba(108, 216, 255, 0.1);
 }
-.value-card[data-value=personalization] .value-card-front {
+.value-btn[data-value=transparency].active {
+  background: linear-gradient(135deg, rgba(100, 182, 255, 0.3), rgba(108, 216, 255, 0.5));
+}
+.value-btn[data-value=personalization] {
   background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(255, 184, 184, 0.4));
-  border: 1px solid rgba(255, 184, 184, 0.3);
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.2);
 }
-.value-card[data-value=personalization] .value-card-front .value-icon {
-  color: #FFB8B8;
+.value-btn[data-value=personalization] .value-icon {
+  color: #FF6B6B;
+  background-color: rgba(255, 107, 107, 0.1);
 }
-.value-card[data-value=playfulness] .value-card-front {
+.value-btn[data-value=personalization].active {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 184, 184, 0.5));
+}
+.value-btn[data-value=playfulness] {
   background: linear-gradient(135deg, rgba(255, 209, 102, 0.2), rgba(255, 243, 196, 0.4));
-  border: 1px solid rgba(255, 243, 196, 0.3);
-  box-shadow: 0 8px 20px rgba(255, 209, 102, 0.2);
 }
-.value-card[data-value=playfulness] .value-card-front .value-icon {
-  color: #FFF3C4;
+.value-btn[data-value=playfulness] .value-icon {
+  color: #FFD166;
+  background-color: rgba(255, 209, 102, 0.1);
 }
-.value-card[data-value=sustainability] .value-card-front {
+.value-btn[data-value=playfulness].active {
+  background: linear-gradient(135deg, rgba(255, 209, 102, 0.3), rgba(255, 243, 196, 0.5));
+}
+.value-btn[data-value=sustainability] {
   background: linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(165, 248, 231, 0.4));
-  border: 1px solid rgba(165, 248, 231, 0.3);
-  box-shadow: 0 8px 20px rgba(6, 214, 160, 0.2);
 }
-.value-card[data-value=sustainability] .value-card-front .value-icon {
-  color: #A5F8E7;
+.value-btn[data-value=sustainability] .value-icon {
+  color: #06D6A0;
+  background-color: rgba(6, 214, 160, 0.1);
+}
+.value-btn[data-value=sustainability].active {
+  background: linear-gradient(135deg, rgba(6, 214, 160, 0.3), rgba(165, 248, 231, 0.5));
 }
 
 /* 카드 내부 컨테이너 */
-.value-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.5s ease-in-out;
-  transform-style: preserve-3d;
-}
-
-/* 카드 앞면 */
-.value-card-front {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 20px;
+.values-btn-container {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
-  padding: 2rem;
-}
-.value-card-front .value-icon {
-  font-size: 4.5rem;
-  margin-bottom: 2rem;
-  transition: transform 0.5s ease;
-}
-.value-card-front h3 {
-  color: #F8F9FA;
-  font-size: 2.2rem;
-  font-weight: 600;
+  gap: 2rem;
   margin-bottom: 1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 768px) {
+  .values-btn-container {
+    gap: 1.2rem;
+    padding: 0 1rem;
+  }
 }
 
-/* 카드 뒷면 */
-.value-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-  border-radius: 20px;
-  background: rgba(31, 33, 36, 0.9);
+.value-btn .value-icon {
+  font-size: 3.2rem;
+  margin-bottom: 1.5rem;
+  width: 60px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
-  /* 각 카드별 뒷면 스타일 */
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
-.value-card[data-value=transparency] .value-card-back {
-  background: rgba(20, 25, 30, 0.9);
-  border-left: 3px solid #3498db;
+@media (max-width: 768px) {
+  .value-btn .value-icon {
+    font-size: 2.8rem;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+  }
 }
-.value-card[data-value=transparency] .value-card-back p {
-  color: #ffffff;
+@media (max-width: 576px) {
+  .value-btn .value-icon {
+    font-size: 2.4rem;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.8rem;
+  }
 }
-.value-card[data-value=personalization] .value-card-back {
-  background: rgba(20, 25, 30, 0.9);
-  border-left: 3px solid #e74c3c;
-}
-.value-card[data-value=personalization] .value-card-back p {
-  color: #ffffff;
-}
-.value-card[data-value=playfulness] .value-card-back {
-  background: rgba(20, 25, 30, 0.9);
-  border-left: 3px solid #f39c12;
-}
-.value-card[data-value=playfulness] .value-card-back p {
-  color: #ffffff;
-}
-.value-card[data-value=sustainability] .value-card-back {
-  background: rgba(20, 25, 30, 0.9);
-  border-left: 3px solid #06d6a0;
-}
-.value-card[data-value=sustainability] .value-card-back p {
-  color: #ffffff;
-}
-.value-card-back p {
-  color: #F8F9FA;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.6;
+.value-btn h3 {
+  color: #FFFFFF;
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin: 0;
   text-align: center;
+}
+@media (max-width: 768px) {
+  .value-btn h3 {
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 576px) {
+  .value-btn h3 {
+    font-size: 1.3rem;
+  }
+}
+.value-btn:hover .value-icon {
+  transform: scale(1.1);
+}
+.value-btn.active .value-icon {
+  transform: scale(1.1);
+}
+
+.values-description-area {
+  /* 기본 배경색 - 나중에 각 가치별로 덮어씌워짐 */
+  background: rgba(31, 33, 36, 0.7);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-top: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
   position: relative;
-  z-index: 2;
+  overflow: hidden;
+}
+.values-description-area::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+.values-description-area p {
+  color: #1F2124;
+  font-size: 1.8rem;
+  line-height: 1.7;
+  font-weight: 400;
+  margin: 0;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+.values-description-area .value-description {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.values-description-area .value-description.active {
+  display: block;
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .values-description-area {
+    padding: 2rem 1.5rem;
+    margin-top: 2rem;
+    min-height: 150px;
+  }
+  .values-description-area p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+  }
 }
 
 .member-card {
@@ -774,7 +861,7 @@ body {
   position: absolute;
   margin-top: 8rem;
   z-index: 2;
-  animation: float 3s ease-in-out infinite;
+  will-change: transform; /* 성능 최적화 */
 }
 .app-hero .hero-image .phone-container .bubble img {
   width: 100%;
@@ -782,28 +869,71 @@ body {
 .app-hero .hero-image .phone-container .bubble.bubble-1 {
   top: -60px;
   right: 20px;
-  animation-delay: 0s;
+  animation: float-1 6s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 .app-hero .hero-image .phone-container .bubble.bubble-2 {
   top: 15px;
   right: -50px;
-  animation-delay: 0.5s;
+  animation: float-2 7s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 .app-hero .hero-image .phone-container .bubble.bubble-3 {
   top: 100px;
   right: 0px;
-  animation-delay: 1s;
+  animation: float-3 8s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
 }
 
-@keyframes float {
+@keyframes float-1 {
   0% {
-    transform: translateY(0);
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-8px) translateX(3px) rotate(1deg);
   }
   50% {
-    transform: translateY(-10px);
+    transform: translateY(-15px) translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-5px) translateX(-3px) rotate(-1deg);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+}
+@keyframes float-2 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  20% {
+    transform: translateY(-10px) translateX(-5px) rotate(-1deg);
+  }
+  40% {
+    transform: translateY(-18px) translateX(0) rotate(0.5deg);
+  }
+  60% {
+    transform: translateY(-12px) translateX(5px) rotate(1deg);
+  }
+  80% {
+    transform: translateY(-5px) translateX(3px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+}
+@keyframes float-3 {
+  0% {
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-12px) translateX(4px) rotate(1.5deg);
+  }
+  50% {
+    transform: translateY(-20px) translateX(0) rotate(0deg);
+  }
+  70% {
+    transform: translateY(-10px) translateX(-4px) rotate(-1deg);
+  }
+  100% {
+    transform: translateY(0) translateX(0) rotate(0deg);
   }
 }
 .appTitle {
@@ -963,7 +1093,7 @@ body {
 .hero .title p {
   color: #AAB2B9;
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.6;
   margin-bottom: 6.2rem;
 }
@@ -991,10 +1121,10 @@ body {
 .interview .title span {
   background-color: #D5E7D9;
   padding: 6px 12px;
-  border-radius: 12px;
+  border-radius: 10px;
   color: #7E9F85;
   font-size: 1.6rem;
-  font-weight: 800;
+  font-weight: 600;
   display: inline-block;
 }
 .interview .title h2 {
@@ -1016,7 +1146,7 @@ body {
   background-color: #1F2124;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 999px;
   padding: 1.2rem 2.4rem;
   font-size: 1.6rem;
   font-weight: 500;
@@ -2632,9 +2762,6 @@ body {
 /* ==========================================================================
 SECTION 02 - 소개 섹션
 ========================================================================== */
-.sec02 {
-  /* 패딩은 공통 스타일로 이동됨 (3rem) */
-}
 .sec02 .title {
   text-align: center;
   margin-bottom: 3rem;
@@ -2876,8 +3003,10 @@ DATA SECTION - 데이터 섹션
   opacity: 1;
   transform: scale(1);
 }
-
-/* 검은색 동그라미 제거로 인해 관련 스타일도 제거 */
+.data-section .card:hover .black-dot, .data-section .card.dot-hovered .black-dot {
+  transform: scale(1.5);
+  box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1);
+}
 .data-section .card:hover h2, .data-section .card.dot-hovered h2 {
   color: #5EAB92;
   transform: translateY(-5px);
@@ -2906,7 +3035,7 @@ DATA SECTION - 데이터 섹션
 }
 .data-section .card h2::after {
   content: attr(data-suffix);
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   color: #5EAB92;
   position: relative;
   top: -0.5rem;
@@ -2976,12 +3105,51 @@ DATA SECTION - 데이터 섹션
 .data-section .card .bg-dark {
   background-color: #333 !important;
 }
-
-
-
-
-
-
+.data-section .card .dot-container {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+}
+.data-section .card .black-dot {
+  width: 24px;
+  height: 24px;
+  background-color: #000;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.data-section .card .black-dot .dot-icon {
+  color: white;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+.data-section .card .black-dot:hover .dot-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+.data-section .card .black-dot::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05);
+  transform: translate(-50%, -50%) scale(0);
+  transition: all 0.4s ease;
+}
+.data-section .card .black-dot:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
 .data-section .counting-animation {
   animation: countUp 2s ease-out forwards;
   display: inline-block;
@@ -3420,7 +3588,7 @@ SECTION 07 - 후기 섹션
   transform: translateY(0);
 }
 .sec07 .testimonial-card {
-  border-radius: 12px;
+  border-radius: 24px;
   overflow: hidden;
   position: relative;
   height: 100%;

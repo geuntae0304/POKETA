@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story</title>
+    <!-- 파비콘 -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <!-- 부트스트랩 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 폰트어썸 아이콘 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Phosphor 아이콘 -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/fill/style.css">
+    <!-- 커스텀 CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- 헤더 스크롤 효과를 위한 인라인 스타일 -->
+    <style>
+        .header {
+            transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1),
+                        background-color 0.3s ease,
+                        box-shadow 0.3s ease,
+                        margin 0.3s ease,
+                        border-radius 0.3s ease !important;
+        }
+        .header.hide {
+            transform: translateY(-100%);
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- 헤더 -->
+    <header class="header">
+        <div class="container">
+            <div class="row col-lg-12 col-md-12 align-items-center">
+                <!-- 로고 (왼쪽에 배치) -->
+                <div class="col-auto me-auto">
+                    <div class="logo">
+                        <a href="index.html#home">
+                            <img src="assets/images/icon/LOGO-header.png" alt="logo">
+                        </a>
+                    </div>
+                </div>
+                <!-- 햄버거 메뉴 (모바일용) -->
+                <div class="col-auto d-lg-none">
+                    <div class="hamburger-menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+                <!-- 네비게이션 메뉴 (오른쪽에 배치) -->
+                <div class="col-auto d-none d-lg-block">
+                    <ul class="nav-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="ourstory.html" class="active">Our Story</a></li>
+                        <li><a href="app.html">App</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="title">
+                        <h2>
+                            Why We Started
+                        </h2>
+                        <h3>
+                            if all began with a question
+                        </h3>
+                        <p>
+                            We saw a world flooded with generic health drinks<br>
+                            so we built POKETA to bring wellness that adapts to you, not the other way around.
+                        </p>
+                    </div>
+                    <img src="assets/images/team-img.png" alt="team-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- 가치 섹션 -->
+        <section class="our-values parallax-element parallax-slow">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="section-title" data-aos="fade-up">Our Values</h2>
+                        <div class="values-container">
+                            <!-- 가치 카드 컨테이너 -->
+                            <div class="values-card-container" data-aos="fade-up" data-aos-delay="100">
+                                <!-- 투명성 카드 -->
+                                <div class="value-card" data-value="transparency">
+                                    <div class="value-card-inner">
+                                        <div class="value-icon">✦</div>
+                                        <h3>Transparency</h3>
+                                        <p class="value-description">We openly share every ingredient and process. Because you have the right to know exactly what you're drinking.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 개인화 카드 -->
+                                <div class="value-card" data-value="personalization">
+                                    <div class="value-card-inner">
+                                        <div class="value-icon">✦</div>
+                                        <h3>Personalization</h3>
+                                        <p class="value-description">Everyone is different. POKETA provides a personalized wellness experience tailored to your unique health needs.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 재미 카드 -->
+                                <div class="value-card" data-value="playfulness">
+                                    <div class="value-card-inner">
+                                        <div class="value-icon">✦</div>
+                                        <h3>Playfulness</h3>
+                                        <p class="value-description">Health should be enjoyable. We strive to make wellness a fun and accessible experience for everyone.</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- 지속가능성 카드 -->
+                                <div class="value-card" data-value="sustainability">
+                                    <div class="value-card-inner">
+                                        <div class="value-icon">✦</div>
+                                        <h3>Sustainability</h3>
+                                        <p class="value-description">We're creating a healthier world through sustainable practices that consider the well-being of our planet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 가치 설명 (모바일용) -->
+                            <div class="value-mobile-description" data-aos="fade-up" data-aos-delay="200">
+                                <p class="active" id="default-value-mobile">
+                                    We design with intention, act with care, and dream of a healthier, happier world.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 인터뷰 섹션 -->
+        <section class="interview">
+            <div class="container row">
+                <div class="col-12 content d-flex">
+                    <img src="assets/images/interview-img.png" alt="interview-img">
+                    <div class="title text-left">
+                        <span>Brand Interview</span>
+                        <h2>We belive wellness should be<br>
+                            effortless, fun, and tailore.</h2>
+                        <p>
+                            We believe in tech that cares, in drinks that evolve with you,<br>
+                            and is a fure where health lisk second nature.
+                        </p>
+                        <a href="https://youtu.be/WythNw3jic4?si=oUf8XLfPiB4jIuR8" target="_blank" rel="noopener noreferrer">
+                        
+                        <button>
+                            Go to Interview
+                        </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 팀 섹션 -->
+        <section class="team">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2>Meet</h2>
+                        <h3>the Team</h3>
+                        
+                        <div class="team-members row">
+                            <!-- 팀원 카드 1 -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="member-card">
+                                    <img src="assets/images/member-1.png" alt="member-1">
+                                    <div class="member-info d-flex">
+                                        <div class="item">
+                                            <h4>Lina Morgan</h4>
+                                            <p>Brand Designer</p>
+                                        </div>
+                                        <i class="ph-fill ph-linkedin-logo"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 팀원 카드 2 -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="member-card">
+                                    <img src="assets/images/member-2.png" alt="member-2">
+                                    <div class="member-info d-flex">
+                                        <div class="item">
+                                            <h4>Alex Turner</h4>
+                                            <p>Lead Developer</p>
+                                        </div>
+                                        <i class="ph-fill ph-linkedin-logo"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 팀원 카드 3 -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="member-card">
+                                    <img src="assets/images/member-3.png" alt="member-3">
+                                    <div class="member-info d-flex">
+                                        <div class="item">
+                                            <h4>Mira Collins</h4>
+                                            <p>Product Curator</p>
+                                        </div>
+                                        <i class="ph-fill ph-linkedin-logo"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 팀원 카드 4 -->
+                            <div class="col-md-3 col-sm-6">
+                                <div class="member-card">
+                                    <img src="assets/images/member-4.png" alt="member-4">
+                                    <div class="member-info d-flex">
+                                        <div class="item">
+                                            <h4>Noah Becker</h4>
+                                            <p>UX Researcher</p>
+                                        </div>
+                                        <i class="ph-fill ph-linkedin-logo"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="team-description">
+                            <p>We're a team of designers, engineers, and dreamers who<br>
+                            care about your everyday health.POKETA isn't just what we<br>
+                            make—it's what we believe in.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- From Us To You 섹션 -->
+        <section class="from-us-to-you">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center info">
+                        <h2>From Us To You</h2>
+                        <div class="message-content">
+                            <p class="reminder">Every bottle of POKETA is a reminder</p>
+                            <p class="description">You matter, your health matters. And every day is a<br>new chance to feel your best.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    <!-- 헤더 스크롤 효과를 위한 스크립트 -->
+    <script>
+        // 헤더 스크롤 효과 구현
+        document.addEventListener('DOMContentLoaded', function() {
+            const header = document.querySelector('.header');
+            let lastScrollTop = 0; // 마지막 스크롤 위치 저장 변수
+            let scrollThreshold = 50; // 스크롤 감지 임계값
+            let scrollDelta = 5; // 최소 스크롤 거리 (작은 움직임 무시)
+            let ticking = false; // 스크롤 이벤트 스로틀링을 위한 변수
+            
+            // 스크롤 이벤트 처리 함수
+            function handleScroll() {
+                // 현재 스크롤 위치 가져오기
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                
+                // 스크롤 방향 감지 (최소 스크롤 거리 이상일 때만 처리)
+                if (Math.abs(lastScrollTop - scrollTop) <= scrollDelta) {
+                    ticking = false;
+                    return;
+                }
+                
+                // 스크롤 방향에 따른 헤더 표시/숨김 처리
+                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
+                    // 아래로 스크롤 - 헤더 숨기기
+                    header.classList.add('hide');
+                } else {
+                    // 위로 스크롤 - 헤더 나타나기
+                    header.classList.remove('hide');
+                }
+                
+                // 맨 위에 있을 때는 헤더 항상 표시
+                if (scrollTop <= 10) {
+                    header.classList.remove('hide');
+                }
+                
+                // 현재 스크롤 위치 저장 (다음 이벤트와 비교하기 위함)
+                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                ticking = false;
+            }
+            
+            // 스크롤 이벤트 리스너 추가 (스로틀링 적용)
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    // requestAnimationFrame을 사용하여 성능 최적화
+                    window.requestAnimationFrame(function() {
+                        handleScroll();
+                    });
+                    ticking = true;
+                }
+            }, { passive: true }); // passive: true로 설정하여 성능 향상
+        });
+    </script>
+
+    <!-- 푸터 섹션 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <!-- 로고 & 회사 소개 -->
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <div class="footer-brand">
+                        <img src="assets/images/icon/LOGO-header.png" alt="POKETA 로고" class="footer-logo">
+                        <h5 class="mt-3">POKETA</h5>
+                        <p class="footer-tagline">A little vitamin in your pocket,<br>sip your future!</p>
+                    </div>
+                </div>
+                
+                <!-- 회사 정보 -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h6 class="footer-heading">COMPANY</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 리소스 -->
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h6 class="footer-heading">RESOURCES</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Papers</a></li>
+                        <li><a href="#">Press Conferences</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 정보 -->
+                <div class="col-lg-2 col-md-4">
+                    <h6 class="footer-heading">LEGAL</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookies Policy</a></li>
+                        <li><a href="#">Data Processing</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 소셜 미디어 링크 -->
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <p class="copyright">&copy; 2025 Maxwell Inc. All rights reserved.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <ul class="social-links">
+                            <li><a href="#"><img src="assets/images/icon/twitter.svg" alt="Twitter"></a></li>
+                            <li><a href="#"><img src="assets/images/icon/facebook.svg" alt="Facebook"></a></li>
+                            <li><a href="#"><img src="assets/images/icon/youtube.svg" alt="YouTube"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+<!-- JavaScript 코드 추가 -->
+<!-- 모듈화된 JavaScript 파일 로드 -->
+<script type="module" src="assets/js/ourstory.js"></script>
+</html>

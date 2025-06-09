@@ -1,0 +1,215 @@
+@use '../variables';
+
+// 가치 카드 스타일
+.value-card {
+    width: 260px;
+    height: 320px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 24px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    
+    /* 호버 시 효과 */
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        
+        .value-card-inner {
+            .value-icon {
+                transform: scale(1.1);
+            }
+        }
+    }
+    
+    /* 첫 번째 카드 (투명성) */
+    &[data-value="transparency"] {
+        background-color: #F5FAFF;
+        border-bottom: 4px solid #6CD8FF;
+        
+        .value-icon {
+            color: #6CD8FF;
+            background-color: rgba(108, 216, 255, 0.1);
+        }
+        
+        .value-description {
+            display: none;
+            color: #2A7AAF;
+        }
+        
+        &:hover .value-description {
+            display: block;
+        }
+    }
+    
+    /* 두 번째 카드 (개인화) */
+    &[data-value="personalization"] {
+        background-color: #FFF5F5;
+        border-bottom: 4px solid #FF6B6B;
+        
+        .value-icon {
+            color: #FF6B6B;
+            background-color: rgba(255, 107, 107, 0.1);
+        }
+        
+        .value-description {
+            display: none;
+            color: #AF2A2A;
+        }
+        
+        &:hover .value-description {
+            display: block;
+        }
+    }
+    
+    /* 세 번째 카드 (재미) */
+    &[data-value="playfulness"] {
+        background-color: #FFFBF0;
+        border-bottom: 4px solid #FFD166;
+        
+        .value-icon {
+            color: #FFD166;
+            background-color: rgba(255, 209, 102, 0.1);
+        }
+        
+        .value-description {
+            display: none;
+            color: #AF7A2A;
+        }
+        
+        &:hover .value-description {
+            display: block;
+        }
+    }
+    
+    /* 네 번째 카드 (지속가능성) */
+    &[data-value="sustainability"] {
+        background-color: #F0FFF9;
+        border-bottom: 4px solid #06D6A0;
+        
+        .value-icon {
+            color: #06D6A0;
+            background-color: rgba(6, 214, 160, 0.1);
+        }
+        
+        .value-description {
+            display: none;
+            color: #2AAF7A;
+        }
+        
+        &:hover .value-description {
+            display: block;
+        }
+    }
+}
+
+/* 카드 내부 컨테이너 */
+.value-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 3.2rem 2.4rem;
+    
+    .value-icon {
+        font-size: 3.6rem;
+        margin-bottom: 2.4rem;
+        transition: all 0.3s ease;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+    }
+    
+    h3 {
+        color: #1F2124;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 1.6rem;
+    }
+    
+    .value-description {
+        font-size: 1.5rem;
+        line-height: 1.6;
+        font-weight: 400;
+        transition: opacity 0.3s ease;
+        margin-top: 0.8rem;
+    }
+}
+
+
+
+// 팀 멤버 카드 스타일
+.member-card {
+    background-color: #F1F3F5;
+    border-radius: 3.2rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-top-left-radius: 3.2rem;
+        border-top-right-radius: 3.2rem;
+    }
+    
+    .member-info {
+        background-color: #fff;
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding: 2rem; /* 좌우 패딩 늘림 */
+        border-radius: 2rem;
+        min-width: 80%; /* 최소 너비 설정 */
+        text-align: left;
+        align-items: center;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        justify-content: space-between;
+        transition: all 0.3s ease; /* 부드러운 전환 효과 */
+        
+        &:hover {
+            transform: translateX(-50%) translateY(-5px); /* 위로 살짝 올라가는 효과 */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* 그림자 강화 */
+            cursor: pointer; /* 마우스 커서 변경 */
+        }
+        
+        i{
+            font-size: 3.5rem;
+            transition: color 0.3s ease; /* 아이콘 색상 전환 효과 */
+            border-radius: 13px;
+            
+            &:hover {
+                color: #1F2124; /* 아이콘에 호버 시 색상 변경 */
+            }
+        }
+        i:hover{
+            color: #7E9F85;
+        }
+        i:active{
+            color: #5b7660;
+        }
+        
+        h4 {
+            color: #1F2124;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: .4rem;
+        }
+        
+        p {
+            color: #7B848D;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 0rem;
+        }
+    }
+}
