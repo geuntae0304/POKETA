@@ -31,7 +31,7 @@
             font-weight: 500;
             text-decoration: none;
             transition: opacity 0.3s ease;
-            opacity: 0.5; // 비활성화 상태의 투명도
+            opacity: 0.6; // 비활성화 상태의 투명도
             
             &.active {
                 opacity: 1; // 활성화 상태의 투명도
@@ -55,7 +55,7 @@
             }
             
             p {
-                color: #ebebeb;
+                color: #ffffff;
                 font-size: 1.6rem;
                 font-weight: 400;
                 line-height: 1.8;

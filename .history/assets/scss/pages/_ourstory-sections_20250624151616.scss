@@ -3,48 +3,70 @@
 // Our Values 섹션
 .our-values {
     padding: 12rem 0;
-    background-color: #1F2124; // 어두운 배경색
+    background-color: #1E2022;
     color: #ffffff;
     
     .section-title {
-        color: #ffffff;
         font-size: 4.2rem;
         font-weight: 700;
-        margin-bottom: 6rem;
+        margin-bottom: 5rem;
+        color: #ffffff;
     }
     
     .values-container {
-        max-width: 800px;
+        max-width: 900px;
         margin: 0 auto;
+        position: relative;
     }
     
     .values-btn-container {
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
         gap: 3rem;
-        margin-bottom: 4rem;
+        margin-bottom: 3rem;
+    }
+    
+    .value-btn {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 1.6rem;
+        font-weight: 500;
+        padding: 0;
+        margin: 0;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        opacity: 0.7;
+        display: inline;
+        box-shadow: none;
+        outline: none;
         
-        .value-btn {
-            color: #D5E7D9; // 계획에 명시된 커스텀 커러
-            font-size: 1.8rem;
-            font-weight: 500;
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-            opacity: 0.5; // 비활성화 상태의 투명도
+        &:hover {
+            opacity: 1;
+        }
+        
+        &.active {
+            opacity: 1;
+            background-color: #4A7082;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            text-align: center;
+            position: relative;
             
-            &.active {
-                opacity: 1; // 활성화 상태의 투명도
-            }
-            
-            &:hover {
-                opacity: 0.8;
-            }
+            // 활성화된 버튼이 왼쪽에 고정되도록 설정
+            position: absolute;
+            left: 0;
+            top: 0;
         }
     }
     
     .values-content {
-        margin-bottom: 5rem;
+        text-align: center;
+        margin-top: 220px; // 활성화된 버튼의 높이를 고려하여 여백 조정
         
         .value-description {
             display: none;
@@ -55,28 +77,19 @@
             }
             
             p {
-                color: #ebebeb;
                 font-size: 1.6rem;
-                font-weight: 400;
-                line-height: 1.8;
-                opacity: 0.9;
+                line-height: 1.6;
+                max-width: 600px;
+                margin: 0 auto;
+                color: rgba(255, 255, 255, 0.8);
             }
         }
     }
     
-    .values-tagline {
-        color: #ffffff;
-        font-size: 1.6rem;
-        font-weight: 400;
-        line-height: 1.8;
-        opacity: 0.7;
-        margin-top: 2rem;
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
     }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 // 인터뷰 섹션

@@ -15,10 +15,7 @@ function initValueCards() {
     
     // 각 버튼에 클릭 이벤트 추가
     valueButtons.forEach(button => {
-        button.addEventListener('click', function(event) {
-            // 페이지 이동 방지
-            event.preventDefault();
-            
+        button.addEventListener('click', function() {
             // 모든 버튼에서 active 클래스 제거
             valueButtons.forEach(btn => btn.classList.remove('active'));
             

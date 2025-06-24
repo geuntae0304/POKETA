@@ -1,0 +1,50 @@
+@use '../variables';
+
+// 헤더 컴포넌트 스타일
+.header {
+    width: 100%; 
+    padding: 2rem 0; 
+    background-color: map-get(variables.$gray-scale, 900);
+    color: map-get(variables.$gray-scale, white);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    overflow-x: hidden;
+    
+    // 스크롤 애니메이션 효과 설정
+    $transition-duration: 0.4s;
+    $transition-timing: cubic-bezier(0.33, 1, 0.68, 1);
+    
+    // 트랜지션 효과 설정
+    transition: {
+        property: transform, background-color, box-shadow, margin, border-radius;
+        duration: $transition-duration;
+        timing-function: $transition-timing;
+    }
+    
+    // 스크롤 시 숨겨질 때의 스타일
+    &.hide {
+        transform: translateY(-100%); 
+        box-shadow: none; 
+    }
+    
+    // 스크롤 시 스타일 변경 효과
+    &.scrolled {
+        margin: 1rem 2rem; 
+        border-radius: 9rem; 
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+        width: calc(100% - 4rem); 
+    }
+    
+    // Bootstrap 그리드 시스템에 맞게 컨테이너 스타일 적용
+    .container {
+        position: relative;
+    }
+}
+
+// 헤더가 fixed 포지션이므로 body에 패딩 추가
+body {
+    padding-top: 80px; 
+}
