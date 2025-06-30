@@ -12,11 +12,23 @@ rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/regular/style.css"
 />
 
+
 <!-- bold 스타일 -->
 <link
 rel="stylesheet"
 href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
 />
+
+<!-- google site verification -->
+<meta name="google-site-verification" content="ka3GGUSSXxulpsghZHIe2afHKgjXfhKxz731YwanESQ" />
+<!-- google analytics -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K633FNTL');</script>
+    <!-- End Google Tag Manager -->
 
     <!-- 헤더 스크롤 효과를 위한 인라인 스타일 -->
     <style>
@@ -186,47 +198,52 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
         </div>
     </section>
     <!-- Data Section -->
-    <section class="data-section" style="background-color: #e0ede0;">
+    <section class="data-section">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-12 text-center">
                     <h2 class="title">Proof in Every Sip</h2>
                 </div>
             </div>
             <div class="row">
                 <!-- 첫 번째 데이터 카드 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="card">
-                        <div class="dot-container">
-                            <div class="black-dot"></div>
-                        </div>
+
                         <div class="card-body">
-                            <h2>128,000+</h2>
+                            <h2 class="counting-animation" data-value="128000" data-suffix="+">0</h2>
                             <p>Nutrients Tracked</p>
+                            <div class="card-detail">
+                                <h4>Nutrient Tracking</h4>
+                                <div class="detail-close">&times;</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 두 번째 데이터 카드 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="card">
-                        <div class="dot-container">
-                            <div class="black-dot"></div>
-                        </div>
+
                         <div class="card-body">
-                            <h2>53,000+</h2>
+                            <h2 class="counting-animation" data-value="53000" data-suffix="+">0</h2>
                             <p>Custom Drinks</p>
+                            <div class="card-detail">
+                                <h4>Custom Drinks</h4>
+                                <div class="detail-close">&times;</div>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <!-- 세 번째 데이터 카드 -->
-                <div class="col-md-4 col-sm-12 mb-4">
+                <div class="col-md-4 col-sm-12 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="card">
-                        <div class="dot-container">
-                            <div class="black-dot"></div>
-                        </div>
+
                         <div class="card-body">
-                            <h2>83%</h2>
+                            <h2 class="counting-animation" data-value="83" data-suffix="%">0</h2>
                             <p>Repurchase rate</p>
+                            <div class="card-detail">
+                                <h4>Customer Loyalty</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -541,136 +558,6 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
 
     <!-- Bootstrap JS -->
     <script src="assets/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // 모바일 메뉴 토글
-            const hamburgerMenu = document.querySelector('.hamburger-menu');
-            const navMenu = document.querySelector('.nav-menu');
-            
-            if (hamburgerMenu) {
-                hamburgerMenu.addEventListener('click', function() {
-                    this.classList.toggle('active');
-                    navMenu.classList.toggle('active');
-                });
-            }
-            
-            // sec02 비디오 카드 기능 구현
-            const videoItems = document.querySelectorAll('.video-item');
-            
-            // 모든 비디오 카드의 높이를 동일하게 맞추는 함수
-            function equalizeVideoHeights() {
-                // 첫 번째 비디오 카드의 높이 가져오기
-                const firstVideoItem = document.getElementById('video-1');
-                if (!firstVideoItem) return;
-                
-                const firstVideoHeight = firstVideoItem.offsetHeight;
-                
-                // 모든 비디오 카드에 동일한 높이 적용
-                videoItems.forEach(item => {
-                    item.style.height = `${firstVideoHeight}px`;
-                    
-                    // 비디오 요소에도 동일한 높이 적용
-                    const videoWrapper = item.querySelector('.video-wrapper');
-                    if (videoWrapper) {
-                        videoWrapper.style.height = '100%';
-                    }
-                });
-            }
-            
-            // 페이지 로드 후 및 리사이즈 시 높이 동기화
-            window.addEventListener('load', equalizeVideoHeights);
-            window.addEventListener('resize', equalizeVideoHeights);
-            
-            // 각 비디오 카드에 호버 이벤트 리스너 추가
-            videoItems.forEach(item => {
-                // 비디오 요소 가져오기
-                const video = item.querySelector('video');
-                
-                // 초기 상태 설정 - 활성화된 카드만 비디오 재생
-                if (item.classList.contains('active')) {
-                    video.play();
-                    video.loop = true;
-                } else {
-                    video.pause();
-                    video.currentTime = 0;
-                    video.loop = false;
-                }
-                
-                // 마우스 오버 이벤트 리스너 추가
-                item.addEventListener('mouseenter', function() {
-                    // 이미 활성화된 카드면 아무 작업도 하지 않음
-                    if (this.classList.contains('active')) return;
-                    
-                    // 현재 활성화된 카드 찾기
-                    const activeItem = document.querySelector('.video-item.active');
-                    const activeVideo = activeItem.querySelector('video');
-                    
-                    // 현재 활성화된 카드의 비디오 일시정지
-                    activeVideo.pause();
-                    activeVideo.currentTime = 0;
-                    activeVideo.loop = false;
-                    
-                    // 현재 활성화된 카드의 active 클래스 제거
-                    activeItem.classList.remove('active');
-                    
-                    // 호버한 카드에 active 클래스 추가
-                    this.classList.add('active');
-                    
-                    // 호버한 카드의 비디오 재생
-                    video.play();
-                    video.loop = true;
-                    
-                    // 카드 크기 조정
-                    videoItems.forEach(card => {
-                        // 기본 크기로 초기화
-                        card.classList.remove('col-lg-6');
-                        card.classList.remove('col-lg-3');
-                        
-                        // 활성화된 카드는 크게, 나머지는 작게 설정
-                        if (card === this) {
-                            card.classList.add('col-lg-6');
-                        } else {
-                            card.classList.add('col-lg-3');
-                        }
-                    });
-                    
-                    // 높이 동기화 다시 적용
-                    setTimeout(equalizeVideoHeights, 100);
-                });
-            });
-            
-            // 모든 리뷰 카드 요소 가져오기
-            const testimonialItems = document.querySelectorAll('.testimonial-item');
-            
-            // 각 카드에 클릭 이벤트 리스너 추가
-            testimonialItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    // 현재 활성화된 카드의 active 클래스 제거
-                    document.querySelector('.testimonial-item.active').classList.remove('active');
-                    
-                    // 클릭한 카드에 active 클래스 추가
-                    this.classList.add('active');
-                    
-                    // 카드 ID 가져오기
-                    const id = this.id;
-                    
-                    // 카드 크기 조정
-                    testimonialItems.forEach(card => {
-                        // 기본 크기로 초기화
-                        card.classList.remove('col-lg-6');
-                        card.classList.remove('col-lg-3');
-                        
-                        // 활성화된 카드는 크게, 나머지는 작게 설정
-                        if (card.id === id) {
-                            card.classList.add('col-lg-6');
-                        } else {
-                            card.classList.add('col-lg-3');
-                        }
-                    });
-                });
-            });
-        });
-    </script>
 
     <!-- Contact Modal -->
     <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
@@ -678,29 +565,29 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="contactModalLabel">Got a question?<br>
-                        Poky is all ears ✉️</h5>
+                        <span>Poky is all ears ✨</span></h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="contactForm">
+                    <form id="contactForm" autocomplete="off">
                         <div class="mb-3">
                             <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" autocomplete="off">
                         </div>
                         <div class="mb-3">
                             <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message"></textarea>
+                            <textarea class="form-control" id="message" rows="4" placeholder="Enter your message" autocomplete="off"></textarea>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" 
-                    data-bs-dismiss="modal "sendMessageBtn">Close</button>
-                    <button>
+                    data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="sendMessageBtn">
                         <div class="svg-wrapper-1">
                             <div class="svg-wrapper">
                                 <svg
@@ -724,78 +611,12 @@ href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.2/src/bold/style.css"
         </div>
     </div>
 
-    <!-- Contact Modal Script -->
-    <script>
-        document.getElementById('sendMessageBtn').addEventListener('click', function() {
+    <!-- 모듈화된 JavaScript 파일 로드 -->
+    <script type="module" src="assets/js/index.js"></script>
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            if (name && email && message) {
-
-                alert('Message sent successfully!');
-                
-                const contactModal = bootstrap.Modal.getInstance(document.getElementById('contactModal'));
-                contactModal.hide();
-                
-                document.getElementById('contactForm').reset();
-            } else {
-                alert('Please fill in all fields.');
-            }
-        });
-    </script>
-    <!-- 헤더 스크롤 효과를 위한 스크립트 -->
-    <script>
-        // 헤더 스크롤 효과 구현
-        document.addEventListener('DOMContentLoaded', function() {
-            const header = document.querySelector('.header');
-            let lastScrollTop = 0; // 마지막 스크롤 위치 저장 변수
-            let scrollThreshold = 50; // 스크롤 감지 임계값
-            let scrollDelta = 5; // 최소 스크롤 거리 (작은 움직임 무시)
-            let ticking = false; // 스크롤 이벤트 스로틀링을 위한 변수
-            
-            // 스크롤 이벤트 처리 함수
-            function handleScroll() {
-                // 현재 스크롤 위치 가져오기
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // 스크롤 방향 감지 (최소 스크롤 거리 이상일 때만 처리)
-                if (Math.abs(lastScrollTop - scrollTop) <= scrollDelta) {
-                    ticking = false;
-                    return;
-                }
-                
-                // 스크롤 방향에 따른 헤더 표시/숨김 처리
-                if (scrollTop > lastScrollTop && scrollTop > scrollThreshold) {
-                    // 아래로 스크롤 - 헤더 숨기기
-                    header.classList.add('hide');
-                } else {
-                    // 위로 스크롤 - 헤더 나타나기
-                    header.classList.remove('hide');
-                }
-                
-                // 맨 위에 있을 때는 헤더 항상 표시
-                if (scrollTop <= 10) {
-                    header.classList.remove('hide');
-                }
-                
-                // 현재 스크롤 위치 저장 (다음 이벤트와 비교하기 위함)
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-                ticking = false;
-            }
-            
-            // 스크롤 이벤트 리스너 추가 (스로틀링 적용)
-            window.addEventListener('scroll', function() {
-                if (!ticking) {
-                    // requestAnimationFrame을 사용하여 성능 최적화
-                    window.requestAnimationFrame(function() {
-                        handleScroll();
-                    });
-                    ticking = true;
-                }
-            }, { passive: true }); // passive: true로 설정하여 성능 향상
-        });
-    </script>
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K633FNTL"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
