@@ -137,7 +137,7 @@
         margin-bottom: 1.5rem;
         cursor: pointer;
         transition: all 0.3s ease;
-        height: 40rem;
+        height: 40rem; // 고정 높이 설정
         
         &.active {
             transform: translateY(-5px);

@@ -46,7 +46,7 @@
             
             &:hover {
                 background-color: darken(#5EAB92, 10%);
-                transform: translateY(-2px);
+                transform: translateY(-2px); // 호버 시 약간 위로 올라가는 효과
                 transition: all 0.3s ease; // 부드러운 전환 효과
             }
         }
@@ -137,7 +137,7 @@
         margin-bottom: 1.5rem;
         cursor: pointer;
         transition: all 0.3s ease;
-        height: 40rem;
+        height: 40rem; // 고정 높이 설정
         
         &.active {
             transform: translateY(-5px);

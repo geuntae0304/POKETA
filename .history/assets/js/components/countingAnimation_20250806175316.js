@@ -39,6 +39,33 @@ function startCountingAnimation() {
         const totalFrames = duration / (1000 / frameRate);
         const increment = targetValue / totalFrames;
         let currentFrame = 0;
+        
+        const countertwo = setInterval(() => {
+            currentFrame++;
+            const newValue = Math.min(Math.floor(increment * currentFrame), targetValue);
+            element.textContent = formatNumber(newValue);
+            
+            if(currentFrame >= totalFrames){
+                clearInterval(countertwo);
+                element.textContent = formatNumber(targetValue);
+                element.textContent += suffix;
+                element.classList.remove('counting-animation');
+                element.classList.add('counted');
+                element.style.opacity = 1;
+                element.style.transform = 'translateY(0)';
+                element.style.transformOrigin = 'center';
+                element.style.transformStyle = 'preserve-3d';
+                element.style.backfaceVisibility = 'hidden';
+                element.style.perspective = '1000px';
+                element.style.perspectiveOrigin = 'center';
+                element.style.transform = 'translateY(0)';
+                element.style.transition = 'opacity .5s ease-in-out, transform .5s ease-in-out';
+                element.style.transformOrigin = 'center';
+                element.style.transformStyle = 'preserve-3d';
+                element.style.backfaceVisibility = 'hidden';
+                element.style.perspective = '1000px';
+
+        })
 
         
         // 숫자 포맷 함수

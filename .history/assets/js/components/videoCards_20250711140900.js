@@ -35,9 +35,8 @@ function initVideoCards() {
     
     // 각 비디오 카드 클릭 이벤트 리스너
     videoItems.forEach(item => {
-        // 비디오 요소 가져오기
         const video = item.querySelector('video');
-        if (!video) return;ㄴ
+        if (!video) return;
         
         // 초기 상태 설정 - 활성화된 카드만 비디오 재생
         if (item.classList.contains('active')) {

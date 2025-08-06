@@ -39,7 +39,7 @@ function startCountingAnimation() {
         const totalFrames = duration / (1000 / frameRate);
         const increment = targetValue / totalFrames;
         let currentFrame = 0;
-
+        
         
         // 숫자 포맷 함수
         const formatNumber = (num) => {
@@ -56,6 +56,7 @@ function startCountingAnimation() {
             
             // 숫자 업데이트 (suffix는 HTML에서 이미 지정되어 있으므로 여기서는 추가하지 않음)
             element.textContent = formatNumber(newValue);
+            newValuew
             
             // 애니메이션 완료 시
             if (currentFrame >= totalFrames) {

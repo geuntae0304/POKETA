@@ -68,3 +68,5 @@ function startCountingAnimation() {
 
 // 외부에서 사용할 수 있도록 함수 내보내기
 export { initCountingAnimation };
+
+export {startCountingAnimation};

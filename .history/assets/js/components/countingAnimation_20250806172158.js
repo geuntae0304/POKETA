@@ -39,7 +39,11 @@ function startCountingAnimation() {
         const totalFrames = duration / (1000 / frameRate);
         const increment = targetValue / totalFrames;
         let currentFrame = 0;
-
+        
+        let help = setInterval(() => {
+            currentFrame++;
+            const newValue = Math.min(Math.floor(increment * currentFrame), targetValue);
+        })
         
         // 숫자 포맷 함수
         const formatNumber = (num) => {

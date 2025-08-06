@@ -17,7 +17,7 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
     }
 });
 
-// 가치 버튼 클릭 이벤트
+// 가치 버튼 클릭 이벤트 처리
 document.addEventListener('DOMContentLoaded', function() {
     // 가치 버튼과 설명 영역 요소 가져오기
     const valueButtons = document.querySelectorAll('.value-btn');

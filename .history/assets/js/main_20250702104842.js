@@ -17,7 +17,7 @@ document.getElementById('sendMessageBtn').addEventListener('click', function() {
     }
 });
 
-// 가치 버튼 클릭 이벤트
+// 가치 버튼 클릭 이벤트 처리
 document.addEventListener('DOMContentLoaded', function() {
     // 가치 버튼과 설명 영역 요소 가져오기
     const valueButtons = document.querySelectorAll('.value-btn');
@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
+    // 페이지 로드 시 첫 번째 버튼 활성화 (이미 HTML에서 active 클래스 추가되어 있음)
+    // 첫 번째 설명도 활성화 (이미 HTML에서 active 클래스 추가되어 있음)
 });
 
 

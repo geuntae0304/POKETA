@@ -37,7 +37,7 @@ function initVideoCards() {
     videoItems.forEach(item => {
         // 비디오 요소 가져오기
         const video = item.querySelector('video');
-        if (!video) return;ㄴ
+        if (!video) return;
         
         // 초기 상태 설정 - 활성화된 카드만 비디오 재생
         if (item.classList.contains('active')) {
@@ -49,7 +49,7 @@ function initVideoCards() {
             video.loop = false;
         }
         
-        // 클릭 이벤트 리스너 추가
+        // 클릭 이벤트 리스너 추가 (호버 대신 클릭으로 변경)
         item.addEventListener('click', function() {
             // 이미 활성화된 카드면 아무 작업도 하지 않음
             if (this.classList.contains('active')) return;
